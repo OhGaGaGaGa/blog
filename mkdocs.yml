@@ -2,9 +2,11 @@ site_name: WJK's Docs
 theme:
   name: material
 nav:
-  - 介绍: index.md
+  - Introduction: index.md
+  - LeetCode:
+      - Problem 1: "LeetCode/Problem 1.md"
   - TSA:
-      - Reviewing: TSA/Reviewing.md
+      - Reviewing: "TSA/Reviewing.md"
 markdown_extensions:
   - admonition
   - codehilite:
