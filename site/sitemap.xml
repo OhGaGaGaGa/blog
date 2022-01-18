@@ -1,18 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-         <loc>None</loc>
-         <lastmod>2022-01-16</lastmod>
+         <loc>https://ohgagagaga.github.io/blog/</loc>
+         <lastmod>2022-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-01-16</lastmod>
+         <loc>https://ohgagagaga.github.io/blog/MkDocs/</loc>
+         <lastmod>2022-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>None</loc>
-         <lastmod>2022-01-16</lastmod>
+         <loc>https://ohgagagaga.github.io/blog/DS/Notes/</loc>
+         <lastmod>2022-01-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ohgagagaga.github.io/blog/LeetCode/Problem-1/</loc>
+         <lastmod>2022-01-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ohgagagaga.github.io/blog/LeetCode/Problem-7/</loc>
+         <lastmod>2022-01-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ohgagagaga.github.io/blog/LeetCode/Tips/</loc>
+         <lastmod>2022-01-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ohgagagaga.github.io/blog/MissingSemester/0-Introduction/</loc>
+         <lastmod>2022-01-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ohgagagaga.github.io/blog/MissingSemester/1-Shell/</loc>
+         <lastmod>2022-01-18</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://ohgagagaga.github.io/blog/TSA/Reviewing/</loc>
+         <lastmod>2022-01-18</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

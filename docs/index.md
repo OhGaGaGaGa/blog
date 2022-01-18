@@ -1,21 +1,14 @@
-# Welcome to MkDocs
+# Welcome! 
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+自 2022.1 开始的记录。
 
-## Commands
+## 友情链接
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+- [言一](https://www.yuque.com/yanyi-vpu50 "言一")
 
-## Project layout
+- [江景景景页](https://www.cnblogs.com/jy333/ "江景景景页")
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+- [这个XD很懒](https://www.cnblogs.com/lixddd/ "这个XD很懒")
 
-https://squidfunk.github.io/mkdocs-material/
+  
 
-https://cyent.github.io/markdown-with-mkdocs-material/

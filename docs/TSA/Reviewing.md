@@ -84,21 +84,21 @@ AR(p) 充要条件：偏相关系数 $a_{n,n}$ p截尾
 
 5  $(1 + b^2)\sigma^2 = 1, b\sigma^2 = \rho$
 
-
-
-
-
 eg
+
 $$
 \gamma_0 = 1.2\\
 \gamma_k = 0.9\gamma_{k-1} - 0.1\gamma_{k-2},k\geq 1
 $$
+
 求证AR(2)，并给出AR(2)模型
 
 解：
+
 $$
 令 \varepsilon_t = X_t - 0.9X_{t-1} + 0.2X_{t-2}，证它是白噪声
 $$
+
 法2：算出 $\{\gamma_k\}$，再推谱密度函数
 
 ## ARMA(p,q)
@@ -136,6 +136,7 @@ $$
 法2
 
 两边同乘 $X_t,X_{t-1}$
+
 $$
 \begin{cases}
 \gamma_0 - b\gamma_1 = 1 + 2b^2\\
@@ -143,6 +144,7 @@ $$
 \gamma_k - b\gamma_{k-1} = 0, k\geq 2
 \end{cases}
 $$
+
 用YW方程
 
 法3
@@ -156,9 +158,11 @@ $$
 要会证明是相合估计，$\bar{X}$ 的方差
 
 小测第二题
+
 $$
 (1-a)\sum_{t=1}^N X_t-aX_0 + aX_N = \sum_{t=1}^N \varepsilon_t
 $$
+
 再同除 $\sqrt{N}$。
 
 如果右边再变成 $\sum_{t=1}^N (\varepsilon_t + b\varepsilon_t)$，就把右边也像左边一样拆拆

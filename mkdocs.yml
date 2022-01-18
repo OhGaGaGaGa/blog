@@ -1,12 +1,44 @@
 site_name: WJK's Docs
+site_author: WJK
+site_url: 'https://ohgagagaga.github.io/blog/'
+
 theme:
   name: material
+  custom_dir: overrides
+  language: zh
+  icon:
+    logo: material/face-recognition
+  features:
+    - toc.integrate
+    - navigation.top
+  palette: 
+    - media: '(prefers-color-scheme: light)'
+      scheme: default
+      primary: 'Teal'
+      accent: 'Teal'
+      toggle:
+        icon: material/white-balance-sunny
+        name: 切换到深色模式
+    - media: '(prefers-color-scheme: dark)'
+      scheme: slate 
+      accent: 'Blue'
+      toggle:
+        icon: material/weather-night
+        name: 切换到浅色模式
 nav:
   - Introduction: index.md
+  - Building Blog: MkDocs.md
   - LeetCode:
-      - Problem 1: "LeetCode/Problem 1.md"
+      - Tips: LeetCode/Tips.md
+      - Problem 1: LeetCode/Problem-1.md
+      - Problem 7: LeetCode/Problem-7.md
+  - Missing Semester:
+      - Introduction: MissingSemester/0-Introduction.md
+      - Shell: MissingSemester/1-Shell.md
   - TSA:
-      - Reviewing: "TSA/Reviewing.md"
+      - Reviewing: TSA/Reviewing.md
+  - Data Structure:
+      - Learning Notes: DS/Notes.md
 markdown_extensions:
   - admonition
   - codehilite:
@@ -33,5 +65,15 @@ markdown_extensions:
   - pymdownx.tasklist
   - pymdownx.tilde
 extra_javascript:
-    - 'js/extra.js'
-    - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+  - 'js/extra.js'
+  - 'js/baidu.js'
+  - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: 'https://github.com/ohgagagaga'
+      name: GitHub
+    - icon: fontawesome/brands/zhihu
+      link: 'https://www.zhihu.com/people/wjk2017'
+      name: ZhiHu
+copyright: Copyright &copy; 2022 - 2022 Wang Jingkai
