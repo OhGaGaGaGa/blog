@@ -16,6 +16,8 @@ Material MkDocs: https://squidfunk.github.io/mkdocs-material
 * `mkdocs -h` - Print help message and exit.
 * `mkdocs gh-deploy` - Publish to \*.github.io/{Repository_NAME}
 
+由于 GitHub 在命令行中同步可能出现代理等问题，不妨使用 GitHub Desktop 进行同步。在 `master` 分支中设置 workflow 后，即可自动将更改更新至网页中。
+
 ## 搜索引擎索引
 
 ### Google
