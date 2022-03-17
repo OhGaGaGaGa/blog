@@ -1,5 +1,25 @@
 ## Shell
 
+### 平常使用遇到的小问题
+
+#### 执行 `sudo sth.sh` 时，command not found
+
+```bash
+$ ./sth.sh
+-bash: ./sth.sh: Permission denied
+$ sudo ./sth.sh
+sudo: command not found
+```
+
+解决方案：
+
+首先执行 `chmod +x ./sth.sh`，再使用 `sudo` 运行
+
+```bash
+$ chmod +x ./sth.sh
+$ sudo ./sth.sh
+```
+
 ### 单文件
 
 #### 引入
