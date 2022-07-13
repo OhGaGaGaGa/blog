@@ -36,12 +36,17 @@ nav:
       - Problem 11 & 16: LeetCode/Problem-11&16.md
       - Problem 2013: LeetCode/Problem-2013.md
   - Tips:
-      - Shell: MissingSemester/Shell.md
-      - Git: MissingSemester/Git.md
+      - Shell: Tips/Shell.md
+      - Git: Tips/Git.md
   - TSA:
       - Reviewing: TSA/Reviewing.md
   - Data Structure:
-      - Learning Notes: DS/Notes.md
+      - Fundamental: DS/Notes.md
+      - Advanced: 'DS/ADS Notes.md'
+  - System:
+      - Digital Logic: 'System/Digital Logic.md'
+      - Computer Organization: 'System/Computer Organization.md'
+      - Operating System: 'System/Operating System.md'
 markdown_extensions:
   - admonition
   - codehilite:

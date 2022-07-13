@@ -10,5 +10,7 @@
 
 - [这个XD很懒](https://www.cnblogs.com/lixddd/ "这个XD很懒")
 
+- [HobbitQia](https://blog.hobbitqia.cc/ "HobbitQia")
+
   
 
