@@ -49,6 +49,8 @@ nav:
       - Time Series Analysis: Statistics/TSA-Reviewing.md
       - Perceptron: Statistics/perceptron.md
       - LSE & MLE: Statistics/LSE-MLE.md
+      - Quadratic Form: 'Statistics/Quadratic Form.md'
+      - Sample Variance: 'Statistics/Sample Variance.md'
   - Deep Learning
 markdown_extensions:
   - admonition
