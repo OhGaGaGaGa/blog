@@ -38,15 +38,18 @@ nav:
   - Tips:
       - Shell: Tips/Shell.md
       - Git: Tips/Git.md
-  - TSA:
-      - Reviewing: TSA/Reviewing.md
   - Data Structure:
-      - Fundamental: DS/Notes.md
-      - Advanced: 'DS/ADS Notes.md'
+      - Fundamental: 'Data Structure/Notes.md'
+      - Advanced: 'Data Structure/ADS Notes.md'
   - System:
       - Digital Logic: 'System/Digital Logic.md'
       - Computer Organization: 'System/Computer Organization.md'
       - Operating System: 'System/Operating System.md'
+  - Statistics:
+      - Time Series Analysis: Statistics/TSA-Reviewing.md
+      - Perceptron: Statistics/perceptron.md
+      - LSE & MLE: Statistics/LSE-MLE.md
+  - Deep Learning
 markdown_extensions:
   - admonition
   - codehilite:
@@ -73,8 +76,8 @@ markdown_extensions:
   - pymdownx.tasklist
   - pymdownx.tilde
 extra_javascript:
-  - 'js/extra.js'
-  - 'js/baidu.js'
+  - 'js-setting/extra.js'
+  - 'js-setting/baidu.js'
   - 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
 extra:
   social:
