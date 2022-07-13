@@ -94,7 +94,7 @@ $$
 
 
 
-![image-20210313185854348](C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20210313185854348.png)
+![image-20210313185854348](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202203301113700.png)
 
 
 

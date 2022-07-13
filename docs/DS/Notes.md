@@ -30,35 +30,35 @@
 
 ## Assignment 2
 
-1. ![image-20211009171215383](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/10/202110091712566.png)
+1. ![image-20211009171215383](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/10/202110091712566.png)
 
-2. <img src="https://gitee.com/ohg/typora_image/raw/master/imgs/2021/10/202110091723180.png" alt="image-20211009172310121" style="zoom:50%;" />
+2. <img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/10/202110091723180.png" alt="image-20211009172310121" style="zoom:50%;" />
 
-3. <img src="https://gitee.com/ohg/typora_image/raw/master/imgs/2021/10/202110091748282.png" alt="image-20211009174829187" style="zoom:150%;" />
+3. <img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/10/202110091748282.png" alt="image-20211009174829187" style="zoom:150%;" />
 
-4. ![image-20211009175101466](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/10/202110091751534.png)
+4. ![image-20211009175101466](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/10/202110091751534.png)
 
 ## Assignment 3
 
-1. <img src="https://gitee.com/ohg/typora_image/raw/master/imgs/2021/10/202110141639524.png" alt="image-20211014163909350" style="zoom:80%;" />
+1. <img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/10/202110141639524.png" alt="image-20211014163909350" style="zoom:80%;" />
 
-2. ![image-20211014164716829](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/10/202110141647900.png)
+2. ![image-20211014164716829](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/10/202110141647900.png)
 
    循环队列会损失一个空间
 
-3. ![image-20211111150656040](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/11/202111111507220.png)
+3. ![image-20211111150656040](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/11/202111111507220.png)
 
 ## Assignment 4
 
-1. ![image-20211114114623526](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/11/202111141146618.png)
+1. ![image-20211114114623526](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/11/202111141146618.png)
 
-2. ![image-20211114144854602](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/11/202111141448662.png)
+2. ![image-20211114144854602](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/11/202111141448662.png)
 
-3. ![image-20211114150551469](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/11/202111141505550.png)![image-20211114150722630](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/11/202111141507680.png)
+3. ![image-20211114150551469](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/11/202111141505550.png)![image-20211114150722630](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/11/202111141507680.png)
 
 4. 线索二叉树
 
-   ![image-20211114151822752](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/11/202111141518814.png)![image-20211114151900185](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/11/202111141519229.png)
+   ![image-20211114151822752](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/11/202111141518814.png)![image-20211114151900185](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/11/202111141519229.png)
 
 ## Exp 4.3
 
@@ -139,10 +139,10 @@ Map
   - 中序遍历二叉排序树可得到一个关键字有序的序列
   - **AVL树**是最先发明的自平衡二叉查找树。在AVL树中任何节点的两个子树的高度最大差别为1，所以它也被称为**高度平衡树**。
   - 删除：分情况讨论 - 要删除的节点是叶子/只有左子树或只有右子树/有左子树也有右子树(2种删的方式)
-  - ![image-20220103134733595](https://gitee.com/ohg/typora_image/raw/master/imgs/2022/01/202201031347708.png)
-  - ![image-20220103134753739](https://gitee.com/ohg/typora_image/raw/master/imgs/2022/01/202201031347821.png)
-  - ![image-20220103134807132](https://gitee.com/ohg/typora_image/raw/master/imgs/2022/01/202201031348219.png)
-  - ![image-20220103134822089](https://gitee.com/ohg/typora_image/raw/master/imgs/2022/01/202201031348185.png)
+  - ![image-20220103134733595](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201031347708.png)
+  - ![image-20220103134753739](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201031347821.png)
+  - ![image-20220103134807132](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201031348219.png)
+  - ![image-20220103134822089](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201031348185.png)
 
 - Hash Map
 
@@ -150,9 +150,9 @@ Map
 
 - 二叉搜索树的查找和折半查找(二分)的时间复杂度相同 F
 
-- ![image-20220103140828206](https://gitee.com/ohg/typora_image/raw/master/imgs/2022/01/202201031408270.png)
+- ![image-20220103140828206](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201031408270.png)
 
 - **折半查找判定树**：向上取整也可以向下取整，但是整个构造过程中必须选择且只选择一种，如果两种方式同时进行就是错的。
-- ![image-20220103143042768](https://gitee.com/ohg/typora_image/raw/master/imgs/2022/01/202201031430451.png)
+- ![image-20220103143042768](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201031430451.png)
 
-- ![image-20220103143405255](https://gitee.com/ohg/typora_image/raw/master/imgs/2022/01/202201031434357.png)
+- ![image-20220103143405255](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201031434357.png)

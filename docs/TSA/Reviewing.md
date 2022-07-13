@@ -72,7 +72,7 @@ AR(p) 充要条件：偏相关系数 $a_{n,n}$ p截尾
 
 倒过来的基本思想：把谱密度函数倒过来，然后再凑/MA(1) 可以设系数然后待定系数解方程
 
-![image-20211229104259390](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/12/202112291043571.png)
+![image-20211229104259390](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/12/202112291043571.png)
 
 2 可以不用递推？
 
@@ -225,7 +225,7 @@ $$
 
 例子：习题4 P183 4.4
 
-![image-20211229115400745](https://gitee.com/ohg/typora_image/raw/master/imgs/2021/12/202112291154813.png)
+![image-20211229115400745](https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2021/12/202112291154813.png)
 
 $$
 \begin{aligned}
