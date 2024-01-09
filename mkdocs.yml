@@ -30,11 +30,15 @@ nav:
   - Building Blog: MkDocs.md
   - LeetCode:
       - Tips: LeetCode/Tips.md
-      - Problem 1: LeetCode/Problem-1.md
+      - Problem 1 & 15: LeetCode/1-2sum3sum.md
       - Problem 7: LeetCode/Problem-7.md
       - Problem 10: LeetCode/Problem-10.md
       - Problem 11 & 16: LeetCode/Problem-11&16.md
+      - Problem 135: LeetCode/135-greedy.md
+      - Problem 466: LeetCode/466-string.md
+      - Problem 1553: LeetCode/1553-Search.md
       - Problem 2013: LeetCode/Problem-2013.md
+      - 位运算及状压DP: Bit-DP.md
   - Tips:
       - Shell: Tips/Shell.md
       - Git: Tips/Git.md
