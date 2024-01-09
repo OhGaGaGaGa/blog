@@ -1,6 +1,6 @@
-# Problem 1 - Two Sum - 两数之和
+# Problem 1 & 15 - Two Sum & Three Sum
 
-2022.01.16
+2022.01.16 & 2024.01.09
 
 > 给定一个整数数组 `nums` 和一个整数目标值 `target`，请你在该数组中找出 **和为目标值** *`target`* 的那 **两个** 整数，并返回它们的数组下标。
 >
@@ -63,6 +63,53 @@ public:
         return {};
     }
 };
+```
+
+## $O(n\log n + n)$ - Sort & Pointer
+
+Used in [15. 3Sum](https://leetcode.cn/problems/3sum/). 
+
+For a sorted array, binary search would use an extra $\log n$ time, so use the pointer instead. 
+
+The additional code such as `continue` and `addLeft`, `subRight` are introduced due to the distinction constraint. 
+
+```cpp
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> ans;
+        int size = nums.size();
+        for (int i = 0; i < size - 2; i++) {
+            if (nums[i] > 0) break;
+            if (i >= 1 && nums[i] == nums[i - 1])
+                continue;
+            int j = i + 1, k = size - 1;
+            int target = -nums[i];
+            while (j < k) {
+                int sum = nums[j] + nums[k];
+                bool addLeft = 0, subRight = 0;
+                if (sum == target) {
+                    ans.push_back({nums[i], nums[j], nums[k]});
+                    addLeft = 1; subRight = 1;
+                }
+                else if (sum < target) addLeft = 1;
+                else subRight = 1;
+
+                if (addLeft) {
+                    do { j++; }
+                    while (nums[j] == nums[j - 1] && j < k);
+                }
+                if (subRight) {
+                    do { k--; }
+                    while (nums[k] == nums[k + 1] && j < k);
+                }
+            }
+        }
+        return ans;
+    }
+};
+// N^2
 ```
 
 ## $O(n)$ - Hash Map
