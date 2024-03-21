@@ -123,3 +123,72 @@ int main() {
 https://blog.csdn.net/hh1986170901/article/details/105000680
 https://cloud.tencent.com/developer/article/1930272
 https://leetcode.cn/problems/partition-array-into-two-arrays-to-minimize-sum-difference/solutions/1097118/cong-ling-kai-shi-de-chun-ckun-nan-shua-fnohc/
+
+## AcWing 3503
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+string input;
+
+std::tuple<int, int> getint(int index) {
+    int ret = 0; char ch = input[index++];
+    while (ch < '0' || ch > '9') ch = input[index++];
+    while (ch >= '0' && ch <= '9') {
+        ret = ret * 10 + ch - '0'; ch = input[index++];
+    }
+    return std::make_tuple(ret, index);
+}
+
+vector<int> arr;
+vector<int> s;
+int target, diff;
+bool ret = false;
+void dfs(int index, int sum) { // sum is former
+    if (sum > target) return;
+    diff = min(diff, target - sum);
+    if (diff == 0) return;
+    if (index == arr.size()) return;
+    if (target - (sum + s[index]) >= diff) return;
+    if (sum + arr[index] > target) return;
+    dfs(index + 1, sum + arr[index]);
+    dfs(index + 1, sum);
+}
+
+int main() {
+    getline(cin, input);
+    int len = input.length();
+    input += '*';
+    input += '*';
+    int index = 0;
+    
+    int sum = 0;
+    while (index < len) {
+        int num = 0;
+        std::tie(num, index) = getint(index);
+        arr.push_back(num);
+        sum += num;
+    }
+    sort(arr.begin(), arr.end());
+    s.resize(arr.size());
+    s[arr.size() - 1] = arr[arr.size() - 1];
+    for (int i = arr.size() - 2; i >= 0; i--)
+        s[i] = s[i + 1] + arr[i];
+    target = (sum + 1) / 2;
+    diff = target;
+    if (arr[arr.size() - 1] >= target)
+        diff = target - (s[0] - arr[arr.size() - 1]);
+    else dfs(0, 0);
+    
+    int x = target - diff, y = sum - (target - diff);
+    if (x < y) x ^= y ^= x ^= y;
+    cout << x << " " << y << endl;
+    
+}
+```
+
+1. 如果有一个特别大的（超过一半），那直接不用DFS了
+2. 如果已经均分，那直接return
+3. 如果后面的全都取仍然不会更优，剪
+4. 在升序数组中，如果当前的加进去会超出一半，后面的肯定也会超，剪
