@@ -1,0 +1,2586 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WJK">
+      
+      
+        <link rel="canonical" href="https://ohgagagaga.github.io/blog/Data%20Structure/ADS%20Notes/">
+      
+      
+        <link rel="prev" href="../Notes/">
+      
+      
+        <link rel="next" href="../../System/Digital%20Logic/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+  <title>WJK's Blog</title>
+  <meta name="google-site-verification" content="pIp9DE0w0TACTUygKSTruXXoy1WCic7gBMHPGeQb27E" />
+
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+  
+    
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WJK's Docs - Advanced" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://ohgagagaga.github.io/blog/Data%20Structure/ADS%20Notes/" />
+  <meta property="og:image" content="<url>" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Teal" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lecture-0-introduction" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="WJK&#39;s Docs" class="md-header__button md-logo" aria-label="WJK's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11.75A1.25 1.25 0 0 0 7.75 13 1.25 1.25 0 0 0 9 14.25 1.25 1.25 0 0 0 10.25 13 1.25 1.25 0 0 0 9 11.75m6 0A1.25 1.25 0 0 0 13.75 13 1.25 1.25 0 0 0 15 14.25 1.25 1.25 0 0 0 16.25 13 1.25 1.25 0 0 0 15 11.75M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 4.12 4.12 0 0 1 0-.86 10.05 10.05 0 0 0 5.26-5.37A9.985 9.985 0 0 0 17.42 10c.76 0 1.51-.09 2.25-.26 1.25 4.26-1.17 8.69-5.41 9.93-.76.22-1.5.33-2.26.33M0 2a2 2 0 0 1 2-2h4v2H2v4H0V2m24 20a2 2 0 0 1-2 2h-4v-2h4v-4h2v4M2 24a2 2 0 0 1-2-2v-4h2v4h4v2H2M22 0a2 2 0 0 1 2 2v4h-2V2h-4V0h4Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WJK's Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Advanced
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="Teal" data-md-color-accent="Teal"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81 1.42-1.42M1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="Blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="WJK&#39;s Docs" class="md-nav__button md-logo" aria-label="WJK's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11.75A1.25 1.25 0 0 0 7.75 13 1.25 1.25 0 0 0 9 14.25 1.25 1.25 0 0 0 10.25 13 1.25 1.25 0 0 0 9 11.75m6 0A1.25 1.25 0 0 0 13.75 13 1.25 1.25 0 0 0 15 14.25 1.25 1.25 0 0 0 16.25 13 1.25 1.25 0 0 0 15 11.75M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 4.12 4.12 0 0 1 0-.86 10.05 10.05 0 0 0 5.26-5.37A9.985 9.985 0 0 0 17.42 10c.76 0 1.51-.09 2.25-.26 1.25 4.26-1.17 8.69-5.41 9.93-.76.22-1.5.33-2.26.33M0 2a2 2 0 0 1 2-2h4v2H2v4H0V2m24 20a2 2 0 0 1-2 2h-4v-2h4v-4h2v4M2 24a2 2 0 0 1-2-2v-4h2v4h4v2H2M22 0a2 2 0 0 1 2 2v4h-2V2h-4V0h4Z"/></svg>
+
+    </a>
+    WJK's Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MkDocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LeetCode
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            LeetCode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/1-2sum3sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 1 & 15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Problem-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Problem-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Problem-11%2616/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 11 & 16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/135-greedy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 135
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/466-string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 466
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/1553-Search.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 1553
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Problem-2013/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 2013
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bit-DP.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    位运算及状压DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tips
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips/Git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Structure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fundamental
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-0-introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 0. Introduction
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-1-avl-trees-splay-trees-and-amortized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 1. AVL Trees, Splay Trees, and Amortized Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 1. AVL Trees, Splay Trees, and Amortized Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avl-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      AVL Trees
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AVL Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rotations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Rotations
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#time-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Time Complexity
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assignment" class="md-nav__link">
+    <span class="md-ellipsis">
+      Assignment
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#splay-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Splay Trees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amotized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Amotized Analysis
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Amotized Analysis">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aggregate-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Aggregate Analysis
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#accounting-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Accounting Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#potential-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Potential Method
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#charging-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Charging Method
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-2-red-black-trees-and-b-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 2. Red-Black Trees and B+ Trees
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 2. Red-Black Trees and B+ Trees">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#red-black-trees" class="md-nav__link">
+    <span class="md-ellipsis">
+      Red-Black Trees
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#b-tree" class="md-nav__link">
+    <span class="md-ellipsis">
+      B+ Tree
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-3-inverted-file-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 3. Inverted File Index
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-4-leftist-heaps-and-skew-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 4. Leftist Heaps and Skew Heaps
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 4. Leftist Heaps and Skew Heaps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#leftist-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Leftist Heaps
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skew-heaps" class="md-nav__link">
+    <span class="md-ellipsis">
+      Skew Heaps
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-5-binomial-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 5. Binomial Queue
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 5. Binomial Queue">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#binomial-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      Binomial Queue
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hash-table-amotized-analysis" class="md-nav__link">
+    <span class="md-ellipsis">
+      倍增的 Hash Table Amotized Analysis
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-6-backtracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 6. Backtracking
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 6. Backtracking">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#shortest-path" class="md-nav__link">
+    <span class="md-ellipsis">
+      Shortest Path
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backtracking" class="md-nav__link">
+    <span class="md-ellipsis">
+      Backtracking
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-7-divide-and-conquer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 7. Divide and Conquer
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 7. Divide and Conquer">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-closest-points-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case: Closest Points Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tn-atnb-fntn-atnb-fn" class="md-nav__link">
+    <span class="md-ellipsis">
+      T(N) = aT(N/b) + f(N)T(N) = aT(N/b) + f(N)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-8-dynamic-programming" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 8. Dynamic Programming
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 8. Dynamic Programming">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-matrix-multiplications" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case: Matrix Multiplications
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-floyd-warshall-algorithm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case: Floyd-Warshall Algorithm
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-product-assembly" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case: Product Assembly
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-9-greedy-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 9. Greedy Algorithms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 9. Greedy Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#case-activity-selection-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case: Activity Selection Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#case-huffman-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Case: Huffman Codes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-10-computational-complexity" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 10. Computational Complexity
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 10. Computational Complexity">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Reduction 化简归约
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#mid-term-contest" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mid-term Contest
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-11-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 11. Approximation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 11. Approximation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definitions" class="md-nav__link">
+    <span class="md-ellipsis">
+      Definitions
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#approximate-bin-packing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Approximate Bin Packing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#knapsack" class="md-nav__link">
+    <span class="md-ellipsis">
+      Knapsack
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-balancing" class="md-nav__link">
+    <span class="md-ellipsis">
+      Load Balancing
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#k-center" class="md-nav__link">
+    <span class="md-ellipsis">
+      K-center
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-12-local-search" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 12. Local Search
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 12. Local Search">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#hopfield-neural-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Hopfield Neural Networks
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#maximum-cut-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      Maximum Cut Problem
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#homework" class="md-nav__link">
+    <span class="md-ellipsis">
+      Homework
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-13-randomized-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 13. Randomized Algorithms
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-14-parallel-algorithms" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 14. Parallel Algorithms
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Lecture 14. Parallel Algorithms">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 前缀和
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-parallel-merge-sort" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Parallel Merge Sort
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example 找最大值
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lecture-15-external-sorting" class="md-nav__link">
+    <span class="md-ellipsis">
+      Lecture 15. External Sorting
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#final-exam" class="md-nav__link">
+    <span class="md-ellipsis">
+      Final Exam
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../System/Digital%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../System/Computer%20Organization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computer Organization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../System/Operating System.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operating System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Statistics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistics/TSA-Reviewing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time Series Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistics/perceptron/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perceptron
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistics/LSE-MLE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LSE & MLE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistics/Quadratic%20Form/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quadratic Form
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Statistics/Sample%20Variance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deep Learning" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+  <h1>Advanced</h1>
+
+<h2 id="lecture-0-introduction">Lecture 0. Introduction<a class="headerlink" href="#lecture-0-introduction" title="Permanent link">&para;</a></h2>
+<p><img alt="image-20220227232514004" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202272325146.png" /></p>
+<p>抢一个做展示的Project，占20分 + 一个不做展示的 Bonus</p>
+<p><img alt="image-20220227232927155" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202272329317.png" /></p>
+<p><strong>Omega</strong> 时间复杂度下限 / <strong>O</strong> 时间复杂度上限</p>
+<h2 id="lecture-1-avl-trees-splay-trees-and-amortized-analysis">Lecture 1. AVL Trees, Splay Trees, and Amortized Analysis<a class="headerlink" href="#lecture-1-avl-trees-splay-trees-and-amortized-analysis" title="Permanent link">&para;</a></h2>
+<h3 id="avl-trees">AVL Trees<a class="headerlink" href="#avl-trees" title="Permanent link">&para;</a></h3>
+<p><strong>二叉搜索树</strong>：左子树比根小，右子树比根大 - 要使得它更可能平衡。</p>
+<p>AVL: <strong><span class="arithmatex"><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> is Height Balanced</strong>：左子树 与 右子树 的 差 的绝对值 <span class="arithmatex"><span class="MathJax_Preview">\leq 1</span><script type="math/tex">\leq 1</script></span>。</p>
+<p><strong>Balance Factor</strong> (BF) = <span class="arithmatex"><span class="MathJax_Preview">h_L - h_R</span><script type="math/tex">h_L - h_R</script></span>，平衡树中应为 <span class="arithmatex"><span class="MathJax_Preview">-1, 0, \text{or } 1</span><script type="math/tex">-1, 0, \text{or } 1</script></span>。</p>
+<p><strong>siblings</strong>：兄弟姐妹。</p>
+<h4 id="rotations">Rotations<a class="headerlink" href="#rotations" title="Permanent link">&para;</a></h4>
+<p><strong>RR Rotation</strong>: Trouble Maker (刚进入的节点) in the RR (Right subtree's Right subtree) of Trouble Finder (发现不平衡的第一个节点)</p>
+<p><img alt="image-20220226211335615" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202262115615.png" /></p>
+<p>把 B 的左子树连到 A 的右子树上，把 A 作为 B 的左子树。要记得更新这一坨与他们的父亲之间的联系，即把 A 原来的父亲变成 B 的父亲。</p>
+<p><strong>LL Rotation</strong>: 类似地，Trouble Maker 是 Trouble Finder 的 LL </p>
+<p><img alt="image-20220226212342429" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202262123496.png" /></p>
+<p>把 B 的右子树连到 A 的左子树上，把 A 作为 B 的右子树。同时要更新父亲。</p>
+<p>上面两种叫作 “<strong>单旋</strong>”。</p>
+<p><strong>LR Rotation</strong>: Trouble Maker 在 Trouble Finder A 的 LR，即 C；无论在 C 的左子树还是右子树上，都把 C 当成新的根节点。</p>
+<p><img alt="image-20220227202850628" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202272028729.png" /></p>
+<p><strong>RL Rotation</strong>: </p>
+<p><img alt="image-20220227203141199" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202272031299.png" /></p>
+<p>这两种也叫做 “<strong>双旋</strong>”。</p>
+<h4 id="time-complexity">Time Complexity<a class="headerlink" href="#time-complexity" title="Permanent link">&para;</a></h4>
+<p>Let <span class="arithmatex"><span class="MathJax_Preview">n_h</span><script type="math/tex">n_h</script></span> be the minimum number of nodes in a height balanced tree of height <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> (the height of root is <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>). </p>
+<p>高为 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 的树中的最少节点数</p>
+<p>我们有递推式：<span class="arithmatex"><span class="MathJax_Preview">n_h = n_{h - 1} + n_{h - 2} + 1</span><script type="math/tex">n_h = n_{h - 1} + n_{h - 2} + 1</script></span></p>
+<p><img alt="image-20220227204039548" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202272040607.png" /></p>
+<p>可以证明
+$$
+n_h = Fib_{h + 2} - 1, \forall h\geq 0
+$$
+由 Fibonacci 数列通项公式知，<span class="arithmatex"><span class="MathJax_Preview">h = O(\log n)</span><script type="math/tex">h = O(\log n)</script></span>。</p>
+<p><strong>删除</strong>：对于叶节点，直接删除；对于非叶子节点的删除，转化为对叶子节点的删除</p>
+<ol>
+<li>若一非叶子节点，该节点只有左孩子。操作：该节点的值替换为左孩子节点的值，然后删除左孩子节点。【左孩子节点为叶子结点，所以删除左孩子节点的情况为第1种情况。】【为什么左孩子节点为叶子节点，因为删除节点前，该树是AVL树，由AVL树的定义知，每个节点的左右子树的高度差的绝对值&lt;=1,由于该节点只有左孩子，没有右孩子，如果左孩子还有子节点，那么将不满足每个节点的左右子树的高度差的绝对值&lt;=1，所以左孩子节点为叶子结点】</li>
+<li>若一非叶子节点，该节点只有右孩子。操作：该节点的值替换为右孩子节点的值，然后删除右孩子节点。【右孩子节点为叶子结点，所以删除右孩子节点的情况为第1种情况。】【为什么右孩子节点为叶子节点？答案和第二种情况一样】</li>
+<li>若一非叶子节点，该节点既有左孩子，又有右孩子。操作：该节点的值替换为该节点的前驱节点（或者后继节点），然后删除前驱节点（或者后继节点）。【前驱结点:在中序遍历中，一个节点的前驱结点，先找到该节点的左孩子节点，再找左孩子节点的最后一个右孩子节点。向左走一步，然后向右走到头。最后一个右孩子节点即为前驱节点】【后继节点：在中序遍历中，一个节点的后继结点，先找到该节点的右孩子节点，再找右孩子节点的最后一个左孩子节点。向右走一步，然后向左走到头。最后一个左孩子节点即为前驱节点】</li>
+</ol>
+<p>删除之后，还需要重新平衡，并更新 BF 值，这是 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 的。</p>
+<h4 id="assignment">Assignment<a class="headerlink" href="#assignment" title="Permanent link">&para;</a></h4>
+<p>连边的时候，要把连向 <code>father</code> 的和从 <code>father</code> 连出来的，都连好（要注意根的问题）。</p>
+<p>要记得转之前，从最下面往上更新 Height</p>
+<p>转的时候，要把转的过程中 Height 的改变更新</p>
+<p>转之后，要把到根的 Height 更新</p>
+<p>同时要维护根，以便找到树在哪</p>
+<h3 id="splay-trees">Splay Trees<a class="headerlink" href="#splay-trees" title="Permanent link">&para;</a></h3>
+<p>对于任意 <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 个操作，从空树开始逐步完成它们所用的时间最多是 <span class="arithmatex"><span class="MathJax_Preview">O(M\log n)</span><script type="math/tex">O(M\log n)</script></span> 的。</p>
+<p>AVL Tree 是一种 Splay Tree。</p>
+<p>Splay Tree 的每一个操作不一定是 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 的，但是 <strong>Amotized Time</strong>（摊还时间）是 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 的。单个操作的时间可能坏到 <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，但是不会有 <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 次一直坏下去，之后的时间肯定跟第一次不一样，在慢慢变好。</p>
+<p>在一般的 Splay 中，每次访问了一个节点，就用 AVL Rotation 把它转到根节点。但是，不能只使用单旋，这样可能会使得情况更糟。</p>
+<p><strong>旋转</strong></p>
+<p>三种情况：X.father = root(Zig), Zig-Zag, Zig-Zig</p>
+<p>势能函数：<span class="arithmatex"><span class="MathJax_Preview">\Phi(T) = \sum_{t\in T} \log S(t)</span><script type="math/tex">\Phi(T) = \sum_{t\in T} \log S(t)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">S(t)</span><script type="math/tex">S(t)</script></span> 表示以 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 为根的子树中点的个数（包括这个根），为便于表示，我们记 <span class="arithmatex"><span class="MathJax_Preview">\log S(t)</span><script type="math/tex">\log S(t)</script></span> 为 <span class="arithmatex"><span class="MathJax_Preview">R(t)</span><script type="math/tex">R(t)</script></span>，称为 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">\rank</span><script type="math/tex">\rank</script></span>。</p>
+<p>Zig:</p>
+<p>Zig-Zig:
+$$
+\hat{c} = c + \phi(T_2) - \phi(T_1)
+$$
+具体计算详见YDS的pdf。</p>
+<p>势能函数的改变，可能是负的，因为是SUM S_i，但我们只需要上界即可</p>
+<p><strong>查找</strong></p>
+<p>每找一个点，就会旋转，旋转一次就往上走两层。所以旋转的次数和往上走的次数是相同的，所以认为查找的次数也是 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 的。</p>
+<p><strong>插入</strong></p>
+<p>插入 -&gt; 转到根</p>
+<p>插入的时候，改变过势能的只有从根到插入节点这一条路径上的点（设为 <span class="arithmatex"><span class="MathJax_Preview">Y_i</span><script type="math/tex">Y_i</script></span>）的势能函数。
+$$
+\Delta \Phi = \sum \log (S(Y_i) + 1) - \log S(Y_i) = \log\prod \frac{S(Y_i) + 1}{S(Y_i)}\leq \log \prod \frac{S(Y_{i+1})}{S(Y_i)} \
+= \log\frac{S(Y_n) + 1}{S(Y_0)} \leq \log n
+$$
+<strong>删除</strong></p>
+<p>找到 X 并转到根 -&gt; 删除根 -&gt; 找到左子树中最大的节点并转到根（它一定没有右子树） -&gt;  把原来的右子树变成它的右子树</p>
+<p>总结：对于 Splay Tree，我们不关心是否平衡，我们只去闭着眼睛做旋转。</p>
+<h3 id="amotized-analysis">Amotized Analysis<a class="headerlink" href="#amotized-analysis" title="Permanent link">&para;</a></h3>
+<p><u>Worst-Case Bound</u> is <strong>Stronger</strong> than <u>Amotized Bound</u>: AVL Tree 的 Worst-Case Bound 是 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span>，但是 Splay Tree 只保证 Amotized Bound 是 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 的。</p>
+<p><u>Average-Case Bound</u> is <strong>Weaker</strong> than <u>Amotized Bound</u> : 一般会加入一些概率假设，假设某一情况发生的概率是多大：如，快排的 Worst-Case Bound 是 <span class="arithmatex"><span class="MathJax_Preview">O(n^2)</span><script type="math/tex">O(n^2)</script></span> 的，但是如果假设任何排列是等概率发生的，Average-Cost Bound 就是 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 的</p>
+<p>Amotized Bound 没有概率假设，是所有情况的真实平均值。</p>
+<h4 id="aggregate-analysis">Aggregate Analysis<a class="headerlink" href="#aggregate-analysis" title="Permanent link">&para;</a></h4>
+<p>总和/总量分析：Show that for all n, a sequence of n operations takes worst-case time T(n) in total.  In the worst case, the average cost, or amortized cost, per operation is therefore T(n)/n.</p>
+<p><img alt="image-20220228131522212" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202281315324.png" /></p>
+<h4 id="accounting-method">Accounting Method<a class="headerlink" href="#accounting-method" title="Permanent link">&para;</a></h4>
+<p>会计法：When an operation’s amortized cost exceeds its actual cost, we assign the difference to specific objects in the data structure as credit. Credit can help pay for later operations whose amortized cost is less than their actual cost.</p>
+<p>把多出来的存起来，再在少的时候还回去
+$$
+T_{amortized} = \frac{\sum_{i}\hat{c_i}}{n}\geq \frac{\sum_{i}{c_i}}{n}
+$$
+<span class="arithmatex"><span class="MathJax_Preview">\hat{c_i}</span><script type="math/tex">\hat{c_i}</script></span> is Amortized Cost for each opertion, <span class="arithmatex"><span class="MathJax_Preview">c_i</span><script type="math/tex">c_i</script></span> is Actual Cost, T is an upper bound. 
+$$
+\text{credit}_i = \hat{c}_i-c_i
+$$
+我们可以人为定义一个比真正 Cost 要大的的 Amortized Cost，然后计算这个 Amortized Cost 是否透支信用（<strong>我们需要保证这个 Credits 时刻非负</strong>），如果不透支，那么我们就可以用人为定义的这个 Amortized Cost 来计算总的 Amortized Cost。</p>
+<p><img alt="image-20220228212005950" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202282120125.png" /></p>
+<p>在这里，每一步操作的消耗是不同的，是由我们人为定义得到的。</p>
+<h4 id="potential-method">Potential Method<a class="headerlink" href="#potential-method" title="Permanent link">&para;</a></h4>
+<p>势能函数法</p>
+<p>势能函数可以把当前的结构映射到一个数字，称为这个结构的 Potential（势）。
+$$
+\hat{c_i} - c_i = \text{credit}<em>i = \Phi(D</em>{\text{after }op_i}) - \Phi(D_{\text{before }op_i})
+$$
+实际上是把 Accounting Method 里的 <span class="arithmatex"><span class="MathJax_Preview">\hat{c}_i\geq c_i</span><script type="math/tex">\hat{c}_i\geq c_i</script></span> 给量化为 <span class="arithmatex"><span class="MathJax_Preview">\hat{c}_i-c_i = \Delta \Phi</span><script type="math/tex">\hat{c}_i-c_i = \Delta \Phi</script></span> 了。</p>
+<p>credit 告诉我们，这个操作对当前结构改变了多少
+$$
+\sum_{i} \hat{c_i} = \sum_{i} \big(c_i + \Phi(D_i) - \Phi(D_{i - 1})\big) = \sum_{i} c_i + \Phi(D_n) - \Phi(D_0)
+$$
+难点在我们需要定义一个好的势能函数。</p>
+<p>对于一些开销大的操作，我们想让他的势能函数尽可能降低。</p>
+<p>某一步的势能函数可能是负的，但是总体的势能函数的差肯定是正的???</p>
+<p>只要使得 <span class="arithmatex"><span class="MathJax_Preview">\Phi(D_n) - \Phi(D_0)\geq 0</span><script type="math/tex">\Phi(D_n) - \Phi(D_0)\geq 0</script></span>，就可以用 <span class="arithmatex"><span class="MathJax_Preview">\sum \hat{c_i} / n</span><script type="math/tex">\sum \hat{c_i} / n</script></span> 来作为 Amortized Cost。</p>
+<p>一般我们要找的这个势能函数在 <span class="arithmatex"><span class="MathJax_Preview">D_0</span><script type="math/tex">D_0</script></span> 取最小值。</p>
+<p><img alt="image-20220228213150379" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202282131576.png" /></p>
+<p><strong>FALSE</strong>: For potential method, a good potential function should always assume its maximum at the start of the sequence</p>
+<h3 id="charging-method">Charging Method<a class="headerlink" href="#charging-method" title="Permanent link">&para;</a></h3>
+<p>Amortized Cost of Operation = Actural Cost + Total Change to past operation + total future change by future ops to this op</p>
+<p>e.g. vector 动态开内存</p>
+<h2 id="lecture-2-red-black-trees-and-b-trees">Lecture 2. Red-Black Trees and B+ Trees<a class="headerlink" href="#lecture-2-red-black-trees-and-b-trees" title="Permanent link">&para;</a></h2>
+<h3 id="red-black-trees">Red-Black Trees<a class="headerlink" href="#red-black-trees" title="Permanent link">&para;</a></h3>
+<p>平衡树：只要层数是 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span> 即可。</p>
+<p>AVL 需要每次都得算，更新代价每次都是 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span>，常数大；红黑树用颜色保持平衡，用 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 的 Amotized Cost 即可。</p>
+<ul>
+<li>根是黑的</li>
+<li>叶节点(NIL)是黑的，如果叶节点是红的，那就再连上一个黑的 NIL。</li>
+<li>红色节点的孩子都是黑的（黑的可以连续 但红的不能连续）</li>
+<li>对每一个点，经过子树到叶节点的每一条路上所经过的黑节点都相同 - 把多余的点做成红色的</li>
+</ul>
+<p>Black-Height - bh(X): 从 X 节点到叶节点经过多少黑点（不算它自己）</p>
+<p>树的 bh 定义为根节点的 bh，且有上界 <span class="arithmatex"><span class="MathJax_Preview">2\ln (N + 1)</span><script type="math/tex">2\ln (N + 1)</script></span>：数学归纳法。</p>
+<p><img alt="202203062249648" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/03/202203071455616.jpg" /></p>
+<p><a href="https://www.cnblogs.com/LiaHon/p/11203229.html">https://www.cnblogs.com/LiaHon/p/11203229.html</a></p>
+<p><strong>删除</strong></p>
+<p>删除的是根节点，则直接将根节点置为null;</p>
+<p>待删除节点的左右子节点都为null，删除时将该节点置为null;</p>
+<p>待删除节点的左右子节点有一个有值，则用有值的节点替换该节点即可；</p>
+<p>待删除节点的左右子节点都不为null，则找前驱或者后继，将前驱或者后继的值复制到该节点中，然后删除前驱或者后继；</p>
+<p>变色：</p>
+<p>如果删掉红点，不用变色</p>
+<p>如果删掉黑点，？？？</p>
+<p><strong>最多三次</strong> 可以看回放，worst case</p>
+<h3 id="b-tree">B+ Tree<a class="headerlink" href="#b-tree" title="Permanent link">&para;</a></h3>
+<p>在数据库中建立**索引**，所有数据都存在叶节点上面，非叶节点都是索引。</p>
+<p><strong>Definition</strong> A B+ tree of order M is a tree with the following structural properties:</p>
+<p>(1)  The root is either a leaf or has between <span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span> and <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> children.
+(2)  All nonleaf nodes (except the root) have between <span class="arithmatex"><span class="MathJax_Preview">\lceil M/2\rceil</span><script type="math/tex">\lceil M/2\rceil</script></span> and <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> children.
+(3)  All leaves are at the same depth.
+<strong>Assume each nonroot <u>leaf</u> also has between $\lceil M/2\rceil $ and <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> children.</strong></p>
+<p>建树时，按照从下往上的方式建。</p>
+<p><strong>Find</strong></p>
+<p>直接按照搜索树的索引找</p>
+<p><strong>Insert</strong></p>
+<p>如果可以直接插入，且满足 between $\lceil M/2\rceil $ and <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 个元素，就直接插入；</p>
+<p>否则，把中间位置的节点挪到上一层上去，然后把元素插进去，把原来的拆成两半</p>
+<p>时间复杂度：</p>
+<p>深度：<span class="arithmatex"><span class="MathJax_Preview">\lceil\log_{\lceil M/2\rceil}N\rceil</span><script type="math/tex">\lceil\log_{\lceil M/2\rceil}N\rceil</script></span></p>
+<p>查找的时候，每一层的时间都是 <span class="arithmatex"><span class="MathJax_Preview">\log_2 M</span><script type="math/tex">\log_2 M</script></span></p>
+<p>插入的时候，???</p>
+<p>伪代码没有考虑 M-1?</p>
+<p>叶节点也是看作有孩子的，所以 Order 为 M 的 B+ 树，叶节点中最少存 <span class="arithmatex"><span class="MathJax_Preview">\lceil M/2\rceil-1</span><script type="math/tex">\lceil M/2\rceil-1</script></span> 个数，最多存 <span class="arithmatex"><span class="MathJax_Preview">M-1</span><script type="math/tex">M-1</script></span> 个数。非叶节点也一样，因为第一个数不存，所以如果有 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 个孩子的话，就存后 <span class="arithmatex"><span class="MathJax_Preview">m-1</span><script type="math/tex">m-1</script></span> 个数。</p>
+<p><strong>删除</strong>：<strong>还需要找兄弟，如果有兄弟太少了，就挪一些到兄弟那里</strong>：如果旁边节点孩子太少了，就挪过去一些；如果这一整层都已经最少了还在删，就直接去掉这一层。</p>
+<h2 id="lecture-3-inverted-file-index">Lecture 3. Inverted File Index<a class="headerlink" href="#lecture-3-inverted-file-index" title="Permanent link">&para;</a></h2>
+<p>倒排索引</p>
+<p>搜索引擎：BFS爬虫（Hash确定Visit、区分优先级下载） + 建立索引 方便找到 + Ranking</p>
+<p><strong>Index</strong> 给定一个 Term 后，可以通过 Index 在文章里确定位置</p>
+<p><strong>Inverted File</strong> 以 Term 为 Index 再进行搜索，而不是从各个 File 开始搜索</p>
+<p>但是如果只能记下来某个 Term 在哪些 Docs 里出现，不能记录具体在哪儿，之后再找就还会很慢，所以还需要把位置记录下来。</p>
+<p>记录的数据：词频、出现在哪些文档、出现在各个文档的哪些位置</p>
+<p>词频的意义：词频越高，其中包含的信息量越少；AND操作从最小频率的 Term 开始求交，速度快</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">term</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Dictionary</span><span class="p">.</span><span class="n">Find</span><span class="p">(</span><span class="n">T</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span>
+<span class="w">            </span><span class="n">Dictionary</span><span class="p">.</span><span class="n">Insert</span><span class="p">(</span><span class="n">T</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Get</span><span class="w"> </span><span class="n">T</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">posting</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<span class="w">        </span><span class="n">Insert</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">T</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">posting</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="n">Write</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">inverted</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disk</span><span class="p">;</span>
+</code></pre></div>
+<ul>
+<li>从 D 里寻找一个 Term：分词，几个字/单词确定为一个 Term；阴阳时态词形变化，字形变化；删除不必要的 Stop Words (a, an, it, to) 但是有些连在一起又是有含义的 To be or not to be；二义性，吃苹果和苹果电脑</li>
+<li>Dictionary 需要是一个数据结构：搜索树（B树、B+树、字典树）/ Hash Map</li>
+</ul>
+<p>空间不够时</p>
+<div class="highlight"><pre><span></span><code><span class="n">BlockCnt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span>
+<span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">document</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">read</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">term</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">in</span><span class="w"> </span><span class="n">D</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">out</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">memory</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="n">Write</span><span class="w"> </span><span class="n">BlockIndex</span><span class="p">[</span><span class="n">BlockCnt</span><span class="p">]</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">disk</span><span class="p">;</span>
+<span class="w">      </span><span class="n">BlockCnt</span><span class="w"> </span><span class="o">++</span><span class="p">;</span>
+<span class="w">      </span><span class="n">FreeMemory</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">Find</span><span class="p">(</span><span class="w"> </span><span class="n">Dictionary</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">false</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="n">Insert</span><span class="p">(</span><span class="w"> </span><span class="n">Dictionary</span><span class="p">,</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="n">Get</span><span class="w"> </span><span class="n">T</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">posting</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<span class="w">    </span><span class="n">Insert</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">node</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">T</span><span class="err">’</span><span class="n">s</span><span class="w"> </span><span class="n">posting</span><span class="w"> </span><span class="n">list</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+<span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">&lt;</span><span class="n">BlockCnt</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="w"> </span><span class="p">)</span>
+<span class="w">  </span><span class="n">Merge</span><span class="p">(</span><span class="w"> </span><span class="n">InvertedIndex</span><span class="p">,</span><span class="w"> </span><span class="n">BlockIndex</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="p">);</span>
+</code></pre></div>
+<p>分布式：不要把所有的东西丢在同一台电脑上算/存，可以把不同的文章放在不同电脑，Docs 随便分</p>
+<p>如果 Docs 更新了，怎样随同更新：类似 Git，有一个 Main Index，再加一个类似缓存的 Auxiliary index，汇总起来去搜索 Search Results，一段时间后没有问题了再把 Auxiliary Index 汇总到 Main Index 中。</p>
+<p>压缩：？？用时间换空间</p>
+<p>Thresholding：需要反应的比较快，首先找出来前k个，然后下一页再出来后面的</p>
+<p>Ranking：PageRank?</p>
+<p>建立时的速度、查询时的速度、相关性</p>
+<p><strong>User happiness</strong></p>
+<ul>
+<li>Data Retrieval Performance Evaluation (数据检索性能评价 after establishing correctness)<ul>
+<li>Response time, Index space</li>
+</ul>
+</li>
+<li>Information Retrieval Performance Evaluation<ul>
+<li>How relevant is the answer set?Relevance measurement requires 3 elements:</li>
+</ul>
+</li>
+</ul>
+<p>相关性评价三要素：</p>
+<ul>
+<li>A benchmark（典型测试集，基准） document collection</li>
+<li>A benchmark suite of queries</li>
+<li>A binary assessment of either Relevant or Irrelevant for each query-doc pair</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><strong>Relevant</strong></th>
+<th><strong>Irrelevant</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Retrieved</strong></td>
+<td><span class="arithmatex"><span class="MathJax_Preview">R_R</span><script type="math/tex">R_R</script></span></td>
+<td><span class="arithmatex"><span class="MathJax_Preview">I_R</span><script type="math/tex">I_R</script></span></td>
+</tr>
+<tr>
+<td><strong>Not Retrieved</strong></td>
+<td><span class="arithmatex"><span class="MathJax_Preview">R_N</span><script type="math/tex">R_N</script></span></td>
+<td><span class="arithmatex"><span class="MathJax_Preview">I_N</span><script type="math/tex">I_N</script></span></td>
+</tr>
+</tbody>
+</table>
+<p>精准度 Precision <span class="arithmatex"><span class="MathJax_Preview">P = R_R / (R_R + I_R)</span><script type="math/tex">P = R_R / (R_R + I_R)</script></span></p>
+<p>召回率 Recall <span class="arithmatex"><span class="MathJax_Preview">R = R_R / (R_R + R_N)</span><script type="math/tex">R = R_R / (R_R + R_N)</script></span></p>
+<p>比如新冠，更关注 Recall，想全部找到；比如刷视频，想找到想找到的，不那么关注有没有找到全部，更关注 Precision</p>
+<h2 id="lecture-4-leftist-heaps-and-skew-heaps">Lecture 4. Leftist Heaps and Skew Heaps<a class="headerlink" href="#lecture-4-leftist-heaps-and-skew-heaps" title="Permanent link">&para;</a></h2>
+<p>一般的堆：完全二叉树！</p>
+<p>好处自动保持平衡，找最值容易；坏处无法查找一个元素</p>
+<p>怎样用堆维护中位数？两个堆，一个小根堆维护较大的数，一个大根堆维护较小的数，那么大根堆的堆顶就是大根堆的所有数里最小的，小根堆的堆顶就是小根堆的所有数里最大的；然后在插入时，如果大于大根堆的堆顶，就放入小根堆；否则放入大根堆；如果放多了（两个堆的元素个数差值大于 1），就把小根堆里的东西放到大根堆。</p>
+<h3 id="leftist-heaps">Leftist Heaps<a class="headerlink" href="#leftist-heaps" title="Permanent link">&para;</a></h3>
+<p>因为一般的堆的性质中，自动保持平衡实际是不需要的，因此这个左式堆并不是平衡树，因为查找的时候也只会涉及堆顶。这只是保证合并速度的优化。</p>
+<p>合并两个堆：一般需要 <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span>，但是使用左式堆使得变成 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span></p>
+<p>一般堆：直接把两个堆丢在一起，然后从最底层的非叶节点开始层序遍历，每遍历到一个节点就让它堆化（让它的子树符合堆的性质，假设它离叶节点的高度为 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span>，则最多进行 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 次即可使得子树堆化）。由于 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 层有 <span class="arithmatex"><span class="MathJax_Preview">2^{\log_2{n}-h} = n/2^h</span><script type="math/tex">2^{\log_2{n}-h} = n/2^h</script></span> 个节点，所以乘起来再求和，则 <span class="arithmatex"><span class="MathJax_Preview">n\sum_{h=1}^{\log_2{n}}h/2^h = 2n-(2+\log_2(n)) = O(n)</span><script type="math/tex">n\sum_{h=1}^{\log_2{n}}h/2^h = 2n-(2+\log_2(n)) = O(n)</script></span>。</p>
+<p><strong>Definition</strong> The <u>null path length</u>, Npl(X), of any node X is the length of the shortest path from X to a node without two children.  Define Npl(NULL) = –1.</p>
+<p>Npl(X) = <strong><u>min</u></strong> { Npl(C) + 1 for all C as children of X }</p>
+<p><strong>Definition</strong> The <u>leftist heap</u> property is that for every node X in the heap, <strong><u>the null path length of the left child is at least as large as that of the right child.</u></strong> 左孩子的 NPL 一定大于等于 右孩子的 NPL</p>
+<p>只要证明合并时是 <span class="arithmatex"><span class="MathJax_Preview">\log</span><script type="math/tex">\log</script></span> 的，那插入的时候就也是 <span class="arithmatex"><span class="MathJax_Preview">\log</span><script type="math/tex">\log</script></span>，可以看作一个节点和一棵树的合并；删除的时候也是 <span class="arithmatex"><span class="MathJax_Preview">\log</span><script type="math/tex">\log</script></span>，可以看作两棵树的合并。</p>
+<p><strong>Theorem</strong> A leftist tree with r nodes on the right path must have at least <span class="arithmatex"><span class="MathJax_Preview">2^r – 1</span><script type="math/tex">2^r – 1</script></span> nodes.</p>
+<p>即，如果一个点的右边的 Npl 路径上有 <span class="arithmatex"><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span> 节点，那总共一定要有 <span class="arithmatex"><span class="MathJax_Preview">2^r-1</span><script type="math/tex">2^r-1</script></span> 节点。</p>
+<p>证：右子树的 Npl 路径上有 <span class="arithmatex"><span class="MathJax_Preview">r-1</span><script type="math/tex">r-1</script></span> 个节点，那它最少的情况就是满的，此时会有 <span class="arithmatex"><span class="MathJax_Preview">2^{r-1}-1</span><script type="math/tex">2^{r-1}-1</script></span> 个点，左子树的 Npl 路径也最少 <span class="arithmatex"><span class="MathJax_Preview">r-1</span><script type="math/tex">r-1</script></span> 个节点，最少有 <span class="arithmatex"><span class="MathJax_Preview">2^{r-1}-1</span><script type="math/tex">2^{r-1}-1</script></span>。加起来，加上根，是 <span class="arithmatex"><span class="MathJax_Preview">2^r-1</span><script type="math/tex">2^r-1</script></span>。还是归纳法。</p>
+<p>Merge 时的两种写法：递归/递推</p>
+<p><strong>递归</strong>：每次把根小的那棵树的根和左子树留下不动，把右边的子树和那棵根较大的树合并（递归），然后把合并后的整体作为根小的树的右子树，再看左边的 Npl 是不是比右边的大，如果小的话就 swap。</p>
+<div class="highlight"><pre><span></span><code><span class="n">PriorityQueue</span><span class="w"> </span><span class="nf">Merge</span><span class="p">(</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H1</span><span class="p">,</span><span class="w"> </span><span class="n">PriorityQueue</span><span class="w"> </span><span class="n">H2</span><span class="w"> </span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="o">==</span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">H2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H2</span><span class="o">==</span><span class="nb">NULL</span><span class="p">)</span><span class="w"> </span><span class="k">return</span><span class="w"> </span><span class="n">H1</span><span class="p">;</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Element</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H2</span><span class="o">-&gt;</span><span class="n">Element</span><span class="p">)</span>
+<span class="w">    </span><span class="n">swap</span><span class="p">(</span><span class="n">H1</span><span class="p">,</span><span class="w"> </span><span class="n">H2</span><span class="p">);</span><span class="w">  </span><span class="c1">//swap H1 and H2</span>
+<span class="w">  </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nb">NULL</span><span class="p">)</span>
+<span class="w">    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Left</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H2</span><span class="p">;</span>
+<span class="w">  </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Merge</span><span class="p">(</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="p">,</span><span class="w"> </span><span class="n">H2</span><span class="w"> </span><span class="p">);</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Left</span><span class="o">-&gt;</span><span class="n">Npl</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="o">-&gt;</span><span class="n">Npl</span><span class="w"> </span><span class="p">)</span>
+<span class="w">      </span><span class="n">SwapChildren</span><span class="p">(</span><span class="w"> </span><span class="n">H1</span><span class="w"> </span><span class="p">);</span><span class="w">  </span><span class="c1">//swap the left child and right child of H1</span>
+<span class="w">    </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Npl</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">H1</span><span class="o">-&gt;</span><span class="n">Right</span><span class="o">-&gt;</span><span class="n">Npl</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">H1</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>递推</strong>：把所有右路径上的点都作为一个根，只保留它的左子树。然后把所有根按照大小排序，连起来。然后**再从下往上依次看是否需要 swap**，一定记得 SWAP！SWAP 之后就不需要让右路径上的点都在右路径了。</p>
+<h3 id="skew-heaps">Skew Heaps<a class="headerlink" href="#skew-heaps" title="Permanent link">&para;</a></h3>
+<p><strong>Target:</strong> Any M consecutive operations take at most O(M log N) time. (N = N1 + N2)</p>
+<p>Merge: 每次都换，但是 the largest of all the nodes on the right paths does not have its children swapped.  </p>
+<p><strong>原来的两棵树右路径上的点，必须要在新树的左路径上</strong>；右路径上的 Heavy Nodes 一定变成了 Light Node</p>
+<p>Heavy Node: right-heavy - 右子树中的点更多，占整棵树中的点至少一半</p>
+<p>要证明合并完之后 heavy 的很少</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\phi(H_i)</span><script type="math/tex">\phi(H_i)</script></span> Heavy Node 的 数量</p>
+<p>最终的 Amotized：（每一次都是一个，最后求和）
+$$
+\sum\hat{c}_i = \sum c_i + \phi(H_3) - (\phi(H_1) + \phi(H_2))
+$$
+定义 <span class="arithmatex"><span class="MathJax_Preview">H_i, i = 1, 2</span><script type="math/tex">H_i, i = 1, 2</script></span> 中右路径上有 <span class="arithmatex"><span class="MathJax_Preview">l_i</span><script type="math/tex">l_i</script></span> 个 Light Node，有 <span class="arithmatex"><span class="MathJax_Preview">h_i</span><script type="math/tex">h_i</script></span> 个 Heavy Node。显然 <span class="arithmatex"><span class="MathJax_Preview">l_i + h_i = \text{right\_path\_nodes\_cnt}</span><script type="math/tex">l_i + h_i = \text{right\_path\_nodes\_cnt}</script></span></p>
+<p>因为只有右路径上的点才会改变，其他的点都不会变，所以 Actual Cost 可以表示为
+$$
+\sum c_i\leq l_1 + h_1 + l_2 + h_2
+$$
+在变的过程中，可能会有 Light Nodes 变成 Heavy Nodes，但是 Heavy Nodes 一定变成了 Light Node：</p>
+<p><img alt="image-20220314152629343" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/03/202203141526754.png" />
+$$
+\Delta \phi\leq (l_1 + l_2) - (h_1 + h_2)
+$$
+由此，有
+$$
+\begin{aligned}
+\sum\hat{c}_i &amp;= \sum c_i + \phi(H_3) - (\phi(H_1) + \phi(H_2))\
+&amp;\leq l_1 + h_1 + l_2 + h_2 + (l_1 + l_2) - (h_1 + h_2)\
+&amp;\leq 2(l_1 + l_2)
+\end{aligned}
+$$
+而我们可以证明，<span class="arithmatex"><span class="MathJax_Preview">l_1 = O(\log n_1), l_2 = O(\log n_2)</span><script type="math/tex">l_1 = O(\log n_1), l_2 = O(\log n_2)</script></span>。（我们没法证明右路径上 Heavy Nodes 的数量，但是可以证明 Light Nodes 的数量是被控制住的）：使用数学归纳法可以证明，如果右路径上有 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 个 Light Nodes，那这个树至少有 <span class="arithmatex"><span class="MathJax_Preview">2^{k} - 1</span><script type="math/tex">2^{k} - 1</script></span> 个点。所以 <span class="arithmatex"><span class="MathJax_Preview">l_i = O(\log n_i)</span><script type="math/tex">l_i = O(\log n_i)</script></span>。</p>
+<p>右路径上的 Heavy Nodes 数量可以任意多。</p>
+<h2 id="lecture-5-binomial-queue">Lecture 5. Binomial Queue<a class="headerlink" href="#lecture-5-binomial-queue" title="Permanent link">&para;</a></h2>
+<h3 id="binomial-queue">Binomial Queue<a class="headerlink" href="#binomial-queue" title="Permanent link">&para;</a></h3>
+<p>一个 Binomial Queue 由 多个 Binomial Tree - <span class="arithmatex"><span class="MathJax_Preview">B_k</span><script type="math/tex">B_k</script></span> 组成</p>
+<p>Queue 中有任意个点，都有对应的二进制表示，所以一定有唯一的对应 Binomial Tree 个数和组成。</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">B_0</span><script type="math/tex">B_0</script></span> 只有一个点</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">B_k</span><script type="math/tex">B_k</script></span> 是把两个 <span class="arithmatex"><span class="MathJax_Preview">B_{k-1}</span><script type="math/tex">B_{k-1}</script></span> 合并起来，第二个 <span class="arithmatex"><span class="MathJax_Preview">B_{k-1}</span><script type="math/tex">B_{k-1}</script></span> 作为 第一个的孩子</li>
+</ul>
+<p>性质：</p>
+<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">B_k</span><script type="math/tex">B_k</script></span> 的根有 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 个孩子，分别是 <span class="arithmatex"><span class="MathJax_Preview">B_0, B_1, \cdots, B_{k-1}</span><script type="math/tex">B_0, B_1, \cdots, B_{k-1}</script></span>，树高为 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>（假设根节点 Height = 0）。</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">B_k</span><script type="math/tex">B_k</script></span> 有 <span class="arithmatex"><span class="MathJax_Preview">2^k</span><script type="math/tex">2^k</script></span> 个节点。</li>
+<li>深度为 <span class="arithmatex"><span class="MathJax_Preview">d</span><script type="math/tex">d</script></span> 的点共有 <span class="arithmatex"><span class="MathJax_Preview">C_{k}^d</span><script type="math/tex">C_{k}^d</script></span> 个</li>
+</ul>
+<p>操作：</p>
+<p>Find Min：找 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 棵树的根，<span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span></p>
+<p>Merge：像加法一样，从 <span class="arithmatex"><span class="MathJax_Preview">B_0</span><script type="math/tex">B_0</script></span> 开始加，要进位。<span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span></p>
+<p>Delete Min：找到最小，把它删掉，把它的孩子和剩下的合并 <span class="arithmatex"><span class="MathJax_Preview">O(\log n)</span><script type="math/tex">O(\log n)</script></span></p>
+<p>Insert：一般情况就是特殊的 Merge，如果依次按顺序插入，是 <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 的：</p>
+<p>证1：只需要看末尾 0 的位置，看最后一个 0 后面有几个 1。末尾是 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span> 的，有 <span class="arithmatex"><span class="MathJax_Preview">n/2</span><script type="math/tex">n/2</script></span> 个；末尾是 <span class="arithmatex"><span class="MathJax_Preview">01</span><script type="math/tex">01</script></span> 的，有 <span class="arithmatex"><span class="MathJax_Preview">n/4</span><script type="math/tex">n/4</script></span> 个；末尾是 <span class="arithmatex"><span class="MathJax_Preview">011</span><script type="math/tex">011</script></span> 的，有 <span class="arithmatex"><span class="MathJax_Preview">n/8</span><script type="math/tex">n/8</script></span> 个；...
+$$
+\begin{aligned}
+nS &amp;= n(1\times \frac{1}{2} + 2\times \frac{1}{2^2} + 3\times \frac{1}{2^3}+\cdots)\
+&amp;\leq n(2 - k/2^k - &frac12;^{k-1})
+\end{aligned}
+$$</p>
+<p>Expensive insertions remove trees, while cheap ones create trees. </p>
+<p>证2：看智云ppt</p>
+<blockquote>
+<p>For a binomial queue, Insertion takes a constant time on average.</p>
+</blockquote>
+<p>Decrease Key：专指已经知道在哪，要把减小它的值</p>
+<h3 id="hash-table-amotized-analysis">倍增的 Hash Table Amotized Analysis<a class="headerlink" href="#hash-table-amotized-analysis" title="Permanent link">&para;</a></h3>
+<p><code>size(T)</code> Table 的 Size</p>
+<p><code>num(T)</code> 指 Table 中的元素数
+$$
+\phi(T) = 2\text{num}(T) - \text{size}(T)
+$$
+Insert：</p>
+<p>分情况：如果第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 次 Insert，没有使得表倍增；如果使得表倍增</p>
+<p>如果没有使得表倍增，那假定 <span class="arithmatex"><span class="MathJax_Preview">c_i=1</span><script type="math/tex">c_i=1</script></span>，
+$$
+\begin{aligned}
+\hat{c}<em>i &amp;= c_i + \phi_i - \phi</em>{i-1}\
+&amp;= c_i + 2\text{num}<em>{i} - 2\text{num}</em>{i-1}\
+&amp;= 1 + 2=3
+\end{aligned}
+$$
+如果使得表倍增，则需要有复制的 cost，<span class="arithmatex"><span class="MathJax_Preview">c_i=1+\text{num}_{i-1}</span><script type="math/tex">c_i=1+\text{num}_{i-1}</script></span>，
+$$
+\begin{aligned}
+\hat{c}<em>i &amp;= c_i + \phi_i - \phi</em>{i-1}\
+&amp;= c_i + 2\text{num}<em>{i} - 2\text{num}</em>{i-1} - (i-1)\
+&amp;= 1 + i-1 + 2 - (i - 1)=3
+\end{aligned}
+$$
+Delete：</p>
+<p>当 <span class="arithmatex"><span class="MathJax_Preview">num&lt;size/4</span><script type="math/tex">num<size/4</script></span> 时，缩小为 <span class="arithmatex"><span class="MathJax_Preview">size/2</span><script type="math/tex">size/2</script></span></p>
+<p>定义 <span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span>: Load of table - number of table / size of table
+$$
+\phi(T) = \begin{cases}
+2\text{num}(t)-\text{size}(T), &amp; \text{if } \alpha(T)\geq &frac12;\
+\text{size}(T)/2 - \text{num}(T), &amp; \text{if } \alpha(T)\lt &frac12;
+\end{cases}
+$$</p>
+<h2 id="lecture-6-backtracking">Lecture 6. Backtracking<a class="headerlink" href="#lecture-6-backtracking" title="Permanent link">&para;</a></h2>
+<h3 id="shortest-path">Shortest Path<a class="headerlink" href="#shortest-path" title="Permanent link">&para;</a></h3>
+<p>从起点终点相遇搜索，大概会比直接单源快 40%。</p>
+<p>分层最短路</p>
+<p>如果点与点距离太多 空间存不下怎么办？可以使用只存相邻点来求近似解。</p>
+<p>负圈图，怎么求无圈最短路？如果所有权都是-1，怎样每个点只经过一次求最短路？哈密尔顿回路</p>
+<p>算法分析：正确性近似 - 复杂度 14：30？？？？？</p>
+<h3 id="backtracking">Backtracking<a class="headerlink" href="#backtracking" title="Permanent link">&para;</a></h3>
+<p><strong>回溯</strong></p>
+<p>显然，可以通过枚举所有可行解并一一验证的方法来找到所有可行解；回溯法是逐步填写一种可能，之后如果出现矛盾，再回去换另一种可能，这大大减少了对不可行解的验证。</p>
+<p>The basic idea is that suppose we have a partial solution ( x1, ... , xi ) where each xk in Sk for  1 le k le i lt n.   First we add  x{i+1} in S{i+1} and check if ( x1, ... , xi, xi+1 ) satisfies the constrains.  If the answer is “yes” we continue to add the next x, else we delete xi and backtrack to the previous partial solution ( x1, ... , x{i-1} ).</p>
+<p>可以找到所有可行解，dp不行。</p>
+<p><strong>八皇后</strong></p>
+<p>可以认为是博弈，所有二人博弈都可以画 Game Tree，Game Tree 中每条边都是一个决策，点是状态。</p>
+<p><strong>重建距离</strong></p>
+<p>如果已知数轴上几个点，他们之间的距离共有 <span class="arithmatex"><span class="MathJax_Preview">n(n-1)/2</span><script type="math/tex">n(n-1)/2</script></span> 个；那么，如果已知这些距离，怎样确定这些点的相对位置？</p>
+<p>首先解点的个数 <span class="arithmatex"><span class="MathJax_Preview">N(N-1)/2=tot</span><script type="math/tex">N(N-1)/2=tot</script></span>，然后设 <span class="arithmatex"><span class="MathJax_Preview">x_0=0,x_N=\max\text{dis}</span><script type="math/tex">x_0=0,x_N=\max\text{dis}</script></span>，寻找下一个最大的距离，然后推断可能的结果（一定是二分支的，会缩小考虑的范围），检查的时候每确定了一个点，都要和已经确定的点算出距离检查在不在表里。<span class="arithmatex"><span class="MathJax_Preview">O(2^n n\log n )</span><script type="math/tex">O(2^n n\log n )</script></span>。</p>
+<p><img alt="image-20220418142756612" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202204181427693.png" /></p>
+<p>如果是环，<span class="arithmatex"><span class="MathJax_Preview">O(n^n n\log n)</span><script type="math/tex">O(n^n n\log n)</script></span>。</p>
+<p><strong>Tic Tac Toe</strong></p>
+<p>可以构造函数去评估某个解的 goodness 程度</p>
+<p>例如：<span class="arithmatex"><span class="MathJax_Preview">f(P) = W_{computer} - W_{Human}</span><script type="math/tex">f(P) = W_{computer} - W_{Human}</script></span></p>
+<p>human 就想去 minimize 这个函数，computer 想去 maximize 它</p>
+<p>胜为1，负为-1，平为0。从结果慢慢往上推。</p>
+<p>这种博弈里也可以剪枝，<span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> pruning, <span class="arithmatex"><span class="MathJax_Preview">\beta</span><script type="math/tex">\beta</script></span> pruning, 综合被称作 <span class="arithmatex"><span class="MathJax_Preview">\alpha-\beta</span><script type="math/tex">\alpha-\beta</script></span> pruning，大概只需要搜索 <span class="arithmatex"><span class="MathJax_Preview">O(\sqrt{N})</span><script type="math/tex">O(\sqrt{N})</script></span> 个点。</p>
+<p><center class="half">
+    <img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/03/202203281536578.png" height="200" />
+    <img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/03/202203281535414.png" height="200" />
+</center>
+<img alt="image-20220403211706068" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202204032117187.png" /></p>
+<p>数数 Computer 可能有几行可以赢 - 数数 Human 有几行可以赢。</p>
+<p><img alt="image-20220411132212300" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202204111322441.png" /></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span> 层，是取第三层的 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span>，如果 <span class="arithmatex"><span class="MathJax_Preview">x\leq 13</span><script type="math/tex">x\leq 13</script></span>，那第二层中间那个应该是 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>；如果 <span class="arithmatex"><span class="MathJax_Preview">x&gt;13</span><script type="math/tex">x>13</script></span>，那第二层中间那个应该是 <span class="arithmatex"><span class="MathJax_Preview">13</span><script type="math/tex">13</script></span>。因为右边那一支已经有 <span class="arithmatex"><span class="MathJax_Preview">9</span><script type="math/tex">9</script></span>，所以肯定第二层右边的是比 <span class="arithmatex"><span class="MathJax_Preview">9</span><script type="math/tex">9</script></span> 小或等的一个数，那只要第二层中间的是比 <span class="arithmatex"><span class="MathJax_Preview">9</span><script type="math/tex">9</script></span> 大的，那最顶层肯定只能选第二层中间的。</p>
+<h2 id="lecture-7-divide-and-conquer">Lecture 7. Divide and Conquer<a class="headerlink" href="#lecture-7-divide-and-conquer" title="Permanent link">&para;</a></h2>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T(N) = aT(N/b) + f(N)
+</div>
+<script type="math/tex; mode=display">
+T(N) = aT(N/b) + f(N)
+</script>
+</div>
+<p>一般形式，<span class="arithmatex"><span class="MathJax_Preview">a\neq b</span><script type="math/tex">a\neq b</script></span>，<span class="arithmatex"><span class="MathJax_Preview">f(N)</span><script type="math/tex">f(N)</script></span> 是 Combine 的时间</p>
+<p>子问题，一般会比总问题时间复杂度更低。很多奇奇怪怪的复杂度是用过分治计算得到的。</p>
+<p>可解决问题：</p>
+<ul>
+<li>Closest Points Problem: 平面上最近点对</li>
+<li>Merge Sort</li>
+<li>Matrix Multiplication, 分块乘法</li>
+<li>Count Inversions: 逆序对</li>
+<li>Median of n numbers</li>
+<li>FFT: ploy * ploy</li>
+<li><span class="arithmatex"><span class="MathJax_Preview">x^n</span><script type="math/tex">x^n</script></span></li>
+<li>Convex Hull, 凸包</li>
+</ul>
+<p><strong>Asymptotic Analysis 渐进情形分析</strong>：</p>
+<p>常数隐藏掉，低阶的项也去掉</p>
+<p>Machine Model</p>
+<p>Random Access Model 中 假定 Arithmetic: <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>，内存读取等单个单元的操作，都认为是 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span>。</p>
+<h3 id="case-closest-points-problem">Case: Closest Points Problem<a class="headerlink" href="#case-closest-points-problem" title="Permanent link">&para;</a></h3>
+<p>Given <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> points in a plane. Find the closest pair of points. (If two points have the same position, then that pair is the closest with distance 0.)</p>
+<ol>
+<li>预处理时，按照 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 为第一优先级，<span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 为第二优先级首先排好序。分开时，直接按照下标分成两半，是 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 的。</li>
+<li>合并时，对分界线左右两边 <span class="arithmatex"><span class="MathJax_Preview">\delta\xlongequal{\triangle}\min(cp(L_x), cp(R_x))</span><script type="math/tex">\delta\xlongequal{\triangle}\min(cp(L_x), cp(R_x))</script></span>，从 <span class="arithmatex"><span class="MathJax_Preview">(-\delta, \delta)</span><script type="math/tex">(-\delta, \delta)</script></span> 的点中，按照 <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 排序，每个点都找他下面的 <span class="arithmatex"><span class="MathJax_Preview">\delta</span><script type="math/tex">\delta</script></span> 范围的点。可以证明，如果把 <span class="arithmatex"><span class="MathJax_Preview">\Delta x\in(-\delta,\delta), \Delta y\in (0, \delta)</span><script type="math/tex">\Delta x\in(-\delta,\delta), \Delta y\in (0, \delta)</script></span> 这一个区间，划分成8个方形，那每个方形里只有最多 1 个点（常数），所以合并总共是 <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 的。</li>
+<li>合并时的“按照 <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 排序”，可以提前把所有点按照 <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 排序进行预处理，然后每次合并时，只需要依次扫描这个预处理表中的点，判断和分界线的 <span class="arithmatex"><span class="MathJax_Preview">\Delta x</span><script type="math/tex">\Delta x</script></span> 是不是在 <span class="arithmatex"><span class="MathJax_Preview">(-\delta, \delta)</span><script type="math/tex">(-\delta, \delta)</script></span> 范围内。这样就可以 <span class="arithmatex"><span class="MathJax_Preview">O(n)</span><script type="math/tex">O(n)</script></span> 取得按 <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 顺序的点。</li>
+</ol>
+<h3 id="tn-atnb-fntn-atnb-fn"><span class="arithmatex"><span class="MathJax_Preview">T(N) = aT(N/b) + f(N)</span><script type="math/tex">T(N) = aT(N/b) + f(N)</script></span><a class="headerlink" href="#tn-atnb-fntn-atnb-fn" title="Permanent link">&para;</a></h3>
+<p>归纳假设</p>
+<p>首先猜一个，然后去证明它对不对，如 若假定 <span class="arithmatex"><span class="MathJax_Preview">T(N) = O(g(N))</span><script type="math/tex">T(N) = O(g(N))</script></span>，那么 <span class="arithmatex"><span class="MathJax_Preview">T(N)\leq cg(N)</span><script type="math/tex">T(N)\leq cg(N)</script></span></p>
+<p>于是我们就可以假定 <span class="arithmatex"><span class="MathJax_Preview">T(N/b)\leq cg(N/b)</span><script type="math/tex">T(N/b)\leq cg(N/b)</script></span>，看能否推出 <span class="arithmatex"><span class="MathJax_Preview">T(N)\leq cg(N)</span><script type="math/tex">T(N)\leq cg(N)</script></span>，<span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 只要存在即可，不需要对任意的 <span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 都满足。</p>
+<p>especially. <span class="arithmatex"><span class="MathJax_Preview">c</span><script type="math/tex">c</script></span> 必须是一致的，如果从 <span class="arithmatex"><span class="MathJax_Preview">T(N/b)\leq cg(N/b)</span><script type="math/tex">T(N/b)\leq cg(N/b)</script></span>  只能推出来 <span class="arithmatex"><span class="MathJax_Preview">T(N)\leq (c+1)g(N)</span><script type="math/tex">T(N)\leq (c+1)g(N)</script></span>，那肯定是不对的。</p>
+<p><strong>递归树</strong></p>
+<p>假定每个节点，都是代表 <span class="arithmatex"><span class="MathJax_Preview">f(N)</span><script type="math/tex">f(N)</script></span>，然后最后把所有节点的时间从下往上加起来就好。</p>
+<p>所以如果一个点，它本身是 <span class="arithmatex"><span class="MathJax_Preview">f(N)</span><script type="math/tex">f(N)</script></span>，那它有 <span class="arithmatex"><span class="MathJax_Preview">a</span><script type="math/tex">a</script></span> 个孩子，每个孩子都是 <span class="arithmatex"><span class="MathJax_Preview">f(N/b)</span><script type="math/tex">f(N/b)</script></span>，孙子就是 <span class="arithmatex"><span class="MathJax_Preview">f(N/b^2)</span><script type="math/tex">f(N/b^2)</script></span>。
+$$
+T(n) = f(n) + af(n/b) + a<sup>2f(n/b</sup>2) + \cdots + a<sup>Lf(n/b</sup>L)
+$$
+我们知道分到最后肯定是 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 的，那么 <span class="arithmatex"><span class="MathJax_Preview">1=n/b^L\Rightarrow L = \log_b n</span><script type="math/tex">1=n/b^L\Rightarrow L = \log_b n</script></span>。</p>
+<p>就 <span class="arithmatex"><span class="MathJax_Preview">T(N) = 2T(N/2) + N</span><script type="math/tex">T(N) = 2T(N/2) + N</script></span> 而言，这里 <span class="arithmatex"><span class="MathJax_Preview">af(N/b)=f(N)</span><script type="math/tex">af(N/b)=f(N)</script></span>，所以有
+$$
+T(N) = N + N + N + \cdots + N=N\log_2N
+$$
+总共 <span class="arithmatex"><span class="MathJax_Preview">L = \log_2N</span><script type="math/tex">L = \log_2N</script></span> 个 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 加起来。</p>
+<p>一般地，<strong>如果 <span class="arithmatex"><span class="MathJax_Preview">af(N/b)=f(N)</span><script type="math/tex">af(N/b)=f(N)</script></span>，有 <span class="arithmatex"><span class="MathJax_Preview">T(N) = f(N)\log_bN</span><script type="math/tex">T(N) = f(N)\log_bN</script></span></strong>，相当于每层复杂度都一样，就是要乘 层数。</p>
+<p><strong>如果是 <span class="arithmatex"><span class="MathJax_Preview">af(N/b) = \kappa f(N), \kappa&lt;1</span><script type="math/tex">af(N/b) = \kappa f(N), \kappa<1</script></span>，那么有 <span class="arithmatex"><span class="MathJax_Preview">T(N) = O(f(N))</span><script type="math/tex">T(N) = O(f(N))</script></span></strong>，证明：
+$$
+\begin{aligned}
+T(N) &amp;= f(N) + af(N/b) + a<sup>2f(N/b</sup>2) + \cdots + a^{\log_b N}\times 1\
+&amp;= f(N) + \kappa f(N) + \kappa^2f(N) + \cdots + \kappa^{\log_b N}f(N)\
+&amp;= f(N)\frac{1-\kappa^{1+\log_bN}}{1-\kappa}\
+&amp;= \frac{1}{1-\kappa}f(N)-\frac{\kappa}{1-\kappa}N^{\log_b\kappa}f(N) = O(f(N))
+\end{aligned}
+$$
+<strong>如果是 <span class="arithmatex"><span class="MathJax_Preview">af(N/b) = K f(N), K&gt;1</span><script type="math/tex">af(N/b) = K f(N), K>1</script></span>，相当于 <span class="arithmatex"><span class="MathJax_Preview">f(N) = O(N^{\log_ba-\epsilon})</span><script type="math/tex">f(N) = O(N^{\log_ba-\epsilon})</script></span>，那么有 <span class="arithmatex"><span class="MathJax_Preview">T(N) = O(N^{\log_ba})</span><script type="math/tex">T(N) = O(N^{\log_ba})</script></span></strong>
+$$
+\begin{aligned}
+T(N) &amp;= f(N)\frac{K^{1+\log_bN}-1}{K-1}\
+&amp;= \frac{K}{K-1}N^{\log_bK}f(N) - \frac{1}{K-1}f(N)
+\end{aligned}
+$$</p>
+<p>用到一个恒等式：<span class="arithmatex"><span class="MathJax_Preview">a^{\log_b N} = (a^{\log_aN})^{-{\log_a b}} = N^{\log_b a}</span><script type="math/tex">a^{\log_b N} = (a^{\log_aN})^{-{\log_a b}} = N^{\log_b a}</script></span></p>
+<p>更特殊的：
+$$
+T(N) = 2f(N/2) + \frac{n}{\log n}
+$$
+计算 <span class="arithmatex"><span class="MathJax_Preview">af(N/b)</span><script type="math/tex">af(N/b)</script></span> 有
+$$
+2\frac{n/2}{\log n-\log 2} = \frac{n}{\log n-\log 2}\neq \frac{n}{\log n}
+$$
+所以并不是刚刚的情形，使用递归树</p>
+<p>另外一个题：</p>
+<p>$$
+T(N) = 8 + 8^2 + \cdots + (N/M)<sup>3f(N/2</sup>t) + 8^{t+1}M =N<sup>3/M</sup>2
+$$
+<span class="arithmatex"><span class="MathJax_Preview">N/2^t = \sqrt{M}\Rightarrow t = \log_2N/\sqrt{M}</span><script type="math/tex">N/2^t = \sqrt{M}\Rightarrow t = \log_2N/\sqrt{M}</script></span></p>
+<p>再例
+$$
+T(N) = \frac{12}{5}N + T(\frac{N}{5}) + T(\frac{7N}{10})
+$$
+递归树：
+$$
+\begin{aligned}
+T(N) &amp;= \frac{12}{5}N + \frac{12}{5}(\frac{N}{5}) + \frac{12}{5}(\frac{7N}{10}) + \frac{12}{5}(\frac{N}{5})^2 + \frac{12}{5}(\frac{7N}{10})^2 +\cdots\
+&amp;= \frac{12}{5}N(1 + \frac{9}{10} + (\frac{9}{10})^2+\cdots) = O(N)
+\end{aligned}
+$$
+再例
+$$
+T(n) = 2T(\sqrt{n}) + \log n
+$$
+不妨设递归树总共 <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 层，则 <span class="arithmatex"><span class="MathJax_Preview">n^{(1/2)^M} = 1 + \epsilon</span><script type="math/tex">n^{(1/2)^M} = 1 + \epsilon</script></span>，<span class="arithmatex"><span class="MathJax_Preview">(1/2)^M =  \log_n(1+\epsilon)\Rightarrow m = \log_{1/2}\log_{n}(1+\epsilon)</span><script type="math/tex">(1/2)^M =  \log_n(1+\epsilon)\Rightarrow m = \log_{1/2}\log_{n}(1+\epsilon)</script></span>，所以总共的时间复杂度 <span class="arithmatex"><span class="MathJax_Preview">T(n)</span><script type="math/tex">T(n)</script></span> 即为层数 <span class="arithmatex"><span class="MathJax_Preview">\times</span><script type="math/tex">\times</script></span> 每层复杂度为 <span class="arithmatex"><span class="MathJax_Preview">\log n</span><script type="math/tex">\log n</script></span>，总共 <span class="arithmatex"><span class="MathJax_Preview">\log n\times \log\log n</span><script type="math/tex">\log n\times \log\log n</script></span>。</p>
+<p>或者，换元，令 <span class="arithmatex"><span class="MathJax_Preview">k=\log_2(n)</span><script type="math/tex">k=\log_2(n)</script></span>，则
+$$
+T(2^k) = 2T(2^{k/2}) + k\
+U(k) = 2U(k/2) + k\
+T(2^k) = U(k) = k\log k = \log n\log\log n
+$$
+主定理，要再看看ppt里另一个形式，看看能不能凑到 <span class="arithmatex"><span class="MathJax_Preview">O(n^t)</span><script type="math/tex">O(n^t)</script></span> 的 <span class="arithmatex"><span class="MathJax_Preview">t</span><script type="math/tex">t</script></span> 里。</p>
+<p>比如 <span class="arithmatex"><span class="MathJax_Preview">T(n)=3T(n/3)+n/\lg n</span><script type="math/tex">T(n)=3T(n/3)+n/\lg n</script></span>，<span class="arithmatex"><span class="MathJax_Preview">O(n^{1-\epsilon})</span><script type="math/tex">O(n^{1-\epsilon})</script></span> 里，找不到一个 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 使得 <span class="arithmatex"><span class="MathJax_Preview">n=O(n^{1-\epsilon})</span><script type="math/tex">n=O(n^{1-\epsilon})</script></span></p>
+<h2 id="lecture-8-dynamic-programming">Lecture 8. Dynamic Programming<a class="headerlink" href="#lecture-8-dynamic-programming" title="Permanent link">&para;</a></h2>
+<p>分治法当中，子问题和原问题之间是有阶数/倍数差异的，而子问题和原问题是独立的。</p>
+<p>动态规划中，子问题和原问题的差异是很小的，一般只相差常数个单位，但是子问题和原问题之间是相关的，是有很多重复的。</p>
+<ol>
+<li>Characterize an optimal solution</li>
+<li>Recursively define the optimal values</li>
+<li>Compute the values in some order（计算值）</li>
+<li>Reconstruct the solving strategy（重新回去找到解，即怎样得到值的过程）</li>
+</ol>
+<p>两种方法：</p>
+<ul>
+<li>Memorization (Top Down)：记忆化搜索，如果发现当前要解决的问题之前解决过了，就直接用之前记下来的结果</li>
+<li>Tabulation (Bottom Up): 直接构造表，但是要去构造 Order，要对问题有更清晰的理解。</li>
+</ul>
+<p>差异：Coding Complexity, Speed, Stack Space, Find Order Manually. </p>
+<h3 id="case-matrix-multiplications">Case: Matrix Multiplications<a class="headerlink" href="#case-matrix-multiplications" title="Permanent link">&para;</a></h3>
+<p>矩阵乘法中，如果 <span class="arithmatex"><span class="MathJax_Preview">M_{a\times b}\times N_{b\times c}</span><script type="math/tex">M_{a\times b}\times N_{b\times c}</script></span>，那时间复杂度是 <span class="arithmatex"><span class="MathJax_Preview">O(abc)</span><script type="math/tex">O(abc)</script></span>，即进行 <span class="arithmatex"><span class="MathJax_Preview">abc</span><script type="math/tex">abc</script></span> 次乘法。 假设现在有 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个按顺序排好的矩阵，我们要想加括号，让算出整个结果的速度更快。如果我们想算出方案数，设方案数为 <span class="arithmatex"><span class="MathJax_Preview">b_n</span><script type="math/tex">b_n</script></span>，则
+$$
+b_n = \sum_{i=1}^{n-1} b_i b_{n-i}, \text{ where } n\gt 1, \text{and }b_1 = 1
+$$
+这事实上是 Catalan 数，它是 <span class="arithmatex"><span class="MathJax_Preview">O(4^n/n\sqrt{n})</span><script type="math/tex">O(4^n/n\sqrt{n})</script></span> 的。</p>
+<p>那回到问题本身，我们不只是想算出方案数，我们想算出来 Cost，那么设 <span class="arithmatex"><span class="MathJax_Preview">m_{i,j}</span><script type="math/tex">m_{i,j}</script></span> 为从第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个乘到第 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 个的最优 cost，则如果设 <span class="arithmatex"><span class="MathJax_Preview">M_i</span><script type="math/tex">M_i</script></span> 的维度为 <span class="arithmatex"><span class="MathJax_Preview">r_{i-1}\times r_i</span><script type="math/tex">r_{i-1}\times r_i</script></span>，那么有
+$$
+m_{ij} = \begin{cases}
+0, &amp;\text{if }i = j\
+\min_{i\le l\lt j}(m_{i,l} + m_{l + 1, j} + r_{i - 1}r_{l}r_{j}), &amp;\text{if }i &lt; j\
+\end{cases}
+$$</p>
+<h3 id="case-floyd-warshall-algorithm">Case: Floyd-Warshall Algorithm<a class="headerlink" href="#case-floyd-warshall-algorithm" title="Permanent link">&para;</a></h3>
+<p>定义 <span class="arithmatex"><span class="MathJax_Preview">D^k_{i,j}\xlongequal{\triangle} \min_{l\le k}(\text{length of path from node}_i\text{ through node}_l\text{ to node}_j), 0\le k\lt n</span><script type="math/tex">D^k_{i,j}\xlongequal{\triangle} \min_{l\le k}(\text{length of path from node}_i\text{ through node}_l\text{ to node}_j), 0\le k\lt n</script></span>，<span class="arithmatex"><span class="MathJax_Preview">D^{-1}_{i,j}\xlongequal{\triangle} cost_{i,j}</span><script type="math/tex">D^{-1}_{i,j}\xlongequal{\triangle} cost_{i,j}</script></span>。</p>
+<p>中间节点的最多个数</p>
+<p>Order：<span class="arithmatex"><span class="MathJax_Preview">D^{-1}\to D^{0}\to\cdots D^{n-1}</span><script type="math/tex">D^{-1}\to D^{0}\to\cdots D^{n-1}</script></span>
+$$
+\begin{aligned}
+D^k_{i,j} &amp;= \begin{cases}
+D^{k-1}<em>{i,j}, &amp;k\notin \text{ the shortest path from node}_i\text{ through node}_l\text{ to node}_j\
+D^{k-1}</em>{i,k} + D^{k-1}<em>{k,j}, &amp;k\in \text{ the shortest path from node}_i\text{ through node}_l\text{ to node}_j\
+\end{cases}\
+&amp;=\min(D<sup>{k-1}_{i,j},D</sup>{k-1}</em>{i,k} + D^{k-1}_{k,j})\
+\end{aligned}
+$$
+实际计算时为什么不需要存 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 这一维？</p>
+<p>第 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 行和第 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 列在计算 <span class="arithmatex"><span class="MathJax_Preview">D^{k}</span><script type="math/tex">D^{k}</script></span> 时是不会变的，它一定等于 <span class="arithmatex"><span class="MathJax_Preview">D^{k-1}</span><script type="math/tex">D^{k-1}</script></span> 时的值，所以更新时用到的实际就是 <span class="arithmatex"><span class="MathJax_Preview">D^{k-1}</span><script type="math/tex">D^{k-1}</script></span> 时的值。</p>
+<h3 id="case-product-assembly">Case: Product Assembly<a class="headerlink" href="#case-product-assembly" title="Permanent link">&para;</a></h3>
+<p>Two assembly lines for the same car
+Different time for each stage
+One can change lines between stages
+Minimize the total assembly time</p>
+<p>两条流水线，</p>
+<p>每个阶段时认为都是在当前阶段上 Optimal 的，然后利用之前阶段的来计算当前阶段最优解。</p>
+<p><strong>Other Cases in Slides</strong></p>
+<p>背包</p>
+<p>用前i 个物品正好获得收益p 所需要最小总空间。最后只需要算出使得W(i,q) &lt;= M 的最大的q 即可。</p>
+<h2 id="lecture-9-greedy-algorithms">Lecture 9. Greedy Algorithms<a class="headerlink" href="#lecture-9-greedy-algorithms" title="Permanent link">&para;</a></h2>
+<p>Make the best decision at each stage, under some greedy criterion. </p>
+<h3 id="case-activity-selection-problem">Case: Activity Selection Problem<a class="headerlink" href="#case-activity-selection-problem" title="Permanent link">&para;</a></h3>
+<p>有好多任务，<span class="arithmatex"><span class="MathJax_Preview">s_i</span><script type="math/tex">s_i</script></span> 开始，<span class="arithmatex"><span class="MathJax_Preview">t_i</span><script type="math/tex">t_i</script></span> 结束，同一时刻只能做一个任务，问最多做多少个及方案</p>
+<p>贪心算法：按照结束时间排序。</p>
+<p>可以通过反证法来证明贪心算法和最优解是等价的</p>
+<h3 id="case-huffman-codes">Case: Huffman Codes<a class="headerlink" href="#case-huffman-codes" title="Permanent link">&para;</a></h3>
+<h2 id="lecture-10-computational-complexity">Lecture 10. Computational Complexity<a class="headerlink" href="#lecture-10-computational-complexity" title="Permanent link">&para;</a></h2>
+<p>NPC：</p>
+<p><img alt="image-20220606153204809" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206061532968.png" /></p>
+<p>只关注可计算的问题。</p>
+<p>给一个 Problem X，和一个 Machine Model M，使用 M 需要花多久去解决 X？</p>
+<p>P 问题：Polynomial Time，<u>多项式可解</u>，认为是 Tractable / 简单的。多项式时间内可以得到解，也一定可以验证解，<span class="arithmatex"><span class="MathJax_Preview">P\sub NP</span><script type="math/tex">P\sub NP</script></span>，问题是无法证明 <span class="arithmatex"><span class="MathJax_Preview">P</span><script type="math/tex">P</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">NP</span><script type="math/tex">NP</script></span> 的真子集。</p>
+<p>NP 问题：Nondeterministic Polynomial Time，<u>多项式时间内可验证一个解是否正确</u>，认为是 Intractable / 难的。它可能是多项式可解的，也可能不是多项式可解的。</p>
+<p>NP-C 问题：<u>是 NP 问题的一个子集，且所有的 NP 问题都能多项式归约到 NP-C</u>。NP-C 至少是和 NP 一样难的，即如果 NPC 多项式可解，那 NP 也多项式可解，即 NP 可以多项式时间内 Reduction 到 NP-C 问题。在证明 NP-C 问题时，我们一般证明 <span class="arithmatex"><span class="MathJax_Preview">\Omega</span><script type="math/tex">\Omega</script></span> 复杂度，因为是要证明它有难。</p>
+<p>现在没有办法证明 P 是否与 NP-C 有交集，因为如果有交集，那 P = NP，NPC 是其中的一个子集；如果没有交集，那 P <span class="arithmatex"><span class="MathJax_Preview">\neq</span><script type="math/tex">\neq</script></span> NP。</p>
+<p>NP-Hard 问题：<u>代表所有的 NP 问题都能多项式归约到的集合</u>。不一定是 NP 问题，不一定是 Decision Problem，即它可能在多项式时间内不可验证。NP 和 NP-Hard 的交是 NP-C。 所有问题都不比 NP-Hard 难。</p>
+<p>co-NP 问题：补是 NP</p>
+<p>问题分类：</p>
+<p>Decision Problem: Output YES / NO</p>
+<p>Search Problem: Output YES / NO and Solution 可行解</p>
+<p>可以把 Optimization Problem 转化为 Decision Problem，比如要想求 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span>，那只需要构造多个 Upper bound，即可变成多个判定问题。Optimization Problem + <span class="arithmatex"><span class="MathJax_Preview">k \in \mathbb{R}</span><script type="math/tex">k \in \mathbb{R}</script></span> =&gt; Decision Problem。</p>
+<p><u>例子</u>：</p>
+<p>第一个 NP-C 问题 Set Problem: 用逻辑运算构造一个表达式，如果给某个变量赋值之后，可以一定让整个表达式值为 1。SAT 问题是指给定一个包含n个布尔变量的逻辑式，问是否存在一个取值组合，使得该式被满足</p>
+<p>编码：Encoding</p>
+<p>背包问题中的 W，实际上是指数，所以背包问题仍然不是多项式可解的。</p>
+<p><strong>Def.</strong>  Language <span class="arithmatex"><span class="MathJax_Preview">L</span><script type="math/tex">L</script></span>, the formal realization of a problem. </p>
+<p>If <span class="arithmatex"><span class="MathJax_Preview">x\in L</span><script type="math/tex">x\in L</script></span>, the answer is YES; if <span class="arithmatex"><span class="MathJax_Preview">x\notin L</span><script type="math/tex">x\notin L</script></span>, answer is NO. </p>
+<p><strong>Turing Mechine</strong>: the formal analogue of an algorithm. 可以进行按步骤的运算</p>
+<p>比如要证明一个数是质数还是合数，那如果证明合数，只需要给出因子就得证，但是质数复杂得多。</p>
+<p>2set 是 P 问题，3set是 NP-complete 问题</p>
+<h3 id="reduction">Reduction 化简归约<a class="headerlink" href="#reduction" title="Permanent link">&para;</a></h3>
+<p>NP-complete 指 Decision Problem，它一定是 NP 问题，不需要证明；NP-hard 需要证明是 NP，它不是 Decision Problem</p>
+<ul>
+<li>Turing Reduction / Cook Reduction</li>
+</ul>
+<p>不断调用 B 去解决 A，那 B 至少跟 A 一样难，<span class="arithmatex"><span class="MathJax_Preview">A\leq_P B</span><script type="math/tex">A\leq_P B</script></span>。</p>
+<ul>
+<li>Karp Reduction</li>
+</ul>
+<p><span class="arithmatex"><span class="MathJax_Preview">L_1\leq_PL_2</span><script type="math/tex">L_1\leq_PL_2</script></span> 即 <span class="arithmatex"><span class="MathJax_Preview">x\in L_1\iff f(x)\in L_2,</span><script type="math/tex">x\in L_1\iff f(x)\in L_2,</script></span>，<span class="arithmatex"><span class="MathJax_Preview">L_1,L_2</span><script type="math/tex">L_1,L_2</script></span> 都是 <span class="arithmatex"><span class="MathJax_Preview">\{0,1\}</span><script type="math/tex">\{0,1\}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">x\in L_1</span><script type="math/tex">x\in L_1</script></span> 代表 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的 Decision 是 1，那 <span class="arithmatex"><span class="MathJax_Preview">f(x)</span><script type="math/tex">f(x)</script></span> 一定也是 1；如果 <span class="arithmatex"><span class="MathJax_Preview">x\notin L_1</span><script type="math/tex">x\notin L_1</script></span>，即 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 在问题 <span class="arithmatex"><span class="MathJax_Preview">L_1</span><script type="math/tex">L_1</script></span> 中答案是 0，那 <span class="arithmatex"><span class="MathJax_Preview">f(x)\notin L_2</span><script type="math/tex">f(x)\notin L_2</script></span>。</p>
+<p><img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205091321647.png" alt="image-20220509132139566" style="zoom:50%;" /></p>
+<p>多项式归约具有传递性</p>
+<p>所以 NP-Complete 集合里的所有问题，都可以互相多项式归约；所以如果要证明一个问题是 NP-Complete 的，那只需要证明某一个 NP-Complete 可以归约到它上面。</p>
+<p>近似比是不能多项式规约的。</p>
+<h2 id="mid-term-contest">Mid-term Contest<a class="headerlink" href="#mid-term-contest" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>In the knapsack problem, we have <em>n</em> items, in which the <em>i</em>-th item values <em>v_i</em> and sizes <em>s_i</em>, and a knapsack capacity <em>C</em>. (All positive integers.)
+Our goal is to select a subset of the items such that the total value of the items should be as large as possible, and their total size should be at most C.
+We will design dynamic programming to solve this problem. Please choose the correct description of subproblems of an optimal solution.</p>
+</blockquote>
+<p>Let <span class="arithmatex"><span class="MathJax_Preview">OPT(i,v)</span><script type="math/tex">OPT(i,v)</script></span> denote the smallest size of a subset items 1,…,<span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> such that its value is exactly <span class="arithmatex"><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>, If no such item exists it is infinity.</p>
+<p>另一种背包，时间复杂度是 <span class="arithmatex"><span class="MathJax_Preview">O(N\times totVal)</span><script type="math/tex">O(N\times totVal)</script></span></p>
+<blockquote>
+<p>In this problem, we would like to find the amortized cost of insertion in a dynamic table <em>T</em>.</p>
+<p>Assume that entering an element in an empty slot of a table costs 1, and copying an element from a table into a new table also costs 1.</p>
+<p>When an item is inserted into a full table, the table <em>T</em> is expanded as a new table <em>T</em>′, and ∣<em>T</em>′∣=∣<em>T</em>∣+10000, i.e, each new table has 10000 more slots than the previous one. Then, we copy all the elements of the old table <em>T</em> into this new table <em>T</em>′, and insert the item in the new table.</p>
+<p>Starting with an empty table T with 10000 slots, we insert a sequence of <em>n</em> elements. What is the amortized cost per insertion? (Choose the smallest upper bound that applies)</p>
+</blockquote>
+<p>只是扩大常数个，不是扩大一倍；可以直接当成每次增加 1 来想，每放进来一个就又满了，又要 copy 一遍。</p>
+<h2 id="lecture-11-approximation">Lecture 11. Approximation<a class="headerlink" href="#lecture-11-approximation" title="Permanent link">&para;</a></h2>
+<h3 id="definitions">Definitions<a class="headerlink" href="#definitions" title="Permanent link">&para;</a></h3>
+<p><strong>Approximation Ratio</strong>: 最优化的问题的近似解与最优解的比（关心解的质量）</p>
+<p>近似比越小越好，越接近 1 越好。<strong>近似比一定大于1</strong> ！！！</p>
+<p>对于一个 Instance <span class="arithmatex"><span class="MathJax_Preview">I</span><script type="math/tex">I</script></span>，如果 <span class="arithmatex"><span class="MathJax_Preview">C(I)</span><script type="math/tex">C(I)</script></span> 是近似算法的解，<span class="arithmatex"><span class="MathJax_Preview">\mathit{OPT}(I)</span><script type="math/tex">\mathit{OPT}(I)</script></span> 是最优解。那么求最小值问题的近似比 <span class="arithmatex"><span class="MathJax_Preview">\alpha = \sup_{I}\dfrac{C(I)}{\mathit{OPT}(I)}</span><script type="math/tex">\alpha = \sup_{I}\dfrac{C(I)}{\mathit{OPT}(I)}</script></span>，求最大值问题的近似比 <span class="arithmatex"><span class="MathJax_Preview">\alpha = \sup_{I}\dfrac{\mathit{OPT}(I)}{C(I)}</span><script type="math/tex">\alpha = \sup_{I}\dfrac{\mathit{OPT}(I)}{C(I)}</script></span></p>
+<p><strong>Approximation Scheme</strong>: 定义？？？</p>
+<p>FPTAS (fully polynomial-time approximation scheme): 那个关于 <span class="arithmatex"><span class="MathJax_Preview">1/\epsilon</span><script type="math/tex">1/\epsilon</script></span> 的多项式，不在指数上；PTAS (polynomial-time approximation scheme): <span class="arithmatex"><span class="MathJax_Preview">1/\epsilon</span><script type="math/tex">1/\epsilon</script></span> 在指数上</p>
+<p>实际应用时怎么求 Approximation Ratio？
+$$
+\alpha = \sup_{I}\dfrac{C(I)}{\mathit{OPT}(I)}\leq \sup_{I}\dfrac{C(I)}{\mathit{OPT}'(I)}
+$$
+其中 <span class="arithmatex"><span class="MathJax_Preview">{\mathit{OPT}'(I)}</span><script type="math/tex">{\mathit{OPT}'(I)}</script></span> 表示 Lower Bound，下界。</p>
+<p>如果有 2 个在线近似算法，那如果每一步都随便拿一个来用，那可能最后比只用一个的近似比还烂。</p>
+<h3 id="approximate-bin-packing">Approximate Bin Packing<a class="headerlink" href="#approximate-bin-packing" title="Permanent link">&para;</a></h3>
+<p>装箱问题：每个箱子大小为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，有 <span class="arithmatex"><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span> 个物品，要全装进去，问最少装几箱？</p>
+<p><strong>3 种离线算法</strong></p>
+<p><strong>Next Fit</strong>：如果当前的最后一个箱子能放就放，放不下就开辟新箱子</p>
+<p><strong>Th</strong>. 如果最优解为 <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span>，那这个算法的解一定不会大于 <span class="arithmatex"><span class="MathJax_Preview">2M-1</span><script type="math/tex">2M-1</script></span>，所以近似比为 <span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span>。比如有 <span class="arithmatex"><span class="MathJax_Preview">2M-2</span><script type="math/tex">2M-2</script></span> 个 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>，有 <span class="arithmatex"><span class="MathJax_Preview">2M-2</span><script type="math/tex">2M-2</script></span> 个 <span class="arithmatex"><span class="MathJax_Preview">1/2</span><script type="math/tex">1/2</script></span>，最优解为 <span class="arithmatex"><span class="MathJax_Preview">M-1</span><script type="math/tex">M-1</script></span> 个满箱子 + <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 个全装 <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span>。</p>
+<p><strong>First Fit</strong>: 找到第一个能放得下的，放进去。解一定不会大于 <span class="arithmatex"><span class="MathJax_Preview">17M/10</span><script type="math/tex">17M/10</script></span>。</p>
+<p><strong>Best Fit</strong>: 在能放的下的箱子里找容量最小的，放进去。解一定不会大于 <span class="arithmatex"><span class="MathJax_Preview">17M/10</span><script type="math/tex">17M/10</script></span>。</p>
+<p>离线算法的近似比一定大于 <span class="arithmatex"><span class="MathJax_Preview">1.5-\epsilon</span><script type="math/tex">1.5-\epsilon</script></span>，在线算法最优近似比为 <span class="arithmatex"><span class="MathJax_Preview">5/3</span><script type="math/tex">5/3</script></span>。</p>
+<p><u>如果去掉队列中的一个物品，可能 First Fit 最后会让箱子数增加。</u></p>
+<p>如果箱子变大了，那 First Fit 也可能让最后箱子数增加。</p>
+<p><strong>Online Algorithms</strong></p>
+<p><strong>Th</strong>. 任何在线装箱问题的算法，近似比都不低于 5/3</p>
+<p><strong>Proof.</strong> 假设每个箱子大小为 50，一个输入是 34 个 tiny items</p>
+<ol>
+<li>任何好的在线算法面对最初的 34 个 tiny items 都不能装两个箱子，因为如果算法想要装在两个箱子，那输入序列长度为 2，那这个算法的效果就很差</li>
+<li>假设之后是 2 个 17，那任意一个近似算法要么是装在一起，要么是装在 2 个箱子里。</li>
+<li>如果装在一起，那假设后面的输入是 3 个 26，那最优解为装 3 个箱子，近似算法最好只能装到 5 个箱子</li>
+<li>如果装在 2 个箱子里，那假设后面的输入是 2 个 34，那最优解为装 3 个箱子，近似算法最好只能装 5 个箱子</li>
+</ol>
+<p><img alt="image-20220516132701501" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205161327647.png" /></p>
+<p>想要去估计最大生成树 <span class="arithmatex"><span class="MathJax_Preview">T</span><script type="math/tex">T</script></span> 中的每个边的权值，我们设 <span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 为每个节点的最大边的集合。<span class="arithmatex"><span class="MathJax_Preview">S</span><script type="math/tex">S</script></span> 中每一条边，肯定是某一个端点的最大权边</p>
+<p>但是如果改为 <span class="arithmatex"><span class="MathJax_Preview">w(S)\geq 0.5w(T)</span><script type="math/tex">w(S)\geq 0.5w(T)</script></span>，这个选项才有意义</p>
+<p><img alt="image-20220516133412206" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205161334498.png" /></p>
+<p>这里任意两点之间都可以有路，所以可以构成一个满足三角不等式的度量空间。最差情况，每个最小生成树上的边都走两遍，这样刚好从起点出发，回到起点，所以近似比可以是 2。但是实际上可以在 dfs 基础上再优化，近似比可以更小。</p>
+<p>bfs (Level Order) 是不行的，它不会构成一个圈，因为最后回不到原点。</p>
+<h3 id="knapsack">Knapsack<a class="headerlink" href="#knapsack" title="Permanent link">&para;</a></h3>
+<p>贪心算法1：单位价值最高的选进来。近似比很差，比如背包容量为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，有 2 个物品，一个价值为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，体积为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，一个价值为 <span class="arithmatex"><span class="MathJax_Preview">w\lt 1</span><script type="math/tex">w\lt 1</script></span>，体积为 <span class="arithmatex"><span class="MathJax_Preview">\epsilon\lt 1</span><script type="math/tex">\epsilon\lt 1</script></span>，最优算法的解为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，但是贪心算法1的解为 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span>，近似比为 <span class="arithmatex"><span class="MathJax_Preview">1/w</span><script type="math/tex">1/w</script></span>，它可以很大很大。</p>
+<p>贪心算法2：价值最高的选进来。近似比还是很差，因为可以有许多性价比为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 但是体积很小的的物品，但是有一个体积为 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span>，性价比为 <span class="arithmatex"><span class="MathJax_Preview">t\lt 1</span><script type="math/tex">t\lt 1</script></span> 的物品，那会优先选这个大的，导致近似比为 <span class="arithmatex"><span class="MathJax_Preview">1/t</span><script type="math/tex">1/t</script></span>，可以很大很大。</p>
+<p>ModiedGreedy 改进的贪心算法：前两个贪心的解取 <span class="arithmatex"><span class="MathJax_Preview">\max</span><script type="math/tex">\max</script></span>。近似比为 <span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span>。</p>
+<p>证明：假设 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 个物品的性价比满足
+$$
+\frac{v_1}{w_1}\geq \frac{v_2}{w_2}\geq \cdots\geq \frac{v_k}{w_k}
+$$</p>
+<p>PTAS: <span class="arithmatex"><span class="MathJax_Preview">\epsilon</span><script type="math/tex">\epsilon</script></span> 一定</p>
+<p>FPTAS: 通过对另一种背包的改进，<span class="arithmatex"><span class="MathJax_Preview">O(N\times totVal)</span><script type="math/tex">O(N\times totVal)</script></span>，</p>
+<h3 id="load-balancing">Load Balancing<a class="headerlink" href="#load-balancing" title="Permanent link">&para;</a></h3>
+<p><span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 个机器，<span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个工作 (<span class="arithmatex"><span class="MathJax_Preview">p_1, \cdots, p_n</span><script type="math/tex">p_1, \cdots, p_n</script></span>)，需要尽量负载平衡，让全部完成的时间尽可能短。</p>
+<p>显然 <span class="arithmatex"><span class="MathJax_Preview">\mathit{OPT}\geq \max(p_{max}, \sum p_i/m)</span><script type="math/tex">\mathit{OPT}\geq \max(p_{max}, \sum p_i/m)</script></span>。估计近似比的时候往往需要估计最优解的下界。</p>
+<p>假设近似算法的解为 <span class="arithmatex"><span class="MathJax_Preview">\mathit{AIG}</span><script type="math/tex">\mathit{AIG}</script></span>，设存在这样一种情况，前 <span class="arithmatex"><span class="MathJax_Preview">n-1</span><script type="math/tex">n-1</script></span> 项工作都均匀分好，第 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 项单独留出来了，那 <span class="arithmatex"><span class="MathJax_Preview">\mathit{AIG}=\sum_{i=1}^{n-1}p_i+p_n\xlongequal{\triangle}x+p_n</span><script type="math/tex">\mathit{AIG}=\sum_{i=1}^{n-1}p_i+p_n\xlongequal{\triangle}x+p_n</script></span>。而 <span class="arithmatex"><span class="MathJax_Preview">\mathit{OPT}\geq \max(p_n,\dfrac{mx+p_n}{m})\geq x+p_n/m</span><script type="math/tex">\mathit{OPT}\geq \max(p_n,\dfrac{mx+p_n}{m})\geq x+p_n/m</script></span>，那么有
+$$
+\mathit{AIG}=x+p_n/m+(1-1/m)p_n\leq \mathit{OPT}+(1-1/m)\mathit{OPT}=(2-1/m)\mathit{OPT}\leq 2\mathit{OPT}
+$$</p>
+<h3 id="k-center">K-center<a class="headerlink" href="#k-center" title="Permanent link">&para;</a></h3>
+<p>把 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个点，划成 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 个圈，让最大半径最小。</p>
+<p>近似解如果在最优解的圈里，那只要以他为中心画一个半径为 <span class="arithmatex"><span class="MathJax_Preview">2r</span><script type="math/tex">2r</script></span> 的圈，那一定可以把所有的点都圈进来。</p>
+<h2 id="lecture-12-local-search">Lecture 12. Local Search<a class="headerlink" href="#lecture-12-local-search" title="Permanent link">&para;</a></h2>
+<p>已经有了一个算法可以得到可行解，能不能让这个解的近似比更好一些？</p>
+<p>如果把解的近似比当成函数，那可以选取随机梯度下降的方法，但是有时候近似比函数不是单峰的，或者存在鞍点，那这样就会出问题。</p>
+<p>对 NPC 问题很难找到最优解，P 问题会更容易找到最优解。</p>
+<h3 id="hopfield-neural-networks">Hopfield Neural Networks<a class="headerlink" href="#hopfield-neural-networks" title="Permanent link">&para;</a></h3>
+<p>图里每个点都有 +1,-1 两个状态，每个边，如果节点的状态相同，那这个边就是负边；如果状态相反，那边是正边，每个边的权值绝对值代表需求的重要性。</p>
+<p>想要让这个图是足够好的。</p>
+<p>如果 <span class="arithmatex"><span class="MathJax_Preview">w_e\times s_{u}\times s_v\lt 0</span><script type="math/tex">w_e\times s_{u}\times s_v\lt 0</script></span>，那这一条边 <span class="arithmatex"><span class="MathJax_Preview">e</span><script type="math/tex">e</script></span> 是好的，如果与一个节点相连的所有边的好边的加权和比坏边的加权和要大，那就称为这个节点是满意的。如果图里所有的点都是满意的，那这个图就是稳定的。</p>
+<p>稳定：所有人都满意，都不想改。</p>
+<p><img alt="image-20220624175806002" src="C:\Users\Lenovo\AppData\Roaming\Typora\typora-user-images\image-20220624175806002.png" /></p>
+<p>如果把自己的状态改了，那一定可以让自己从不满意变成满意。</p>
+<p><strong>Th.</strong> 这个图在改变最多 <span class="arithmatex"><span class="MathJax_Preview">\sum|w_e|</span><script type="math/tex">\sum|w_e|</script></span> 次之后一定会稳定。</p>
+<p><img alt="image-20220516151815977" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205161518223.png" /></p>
+<p>Decision Problem 是 P 的，但是 Search Problem 是难的。</p>
+<p>质数合数问题也是这样，判断是容易的，但是找到因式分解是难的。</p>
+<h3 id="maximum-cut-problem"><strong>Maximum Cut</strong> Problem<a class="headerlink" href="#maximum-cut-problem" title="Permanent link">&para;</a></h3>
+<p>把图分成二部图，想让割最大。</p>
+<p>一个近似算法：假设隔成 A,B 两部分，对于所有的 <span class="arithmatex"><span class="MathJax_Preview">u\in A</span><script type="math/tex">u\in A</script></span>，只要 <span class="arithmatex"><span class="MathJax_Preview">\sum_{v\in A} w_{uv}\gt \sum_{v\in B}w_{uv}</span><script type="math/tex">\sum_{v\in A} w_{uv}\gt \sum_{v\in B}w_{uv}</script></span>，就把原来的割换掉，把 <span class="arithmatex"><span class="MathJax_Preview">u</span><script type="math/tex">u</script></span> 挪到 B 里。</p>
+<p>优化：<strong>Big-improvement-flip</strong></p>
+<p>只有 <span class="arithmatex"><span class="MathJax_Preview">\sum_{v\in A} w_{uv}\gt \sum_{v\in B}w_{uv}+\dfrac{2\epsilon}{n}w(A,B)</span><script type="math/tex">\sum_{v\in A} w_{uv}\gt \sum_{v\in B}w_{uv}+\dfrac{2\epsilon}{n}w(A,B)</script></span> 才换。</p>
+<h3 id="homework">Homework<a class="headerlink" href="#homework" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p><img alt="image-20220523144320447" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205231443639.png" /></p>
+</blockquote>
+<p>不止2倍，可以任意大。假设有点 (0,0), (w,0), (w,h), (0,h) 假设最开始先找到的中心是 (-1,h/2), (w+1,h/2)，那分类是把 (0,0),(0,h) 分在一起，但是正解应该是把 (0,0), (w,0) 分在一起。</p>
+<blockquote>
+<p><img alt="image-20220523144903953" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205231449220.png" /></p>
+</blockquote>
+<p>A. 分成两个相等的集合，就是 NP。</p>
+<p>D. 假设有一个时间特别特别长</p>
+<p>B. 如果每次移最大的，那只要移动过就不会再移回来，所以最多 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 次。</p>
+<h2 id="lecture-13-randomized-algorithms">Lecture 13. Randomized Algorithms<a class="headerlink" href="#lecture-13-randomized-algorithms" title="Permanent link">&para;</a></h2>
+<p>避免最坏情况，在一些最坏情况比较差的算法中寻找平均情况最优。</p>
+<p>快排的时间复杂度的期望为 <span class="arithmatex"><span class="MathJax_Preview">N\log N</span><script type="math/tex">N\log N</script></span>，在选主元的时候是按照均匀分布选的。</p>
+<p>Amotized 是对最坏情况平均。</p>
+<p>两类随机算法：输入是随机的，Average-case；算法是随机的，Randomized Algorithms</p>
+<p>Randomized Algorithms 中有两类：拉斯维加斯、蒙特卡洛；分别对应：结果总是正确但是时间不同，时间是相对稳定的但是结果正确性不同。</p>
+<p><strong>Example</strong>. Hiring problem</p>
+<p>Interviewing Cost: <span class="arithmatex"><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span>, Hiring Cost: <span class="arithmatex"><span class="MathJax_Preview">C_h</span><script type="math/tex">C_h</script></span>; 且 <span class="arithmatex"><span class="MathJax_Preview">C_h</span><script type="math/tex">C_h</script></span> 远大于 <span class="arithmatex"><span class="MathJax_Preview">C_i</span><script type="math/tex">C_i</script></span>。</p>
+<p>假设 <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 个被雇佣，则总的时间为 <span class="arithmatex"><span class="MathJax_Preview">NC_i+MC_h</span><script type="math/tex">NC_i+MC_h</script></span>。现在有一个算法，想找 best，找到 best 就雇佣，把之前的解雇，这样最差时间为 <span class="arithmatex"><span class="MathJax_Preview">NC_i+NC_h</span><script type="math/tex">NC_i+NC_h</script></span>。</p>
+<p>计算平均情况：设 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 为雇佣的人数（最终只雇佣 1 人，其他 <span class="arithmatex"><span class="MathJax_Preview">X-1</span><script type="math/tex">X-1</script></span> 会被解雇）</p>
+<p><img alt="image-20220523134509464" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205231345858.png" /></p>
+<p>为什么是 <span class="arithmatex"><span class="MathJax_Preview">1/i</span><script type="math/tex">1/i</script></span> ? 前 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 个里它最大。</p>
+<p><strong>Online</strong>: 首先查看前 k 个之后确定一个 best，然后之后的只要大于 best 就直接要，后面的就不看了。</p>
+<p>这个算法时间是稳定的，但是正确率不稳定，所以要求使用这个算法雇佣到正确的人的概率。</p>
+<p>设事件 <span class="arithmatex"><span class="MathJax_Preview">S_i</span><script type="math/tex">S_i</script></span> 为，正确的人就是 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span>，且这个算法中它被雇佣了，意思就是 <span class="arithmatex"><span class="MathJax_Preview">[k+1,i-1]</span><script type="math/tex">[k+1,i-1]</script></span> 的人都没被雇佣且它比之前探索区间的的最大值要大；即需要保证，[1,i-1] 中的最大值出现在 [1,k] 之间。最后的结果就是 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{E}S = \mathrm{E}[\sum S_i]=\sum\mathrm{Pr}(S_i)</span><script type="math/tex">\mathrm{E}S = \mathrm{E}[\sum S_i]=\sum\mathrm{Pr}(S_i)</script></span>。</p>
+<p>显然，<span class="arithmatex"><span class="MathJax_Preview">S_i=0,i\leq k</span><script type="math/tex">S_i=0,i\leq k</script></span>。
+$$
+\mathrm{Pr}(S_i) = \mathrm{Pr}(正确的人就是 i)\mathrm{Pr}(被雇佣) = \frac{1}{N}\frac{k}{i-1}
+$$</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\mathrm{Pr}(S) = \sum_{i=k+1}^N\mathrm{Pr}(S_i) = \sum_{i=k+1}^N\frac{1}{N}\frac{k}{i-1} = \frac{k}{N}\sum_{i=k}^{N-1}\frac{1}{i}\geq \frac{k}{N}\ln(\frac{N}{k})
+</div>
+<script type="math/tex; mode=display">
+\mathrm{Pr}(S) = \sum_{i=k+1}^N\mathrm{Pr}(S_i) = \sum_{i=k+1}^N\frac{1}{N}\frac{k}{i-1} = \frac{k}{N}\sum_{i=k}^{N-1}\frac{1}{i}\geq \frac{k}{N}\ln(\frac{N}{k})
+</script>
+</div>
+<p>当 <span class="arithmatex"><span class="MathJax_Preview">k=1/e</span><script type="math/tex">k=1/e</script></span> 时，可以让下界最大。</p>
+<p><strong>Quick Sort</strong> 每次选定一个主元，小于的放左边，大于的放右边，然后递归的去算，求平均耗时。</p>
+<p>衡量时间的方式：元素之间比较的次数 = <span class="arithmatex"><span class="MathJax_Preview">\sum x_{ij}</span><script type="math/tex">\sum x_{ij}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">i,j</span><script type="math/tex">i,j</script></span> 表示从小到大排好之后的下标。
+$$
+x_{ij} = \delta_{a_i\text{ compare with }a_j}
+$$</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\mathrm{E}X = \sum_{i}\sum_{j&gt;i} \mathrm{Pr}({a_i\text{ compare with }a_j})
+</div>
+<script type="math/tex; mode=display">
+\mathrm{E}X = \sum_{i}\sum_{j>i} \mathrm{Pr}({a_i\text{ compare with }a_j})
+</script>
+</div>
+<p>只有当 <span class="arithmatex"><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span> 或者 <span class="arithmatex"><span class="MathJax_Preview">a_j</span><script type="math/tex">a_j</script></span> 分在同一个集合的时候，<span class="arithmatex"><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span> 或者 <span class="arithmatex"><span class="MathJax_Preview">a_j</span><script type="math/tex">a_j</script></span> 做了主元，才会进行比较。所以也就意味着 <span class="arithmatex"><span class="MathJax_Preview">a_{i+1}, \cdots, a_{j-1}</span><script type="math/tex">a_{i+1}, \cdots, a_{j-1}</script></span> 都在同一个集合里。
+$$
+\mathrm{Pr}({a_i\text{ compare with }a_j})\leq \frac{2}{j-i+1}
+$$
+每个都是等概率被选为主元的，只有选了 <span class="arithmatex"><span class="MathJax_Preview">a_i</span><script type="math/tex">a_i</script></span> 或 <span class="arithmatex"><span class="MathJax_Preview">a_{j}</span><script type="math/tex">a_{j}</script></span> 为主元，才会造成 <span class="arithmatex"><span class="MathJax_Preview">x_{ij}=1</span><script type="math/tex">x_{ij}=1</script></span>，所以概率恰为 <span class="arithmatex"><span class="MathJax_Preview">2/(j-i+1)</span><script type="math/tex">2/(j-i+1)</script></span>。</p>
+<p><strong>Modified Quicksort</strong> 选主元的时候，只有这个主元能够让小的大的的元素数都 <span class="arithmatex"><span class="MathJax_Preview">&gt;1/4</span><script type="math/tex">>1/4</script></span>，才选。</p>
+<p>这样的算法中，选主元的次数符合参数为 <span class="arithmatex"><span class="MathJax_Preview">1/2</span><script type="math/tex">1/2</script></span> 的几何分布（前 <span class="arithmatex"><span class="MathJax_Preview">k-1</span><script type="math/tex">k-1</script></span> 次不成功，最后一次成功），所以几何分布的期望次数为 <span class="arithmatex"><span class="MathJax_Preview">2</span><script type="math/tex">2</script></span>。每次都可以让下一层的大小最大变为 <span class="arithmatex"><span class="MathJax_Preview">n\times 3/4</span><script type="math/tex">n\times 3/4</script></span>。所以最多 <span class="arithmatex"><span class="MathJax_Preview">\log_{4/3}n</span><script type="math/tex">\log_{4/3}n</script></span> 层。</p>
+<p>ppt 是啥？</p>
+<p><img alt="image-20220523163842099" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205231638234.png" /></p>
+<h2 id="lecture-14-parallel-algorithms">Lecture 14. Parallel Algorithms<a class="headerlink" href="#lecture-14-parallel-algorithms" title="Permanent link">&para;</a></h2>
+<p><strong>Parallel Random Access Machine (PRAM) 并行随机访问</strong></p>
+<p>所有机器都有共用的 Memory。</p>
+<div class="highlight"><pre><span></span><code>for P_i, 1 &lt;= i &lt;= n pardo
+    A(i) &lt;- B(i)
+</code></pre></div>
+<p>正常会需要 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的时间，并行只需要 <span class="arithmatex"><span class="MathJax_Preview">1</span><script type="math/tex">1</script></span> 的时间。</p>
+<p>同时读是没问题的，但是如果同时写，写的东西还不同，就需要定义一些规则解决冲突。</p>
+<p>读写分类 Exclusive-Read Exclusive-Write (EREW) 独占读独占写；CREW 并发读独占写；CRCW 并发读并发写</p>
+<p>再如，把 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 个数加起来，如果非并行，那需要花费 <span class="arithmatex"><span class="MathJax_Preview">n</span><script type="math/tex">n</script></span> 的时间，并行只需要花费 <span class="arithmatex"><span class="MathJax_Preview">\log n</span><script type="math/tex">\log n</script></span> 用类似二叉树结构。</p>
+<p><strong>Work-Depth (WD)</strong></p>
+<p>会出现 <span class="arithmatex"><span class="MathJax_Preview">W(n)</span><script type="math/tex">W(n)</script></span> 很小，但是 <span class="arithmatex"><span class="MathJax_Preview">T(n)</span><script type="math/tex">T(n)</script></span> 很大的情况</p>
+<p>Work load – total number of operations: W(n) 操作数
+Worst-case running time: T(n)</p>
+<p>W(n) operations and T(n) time
+P(n) = W(n)/T(n) processors and T(n) time (on a PRAM)
+W(n)/p time using any number of p ≤ W(n)/T(n) processors (on a PRAM)
+W(n)/p + T(n) time using any number of p processors (on a PRAM)</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\sum \lceil w_i/p\rceil = \sum (1+\frac{w_i}{p}) = \frac{\sum w_i}{p} + T(n) = \frac{W(n)}{P(n)} + T(n)
+</div>
+<script type="math/tex; mode=display">
+\sum \lceil w_i/p\rceil = \sum (1+\frac{w_i}{p}) = \frac{\sum w_i}{p} + T(n) = \frac{W(n)}{P(n)} + T(n)
+</script>
+</div>
+<h3 id="example">Example 前缀和<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p>并不是二叉树，这里也是只需要把最多两项加起来，但是 <span class="arithmatex"><span class="MathJax_Preview">B(1,2)</span><script type="math/tex">B(1,2)</script></span> 代表1加到4，而不是第3和4加起来。</p>
+<h3 id="example-parallel-merge-sort">Example Parallel Merge Sort<a class="headerlink" href="#example-parallel-merge-sort" title="Permanent link">&para;</a></h3>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T(n) = T(n/2)+O(n)
+</div>
+<script type="math/tex; mode=display">
+T(n) = T(n/2)+O(n)
+</script>
+</div>
+<p>怎样把合并操作减复杂度？</p>
+<p><img alt="image-20220530141928083" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205301419221.png" /></p>
+<p>分成没有交叉的一块块，相当于知道了各自的位置，知道了A序列中有几个空，这些可以填进B序列中的元素。</p>
+<p>每一块大小都是 <span class="arithmatex"><span class="MathJax_Preview">\log n</span><script type="math/tex">\log n</script></span> 的，分成 <span class="arithmatex"><span class="MathJax_Preview">p=n/\log n</span><script type="math/tex">p=n/\log n</script></span> 块。</p>
+<p>从 A 中选一块中的第一个元素，找到它在 B 中的位置，通过二分，这个查找是 <span class="arithmatex"><span class="MathJax_Preview">\log</span><script type="math/tex">\log</script></span> 的。</p>
+<p>然后对于每一块里的所有元素，都可以确定 rank。</p>
+<p>这样时间优化为
+$$
+T(n)=T(n/2)+O(\log n)
+$$
+但是总 Work Load 依然是
+$$
+W(n) = 2W(n/2) + O(n)
+$$</p>
+<h3 id="example_1">Example 找最大值<a class="headerlink" href="#example_1" title="Permanent link">&para;</a></h3>
+<p>法1：最开始全都是 0；然后两两比较，如果小了就给它写1；正确处理写入冲突即可；剩下的那个唯一一个0就是答案；这样只需要 <span class="arithmatex"><span class="MathJax_Preview">N^2</span><script type="math/tex">N^2</script></span> 个 Processer 就可以在 <span class="arithmatex"><span class="MathJax_Preview">O(1)</span><script type="math/tex">O(1)</script></span> 做完。这个算法中 <span class="arithmatex"><span class="MathJax_Preview">T=O(1),W=O(n^2)</span><script type="math/tex">T=O(1),W=O(n^2)</script></span>。</p>
+<p>法2：分成 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 个大小为 <span class="arithmatex"><span class="MathJax_Preview">\sqrt{n}</span><script type="math/tex">\sqrt{n}</script></span> 的块，这样每个块内用朴素的 <span class="arithmatex"><span class="MathJax_Preview">T=O(\sqrt{n}),W=O(\sqrt{n})</span><script type="math/tex">T=O(\sqrt{n}),W=O(\sqrt{n})</script></span>的算法，然后合并的时候用 <span class="arithmatex"><span class="MathJax_Preview">T=O(1), W=O((\sqrt{n})^2)=O(n)</span><script type="math/tex">T=O(1), W=O((\sqrt{n})^2)=O(n)</script></span> 的算法，这样即可优化为：
+$$
+W(n) = \sqrt{n}W(\sqrt{n}) + n\Rightarrow W(n) = O(n\log\log n)
+$$</p>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+T(n) = \sqrt{n}T(\sqrt{n}) + 1\Rightarrow T(n) = O(\log \log n)
+</div>
+<script type="math/tex; mode=display">
+T(n) = \sqrt{n}T(\sqrt{n}) + 1\Rightarrow T(n) = O(\log \log n)
+</script>
+</div>
+<p>法3：分成 <span class="arithmatex"><span class="MathJax_Preview">n/\log \log n</span><script type="math/tex">n/\log \log n</script></span> 个大小为 <span class="arithmatex"><span class="MathJax_Preview">\log\log n</span><script type="math/tex">\log\log n</script></span> 的块。这样 <span class="arithmatex"><span class="MathJax_Preview">T(n) = O(\log \log n),W(n) = O(n)</span><script type="math/tex">T(n) = O(\log \log n),W(n) = O(n)</script></span>。</p>
+<p><img alt="image-20220530145218341" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205301452478.png" /></p>
+<p><span class="arithmatex"><span class="MathJax_Preview">T,W</span><script type="math/tex">T,W</script></span> 中的 $\log\log(n/h) $ 利用法2来计算得到。</p>
+<p><img alt="image-20220530150335647" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205301503770.png" /></p>
+<h2 id="lecture-15-external-sorting">Lecture 15. External Sorting<a class="headerlink" href="#lecture-15-external-sorting" title="Permanent link">&para;</a></h2>
+<p>外排：没办法把所有东西都读进内存，怎么排序？考虑磁带的情况。</p>
+<p>Run: 读的一个区间叫做一个 Run</p>
+<p>Pass: 读完一遍叫做一个 Pass</p>
+<p>按照 Fibonacci 数列的方式放，效率最高</p>
+<p><img alt="image-20220530152903173" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205301529346.png" /></p>
+<p><img alt="image-20220530152955372" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205301529517.png" /></p>
+<p><img alt="image-20220530153111271" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205301531390.png" /></p>
+<p>总数应该满足 <span class="arithmatex"><span class="MathJax_Preview">3F_{n-1}+2F_{n-2}+F_{n-3}</span><script type="math/tex">3F_{n-1}+2F_{n-2}+F_{n-3}</script></span>。</p>
+<p>run的长度可以比内存长度大，因为只要 output buffer 写满之后就直接存出去就好。</p>
+<p>对于 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span>-way 的 Merge，一般需要至少 2k 大小的 input buffer。</p>
+<p>Read Write Merge 是可以并行操作的。</p>
+<p>怎样获得一个更长的run？</p>
+<p>直接从一个序列读呀读，然后如果发现放不进 output 就在 buffer 中 mark 一下，直到所有的都被 mark，那就重新开始一个新的 run。</p>
+<h2 id="final-exam">Final Exam<a class="headerlink" href="#final-exam" title="Permanent link">&para;</a></h2>
+<p>判断 13   2pts</p>
+<p>选择 20   3pts</p>
+<p>填空 2        3pts</p>
+<p>函数 1        8pts</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  <!-- Giscus -->
+  <h2 id="__comments">评论</h2>
+  <!-- Replace with generated snippet -->
+  <script src="https://giscus.app/client.js"
+        data-repo="OhGaGaGaGa/blog"
+        data-repo-id="R_kgDOGq47UA"
+        data-category="General"
+        data-category-id="DIC_kwDOGq47UM4CAuFr"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+  </script>
+  <!-- Reload on palette change -->
+  <script>
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object")
+      if (palette.color.scheme === "slate") {
+        var giscus = document.querySelector("script[src*=giscus]")
+        giscus.setAttribute("data-theme", "dark") 
+      }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        location.reload()
+      })
+    })
+  </script>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2022 Wang Jingkai
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/ohgagagaga" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.zhihu.com/people/wjk2017" target="_blank" rel="noopener" title="ZhiHu" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M170.54 148.13v217.54l23.43.01 7.71 26.37 42.01-26.37h49.53V148.13H170.54zm97.75 193.93h-27.94l-27.9 17.51-5.08-17.47-11.9-.04V171.75h72.82v170.31zm-118.46-94.39H97.5c1.74-27.1 2.2-51.59 2.2-73.46h51.16s1.97-22.56-8.58-22.31h-88.5c3.49-13.12 7.87-26.66 13.12-40.67 0 0-24.07 0-32.27 21.57-3.39 8.9-13.21 43.14-30.7 78.12 5.89-.64 25.37-1.18 36.84-22.21 2.11-5.89 2.51-6.66 5.14-14.53h28.87c0 10.5-1.2 66.88-1.68 73.44H20.83c-11.74 0-15.56 23.62-15.56 23.62h65.58C66.45 321.1 42.83 363.12 0 396.34c20.49 5.85 40.91-.93 51-9.9 0 0 22.98-20.9 35.59-69.25l53.96 64.94s7.91-26.89-1.24-39.99c-7.58-8.92-28.06-33.06-36.79-41.81L87.9 311.95c4.36-13.98 6.99-27.55 7.87-40.67h61.65s-.09-23.62-7.59-23.62v.01zm412.02-1.6c20.83-25.64 44.98-58.57 44.98-58.57s-18.65-14.8-27.38-4.06c-6 8.15-36.83 48.2-36.83 48.2l19.23 14.43zm-150.09-59.09c-9.01-8.25-25.91 2.13-25.91 2.13s39.52 55.04 41.12 57.45l19.46-13.73s-25.67-37.61-34.66-45.86h-.01zM640 258.35c-19.78 0-130.91.93-131.06.93v-101c4.81 0 12.42-.4 22.85-1.2 40.88-2.41 70.13-4 87.77-4.81 0 0 12.22-27.19-.59-33.44-3.07-1.18-23.17 4.58-23.17 4.58s-165.22 16.49-232.36 18.05c1.6 8.82 7.62 17.08 15.78 19.55 13.31 3.48 22.69 1.7 49.15.89 24.83-1.6 43.68-2.43 56.51-2.43v99.81H351.41s2.82 22.31 25.51 22.85h107.94v70.92c0 13.97-11.19 21.99-24.48 21.12-14.08.11-26.08-1.15-41.69-1.81 1.99 3.97 6.33 14.39 19.31 21.84 9.88 4.81 16.17 6.57 26.02 6.57 29.56 0 45.67-17.28 44.89-45.31v-73.32h122.36c9.68 0 8.7-23.78 8.7-23.78l.03-.01z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="../../js-setting/extra.js"></script>
+      
+        <script src="../../js-setting/baidu.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

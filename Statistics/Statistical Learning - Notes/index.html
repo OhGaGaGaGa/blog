@@ -1,0 +1,1467 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WJK">
+      
+      
+        <link rel="canonical" href="https://ohgagagaga.github.io/blog/Statistics/Statistical%20Learning%20-%20Notes/">
+      
+      
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+  <title>WJK's Blog</title>
+  <meta name="google-site-verification" content="pIp9DE0w0TACTUygKSTruXXoy1WCic7gBMHPGeQb27E" />
+
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+  
+    
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WJK's Docs - 统计学习" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://ohgagagaga.github.io/blog/Statistics/Statistical%20Learning%20-%20Notes/" />
+  <meta property="og:image" content="<url>" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Teal" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="WJK&#39;s Docs" class="md-header__button md-logo" aria-label="WJK's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11.75A1.25 1.25 0 0 0 7.75 13 1.25 1.25 0 0 0 9 14.25 1.25 1.25 0 0 0 10.25 13 1.25 1.25 0 0 0 9 11.75m6 0A1.25 1.25 0 0 0 13.75 13 1.25 1.25 0 0 0 15 14.25 1.25 1.25 0 0 0 16.25 13 1.25 1.25 0 0 0 15 11.75M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 4.12 4.12 0 0 1 0-.86 10.05 10.05 0 0 0 5.26-5.37A9.985 9.985 0 0 0 17.42 10c.76 0 1.51-.09 2.25-.26 1.25 4.26-1.17 8.69-5.41 9.93-.76.22-1.5.33-2.26.33M0 2a2 2 0 0 1 2-2h4v2H2v4H0V2m24 20a2 2 0 0 1-2 2h-4v-2h4v-4h2v4M2 24a2 2 0 0 1-2-2v-4h2v4h4v2H2M22 0a2 2 0 0 1 2 2v4h-2V2h-4V0h4Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WJK's Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              统计学习
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="Teal" data-md-color-accent="Teal"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81 1.42-1.42M1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="Blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="WJK&#39;s Docs" class="md-nav__button md-logo" aria-label="WJK's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11.75A1.25 1.25 0 0 0 7.75 13 1.25 1.25 0 0 0 9 14.25 1.25 1.25 0 0 0 10.25 13 1.25 1.25 0 0 0 9 11.75m6 0A1.25 1.25 0 0 0 13.75 13 1.25 1.25 0 0 0 15 14.25 1.25 1.25 0 0 0 16.25 13 1.25 1.25 0 0 0 15 11.75M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 4.12 4.12 0 0 1 0-.86 10.05 10.05 0 0 0 5.26-5.37A9.985 9.985 0 0 0 17.42 10c.76 0 1.51-.09 2.25-.26 1.25 4.26-1.17 8.69-5.41 9.93-.76.22-1.5.33-2.26.33M0 2a2 2 0 0 1 2-2h4v2H2v4H0V2m24 20a2 2 0 0 1-2 2h-4v-2h4v-4h2v4M2 24a2 2 0 0 1-2-2v-4h2v4h4v2H2M22 0a2 2 0 0 1 2 2v4h-2V2h-4V0h4Z"/></svg>
+
+    </a>
+    WJK's Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../MkDocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LeetCode
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            LeetCode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/1-2sum3sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 1 & 15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Problem-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Problem-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Problem-11%2616/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 11 & 16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/135-greedy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 135
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/466-string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 466
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/1553-Search.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 1553
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../LeetCode/Problem-2013/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 2013
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Bit-DP.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    位运算及状压DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tips
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Tips/Git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Structure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data%20Structure/Notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fundamental
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Data%20Structure/ADS%20Notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../System/Digital%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../System/Computer%20Organization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computer Organization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../System/Operating System.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operating System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Statistics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TSA-Reviewing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time Series Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../perceptron/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perceptron
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LSE-MLE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LSE & MLE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Quadratic%20Form/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quadratic Form
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Sample%20Variance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Deep Learning" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+<h1 id="_1">统计学习<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p><img alt="image-20220520204158609" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202205202041678.png" /></p>
+<p>可约误差和不可约误差</p>
+<p>解决 Variance：更多的数据、正则化（regularization）
+正则化主要是使拟合的model更加平滑，用来减少输入数据的影响。在损失函数中加入正则化项</p>
+<p>解决 Bias：可以增加更多的feature作为输入，可以选择一个更加复杂的model</p>
+<h2 id="ch-3">Ch 3 回归分析<a class="headerlink" href="#ch-3" title="Permanent link">&para;</a></h2>
+<ol>
+<li>为什么单独检验时，对某个系数的检验是显著不为0的；但是把整体建立多元回归方程之后，得到的系数对其检验，就不能拒绝它为0的假设了？或者，为什么单独检验时，得到的是正相关关系；但是多元检验之后得到的就是负相关了？</li>
+</ol>
+<p>因为多元回归中的系数，是假定其他因素固定时，这个变量对因变量的影响；如果一元回归，那没有固定其他变量的影响，会没办法揭示自变量之间的内在联系，造成对系数的判断失误。</p>
+<h2 id="ch-4">Ch 4 分类<a class="headerlink" href="#ch-4" title="Permanent link">&para;</a></h2>
+<h3 id="_2">常用分类方法<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Logistic Regression</li>
+<li>Linear Discriminant Analysis 线性判别分析</li>
+<li>Quadratic Discriminant Analysis 平方判别分析</li>
+<li>Naïve Bayes</li>
+<li>K-Nearest Neighbors</li>
+<li>Poisson Regression</li>
+<li>Generalized Additive Models (in Chapter 7)</li>
+<li>Random Forests (in Chapter 8)</li>
+<li>Boosting (in Chapter 8)</li>
+<li>Support Vector Machine (in Chapter 9)</li>
+</ul>
+<h3 id="quantitative">为什么不使用 Quantitative 的线性回归？<a class="headerlink" href="#quantitative" title="Permanent link">&para;</a></h3>
+<p>回归问题中，<span class="arithmatex"><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span> 是 Quantitative 的，定量的；分类问题中，<span class="arithmatex"><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span> 是 Qualitative 的，定性的。</p>
+<p>假设是多分类问题，那如果给定了一个 Qualitative 关系，就确定了各个分类他们之间的顺序，同时也确定了他们之间的间隔（影响权重）是相等的；但是实际中，这种顺序或者这种权重是无来由的，也是无意义的，所以我们不能把他当作 Quantitative 变量。</p>
+<p>即使是二分类问题，也不可以，因为使用线性回归可能没办法对所有 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 都得到有意义的 <span class="arithmatex"><span class="MathJax_Preview">\widehat{P(Y|X=x)}</span><script type="math/tex">\widehat{P(Y|X=x)}</script></span>，可能出现预测值超出分类范围的情况。</p>
+<p><img alt="image-20220410141159687" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202204101412790.png" /></p>
+<h3 id="logistic-regression">Logistic Regression<a class="headerlink" href="#logistic-regression" title="Permanent link">&para;</a></h3>
+<h4 id="binomial-logistic-regression">Binomial Logistic Regression<a class="headerlink" href="#binomial-logistic-regression" title="Permanent link">&para;</a></h4>
+<p>处理二分类问题，想要从 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 确定分类 <span class="arithmatex"><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span>，如果使用传统的线性回归 <span class="arithmatex"><span class="MathJax_Preview">Y = \beta_0 + \beta_1 X</span><script type="math/tex">Y = \beta_0 + \beta_1 X</script></span> 会面临两个问题：</p>
+<ol>
+<li>因变量 <span class="arithmatex"><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span> 本身只能取 <span class="arithmatex"><span class="MathJax_Preview">0,1</span><script type="math/tex">0,1</script></span> 两个值，但是上面的线性回归算出的 <span class="arithmatex"><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span> 是连续的。</li>
+</ol>
+<p>所以我们可以通过估计出一个合理的 <span class="arithmatex"><span class="MathJax_Preview">\widehat{P(Y=1|X=x)}</span><script type="math/tex">\widehat{P(Y=1|X=x)}</script></span> 的方式，估计出它之后其实就可以确定 <span class="arithmatex"><span class="MathJax_Preview">Y</span><script type="math/tex">Y</script></span>，它可以视作 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的函数，下文中记作 <span class="arithmatex"><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span>。</p>
+<p>我们可以根据 <span class="arithmatex"><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> 来判定分到哪一类，这个判定的标准不一定是 <span class="arithmatex"><span class="MathJax_Preview">p(x)&gt;0.5</span><script type="math/tex">p(x)>0.5</script></span>，可能是其他任意的。</p>
+<p>那么，如果是线性回归，我们把模型优化为
+$$
+p(X) = \beta_0 + \beta_1X
+$$
+但是这样会出现第二个问题</p>
+<ol>
+<li>线性回归中，<span class="arithmatex"><span class="MathJax_Preview">p(X)</span><script type="math/tex">p(X)</script></span> 的取值范围并非 <span class="arithmatex"><span class="MathJax_Preview">[0,1]</span><script type="math/tex">[0,1]</script></span>。</li>
+</ol>
+<p>所以我们需要改变回归形式，不妨设置回归方程为 <span class="arithmatex"><span class="MathJax_Preview">\mathbb{R}\to (0,1)</span><script type="math/tex">\mathbb{R}\to (0,1)</script></span> 的非线性的 Logistic 函数/ Sigmoid 函数
+$$
+logistic(x) = \frac{1}{1 + e^{-x}} = \frac{e^x}{1 + e^x}
+$$
+则模型设为
+$$
+p(X) = \frac{e^{\beta_0 + \beta_1 X}}{1 + e^{\beta_0 + \beta_1 X}}
+$$
+之后，再去估计这里的 <span class="arithmatex"><span class="MathJax_Preview">\beta_0, \beta_1</span><script type="math/tex">\beta_0, \beta_1</script></span>。</p>
+<p>我们使用最小二乘的方法来得到这里的 <span class="arithmatex"><span class="MathJax_Preview">\hat\beta_0, \hat\beta_1</span><script type="math/tex">\hat\beta_0, \hat\beta_1</script></span>：
+$$
+e^{-(\beta_0 + \beta_1 X)} = \frac{1}{p(x)} - 1 = \frac{1-p(x)}{p(x)}\
+\mathrm{logit}(p(x))\xlongequal{\triangle}\ln(\frac{p(x)}{1-p(x)}) = \beta_0 + \beta_1 X
+$$
+我们把左边的函数称为 log odds 或 logit，它是单调递增的，它是 Logistic 函数的反函数。</p>
+<iframe src="https://www.desmos.com/calculator/th6fbcopfs?embed" width="100" height="400" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+<p>所以，当 <span class="arithmatex"><span class="MathJax_Preview">\beta_1&gt;0</span><script type="math/tex">\beta_1>0</script></span> 时，<span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 的增大会导致 <span class="arithmatex"><span class="MathJax_Preview">\beta_0 + \beta_1X</span><script type="math/tex">\beta_0 + \beta_1X</script></span> 增大，进而意味着 <span class="arithmatex"><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> 时在增大的；反之，负相关。</p>
+<p>而实质上，对于任意的 <span class="arithmatex"><span class="MathJax_Preview">\mathbb{R}\to [0,1]</span><script type="math/tex">\mathbb{R}\to [0,1]</script></span> 的函数，我们都可以构造出这样的回归。</p>
+<p>例如，如果设标准正态分布的分布函数为 <span class="arithmatex"><span class="MathJax_Preview">\Phi(x)</span><script type="math/tex">\Phi(x)</script></span>，那么我们可以取 <span class="arithmatex"><span class="MathJax_Preview">p(X) = \Phi(\beta_0 + \beta_1 X)</span><script type="math/tex">p(X) = \Phi(\beta_0 + \beta_1 X)</script></span>，这被称为 Probit 回归模型（又称多元概率比回归模型）；如果取双对数变换 <span class="arithmatex"><span class="MathJax_Preview">f(x) = \log(-\log(1-x))</span><script type="math/tex">f(x) = \log(-\log(1-x))</script></span> 取代 logic 函数，则有 <span class="arithmatex"><span class="MathJax_Preview">\log(-\log(1-p(X))) = \beta_0 + \beta_1 X</span><script type="math/tex">\log(-\log(1-p(X))) = \beta_0 + \beta_1 X</script></span>，<span class="arithmatex"><span class="MathJax_Preview">p(X) = 1 - e^{-\exp(\beta_0 + \beta_1 X)}</span><script type="math/tex">p(X) = 1 - e^{-\exp(\beta_0 + \beta_1 X)}</script></span>。</p>
+<p>而对于参数的估计，我们可以采用两种方式：LSE, MLE。下面假设各个 <span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> 之间都是独立的。</p>
+<p>如果使用**最小二乘估计**，较为实用的情形为，我们已经有了 <span class="arithmatex"><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的数据。这尤其适用于可以对同一组 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 进行多次观测，进而使用频率估计自变量为 <span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> 时分类为 1 的概率 <span class="arithmatex"><span class="MathJax_Preview">p(x_i)</span><script type="math/tex">p(x_i)</script></span>，此时把这些概率的估计记为 <span class="arithmatex"><span class="MathJax_Preview">\hat{p}(x_i)</span><script type="math/tex">\hat{p}(x_i)</script></span>。这被称为“分组数据情形”，在这种情况下，我们仅需使用 <span class="arithmatex"><span class="MathJax_Preview">\hat{p}(x)</span><script type="math/tex">\hat{p}(x)</script></span> 代替 <span class="arithmatex"><span class="MathJax_Preview">p(x)</span><script type="math/tex">p(x)</script></span> 后，再对其进行变换即可直接最小二乘。</p>
+<p>需要注意的是，这里的最小二乘实际上应为广义最小二乘（GLSE），因为对于每一个不同的 <span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span>，我们都对其观测了 <span class="arithmatex"><span class="MathJax_Preview">n_i</span><script type="math/tex">n_i</script></span> 次，这些 <span class="arithmatex"><span class="MathJax_Preview">n_i</span><script type="math/tex">n_i</script></span> 不一定是相等的，这导致每条数据之间并不是同方差的。可以通过 Delta 方法证明，当 <span class="arithmatex"><span class="MathJax_Preview">\min\{n_i\}</span><script type="math/tex">\min\{n_i\}</script></span> 充分大时，我们可以用 <span class="arithmatex"><span class="MathJax_Preview">\hat{v}_i = 1/(n_i\hat{p}(x_i)(1-\hat{p}(x_i)))</span><script type="math/tex">\hat{v}_i = 1/(n_i\hat{p}(x_i)(1-\hat{p}(x_i)))</script></span> 来作为 GLSE 中使用数据 <span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> 时，<span class="arithmatex"><span class="MathJax_Preview">e_i</span><script type="math/tex">e_i</script></span> 的方差。</p>
+<p>而大部分情况下，我们无法对同一组 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 进行多次观察，也就无法得到 <span class="arithmatex"><span class="MathJax_Preview">\hat{p}(x)</span><script type="math/tex">\hat{p}(x)</script></span>，我们仅有 <span class="arithmatex"><span class="MathJax_Preview">X=x_i</span><script type="math/tex">X=x_i</script></span> 时的分类是 0 还是 1。所以，这种情况下，最小二乘估计不便使用，我们使用**极大似然估计**来解决 <span class="arithmatex"><span class="MathJax_Preview">\hat\beta_0, \hat\beta_1</span><script type="math/tex">\hat\beta_0, \hat\beta_1</script></span>。</p>
+<p>显然，<span class="arithmatex"><span class="MathJax_Preview">y_i\sim B(1, p(x_i))</span><script type="math/tex">y_i\sim B(1, p(x_i))</script></span>，<span class="arithmatex"><span class="MathJax_Preview">f(y_i) = p(x_i)^{y_i}(1-p(x_i))^{1-y_i}, y_i = 0,1</span><script type="math/tex">f(y_i) = p(x_i)^{y_i}(1-p(x_i))^{1-y_i}, y_i = 0,1</script></span>，则似然函数及对数似然函数为
+$$
+L(p(x_i)) = \prod_{i}p(x_i)<sup>{y_i}(1-p(x_i))</sup>{1-y_i}\
+l(x_i) = \sum_i [y_i\log p(x_i) + (1-y_i)\log (1-p(x_i))]
+$$
+把 <span class="arithmatex"><span class="MathJax_Preview">p(X) = \dfrac{e^{\boldsymbol{X}'\boldsymbol{\beta}}}{1 + e^{\boldsymbol{X}'\boldsymbol{\beta}}}</span><script type="math/tex">p(X) = \dfrac{e^{\boldsymbol{X}'\boldsymbol{\beta}}}{1 + e^{\boldsymbol{X}'\boldsymbol{\beta}}}</script></span> 代入有
+$$
+l(\boldsymbol{\beta}) = \sum_i[y_i\boldsymbol{x_i}'\boldsymbol{\beta} - \log(1 + \exp(\boldsymbol{x_i}'\boldsymbol{\beta}))]
+$$
+对 <span class="arithmatex"><span class="MathJax_Preview">\boldsymbol{\beta}</span><script type="math/tex">\boldsymbol{\beta}</script></span> 求导，令导函数为 <span class="arithmatex"><span class="MathJax_Preview">0</span><script type="math/tex">0</script></span>，有
+$$
+\frac{\partial l(\boldsymbol{\beta})}{\partial \boldsymbol{\beta}} = \sum_i(y_i-\frac{e^{\boldsymbol{x_i}'\boldsymbol{\beta}}}{1 + e^{\boldsymbol{x_i}'\boldsymbol{\beta}}})\boldsymbol{x_i}=0
+$$
+可通过迭代求数值解。</p>
+<h4 id="multinomial-logistic-regression">Multinomial Logistic Regression<a class="headerlink" href="#multinomial-logistic-regression" title="Permanent link">&para;</a></h4>
+<p>多分类问题中，我们有两种处理办法：基准类/Softmax 编码</p>
+<p><strong>基准类法</strong></p>
+<p>假设总共有 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 个类，为 <span class="arithmatex"><span class="MathJax_Preview">1, 2, \cdots, K</span><script type="math/tex">1, 2, \cdots, K</script></span>，则
+$$
+P(Y = k|X = x) = \begin{cases}
+\dfrac{e^{\boldsymbol{x}'\boldsymbol{\beta}<em>k}}{1 + \sum</em>{i=1}<sup>{K-1}e</sup>{\boldsymbol{x}'\boldsymbol{\beta}<em>i}}&amp;, \text{for }k = 1, \cdots, K-1\
+\dfrac{1}{1 + \sum</em>{i=1}<sup>{K-1}e</sup>{\boldsymbol{x}'\boldsymbol{\beta}_i}}&amp;, \text{for }k = K\
+\end{cases}
+$$
+即为（log odd 或 logic 的形式）
+$$
+\ln (\dfrac{P(Y = k|X = x)}{P(Y = K|X = x)}) = \boldsymbol{x}'\boldsymbol{\beta}_k
+$$
+这样计算出来的 <span class="arithmatex"><span class="MathJax_Preview">\beta_{k,i}</span><script type="math/tex">\beta_{k,i}</script></span> 代表第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 维变化时，分类到 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 相比于分类到 <span class="arithmatex"><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> 的影响的可能性。</p>
+<p>基准类需要严谨选取，因为这和我们分析系数的结论息息相关；但同时又是不重要的，因为无论基准类是什么，我们得到的结论（如进行预测等）总是一致的，因为我们实际应用时只是利用这个概率作为一个 Score，去比较相对大小。</p>
+<p><strong>Softmax 编码</strong></p>
+<p><img alt="image-20220411162714347" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202204111627419.png" /></p>
+<h2 id="ch-5">Ch 5 重采样方法<a class="headerlink" href="#ch-5" title="Permanent link">&para;</a></h2>
+<p>Validation Set: 把训练集分成两份，一份作为训练集，一份作为验证集</p>
+<p>缺陷：对错误率的验证估计值可能变化很大；有一部分数据去作为验证集了，没有应用在训练中</p>
+<h3 id="cross-validation">交叉验证 Cross Validation<a class="headerlink" href="#cross-validation" title="Permanent link">&para;</a></h3>
+<p>如果没有 Test Data Set，可以试着从 Train Data 里 Resample</p>
+<p><strong>Leave One Out Cross Validation LOOCV</strong></p>
+<p>每次找出来一个作为 Validation，用其他的 Train，然后计算每一次的 MSE；最终结果是把所有的 MSE 加起来除以个数。</p>
+<p>缺陷：太慢</p>
+<p>对于最小二乘线性/多项式回归</p>
+<p><strong>k-fold Cross Validation</strong></p>
+<p>相当于总共分成 k 份</p>
+<p>有时需要在意估计的 MSE 的值，但有时只需要 MSE 的最小值点</p>
+<p>从减少偏差的角度来看，很明显，LOOCV比k-fold CV更可取。然而，我们知道，在估计过程中，偏差并不是唯一值得关注的来源；我们还必须考虑程序的差异。结果表明，当k＜n时，LOOCV的方差大于k倍CV。为什么会这样？当我们执行LOOCV时，我们实际上是对n个拟合模型的输出进行平均，每个模型都在几乎相同的观测集上进行训练；因此，这些输出彼此高度（正）相关。相反，当我们在k&lt;n的情况下执行k倍CV时，我们平均k拟合模型的输出，这些模型之间的相关性稍低</p>
+<h3 id="bootstrap">引导 Bootstrap<a class="headerlink" href="#bootstrap" title="Permanent link">&para;</a></h3>
+<p>从训练数据集里抽样，算出估计的值，然后把待估值取 Mean，并计算标准差得到近似置信区间。</p>
+<h2 id="ch-6">Ch 6 线性回归模型的子集选择与模型正则化<a class="headerlink" href="#ch-6" title="Permanent link">&para;</a></h2>
+<h3 id="subset-selection">Subset Selection<a class="headerlink" href="#subset-selection" title="Permanent link">&para;</a></h3>
+<p>最优子集选择：把所有的子集美剧出来，最后选 RSS min的。</p>
+<p>向前子集选择：每次选一个，使得 RSS 减少最多</p>
+<p>向后子集选择：每次尝试剔除一个，选择RSS最小的；要求 <span class="arithmatex"><span class="MathJax_Preview">n\geq p</span><script type="math/tex">n\geq p</script></span>，但是向前的就即使 <span class="arithmatex"><span class="MathJax_Preview">n&lt;p</span><script type="math/tex">n<p</script></span> 都行。</p>
+<p><img alt="image-20220616095537629" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206160955756.png" /></p>
+<h3 id="ridge-regression">Ridge Regression<a class="headerlink" href="#ridge-regression" title="Permanent link">&para;</a></h3>
+<p>L2 正则化
+$$
+\min \text{RSS} + \lambda \sum_{j=1}<sup>p\beta_j</sup>2
+$$</p>
+<p>要注意，并没有 <span class="arithmatex"><span class="MathJax_Preview">\beta_0</span><script type="math/tex">\beta_0</script></span>。缺陷：它只能把系数尽可能趋于0，而不是精确设置为0，即不能排除任何一个变量。
+$$
+\hat{\beta}(k) = (X'X+kI)^{-1}X'Y
+$$</p>
+<h3 id="lasso">Lasso<a class="headerlink" href="#lasso" title="Permanent link">&para;</a></h3>
+<p>L1 正则化
+$$
+\min \text{RSS} + \lambda \sum_{j=1}^p|\beta_j|
+$$</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> 很大的时候，可以实现某些系数为 0。</p>
+<p><img alt="image-20220616090057032" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206160900159.png" /></p>
+<h3 id="l1-l2-lasso-ridge">L1 正则化和 L2 正则化的区别（Lasso &amp; Ridge）<a class="headerlink" href="#l1-l2-lasso-ridge" title="Permanent link">&para;</a></h3>
+<p><img alt="img" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202207161019563.jpeg" /></p>
+<p><a href="https://www.zhihu.com/column/c_171321929">https://www.zhihu.com/column/c_171321929</a></p>
+<ul>
+<li>为什么 L1 易于取到 0？</li>
+</ul>
+<p>假设损失函数记为
+  $$
+  L(w) = f(w) + C|w|
+  $$
+  要让损失函数在 0 点取 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span>，由于 0 点是间段的，所以只需使得 <span class="arithmatex"><span class="MathJax_Preview">L'(0^-)\times L'(0^+)&lt;0</span><script type="math/tex">L'(0^-)\times L'(0^+)<0</script></span> 即可，即
+  $$
+  (f'(0)+C)\times (f'(0) - C) &lt; 0\Leftrightarrow C&gt;|f'(0)|
+  $$
+  而 L2 正则化中，由于连续性，当且仅当 <span class="arithmatex"><span class="MathJax_Preview">L'(0)=0</span><script type="math/tex">L'(0)=0</script></span> 时，在可以在 0 处 取 <span class="arithmatex"><span class="MathJax_Preview">\min</span><script type="math/tex">\min</script></span>，这只对应了一点，而 L1 正则化对应的是一整个区间。</p>
+<ul>
+<li>从 Bayes 的角度理解线性回归 MLE 的 L1 正则化和 L2 正则化</li>
+</ul>
+<p><img alt="image-20220716102832986" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202207161028114.png" /></p>
+<p>L1 正则化即对应这里的 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> 符合标准拉普拉斯分布，<span class="arithmatex"><span class="MathJax_Preview">p(w) = \dfrac{1}{2}\exp(-|x|)</span><script type="math/tex">p(w) = \dfrac{1}{2}\exp(-|x|)</script></span>；L2 正则化对应这里的 <span class="arithmatex"><span class="MathJax_Preview">w\sim N(0,1)</span><script type="math/tex">w\sim N(0,1)</script></span>。</p>
+<h3 id="pcr">PCR<a class="headerlink" href="#pcr" title="Permanent link">&para;</a></h3>
+<p>PCR 表现不是很好的原因：数据是由多个影响因素共同生成的，如果数据是仅由少量几个影响因素生成点，那就会表现的更好。</p>
+<p>岭回归可以视为连续版本的PCR</p>
+<h2 id="ch-7">Ch 7 非线性回归<a class="headerlink" href="#ch-7" title="Permanent link">&para;</a></h2>
+<p>多项式回归：<span class="arithmatex"><span class="MathJax_Preview">X, X^2, X^3</span><script type="math/tex">X, X^2, X^3</script></span></p>
+<p>Step functions：分段线性回归</p>
+<p>Regression splines：综合前两种的回归</p>
+<p>Smoothing splines, Local regression</p>
+<p>Generalized additive models</p>
+<p><strong>多项式回归</strong></p>
+<p>怎样画 95% 置信区间？取每个点处的回归函数的 2 倍标准差作为界，假设误差为 <span class="arithmatex"><span class="MathJax_Preview">N(0,1)</span><script type="math/tex">N(0,1)</script></span>，满足 <span class="arithmatex"><span class="MathJax_Preview">2\sigma</span><script type="math/tex">2\sigma</script></span> 原则。</p>
+<p>假设回归系数的协方差矩阵是 <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span>，那如果 <span class="arithmatex"><span class="MathJax_Preview">l_0' = (1,x_0, x_0^2)'</span><script type="math/tex">l_0' = (1,x_0, x_0^2)'</script></span>，则回归函数的方差即为 <span class="arithmatex"><span class="MathJax_Preview">l_0'Cl_0</span><script type="math/tex">l_0'Cl_0</script></span>。</p>
+<p><strong>分段线性回归</strong></p>
+<p>一般在分界线明显的时候才来使用。</p>
+<p>取 <span class="arithmatex"><span class="MathJax_Preview">C_i(x)</span><script type="math/tex">C_i(x)</script></span> 作为分段示性回归变量，然后拟合，回归出来的函数是不连续的许多平台，然后再把他们连起来。</p>
+<p><img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206152153020.png" alt="image-20220615215315912" style="zoom:50%;" />
+$$
+Y = \beta_0 + \beta_1C_1(X) + \cdots + \beta_kC_k(X) + \epsilon
+$$
+<strong>基函数</strong></p>
+<p>前两种回归是这种的一个特例，使用基函数的回归即
+$$
+Y = \beta_0 + \beta_1b_1(X) + \cdots + \beta_kb_k(X) + \epsilon
+$$
+基函数是确定且已知的。基函数可以是分段的。</p>
+<p><strong>Regression splines</strong></p>
+<p>分段拟合。自由度即拟合的分段函数中未知变量的数目，再减去约束数目。样条中，要求连续、一阶导连续、二阶导连续，所以每个连接点可以减去3个自由度。</p>
+<p><img alt="image-20220615222532673" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206152225765.png" /></p>
+<h2 id="ch-8">Ch 8 决策树<a class="headerlink" href="#ch-8" title="Permanent link">&para;</a></h2>
+<p><strong>回归树</strong></p>
+<p>目标：
+$$
+\min RSS = \min \sum_{j=1}^J\sum_{i\in R_j}(y_i-\hat{y}<em>{R_j})^2
+$$
+自顶向下分割，每一步的选择都让 RSS 下降尽可能多。具体建树方式：
+$$
+\min</em>{j,s}\sum_{i:x_i\in {X|X_j&lt;s}}(y_i-\hat{y}<em>{R_1})^2+\sum</em>{i:x_i\in {X|X_j\geq s}}(y_i-\hat{y}_{R_2})^2
+$$
+直到每个区域都没有超过 5 个观测值。</p>
+<p>为了避免过拟合，还需要对上述算法生成的大树进行剪枝 pruning。设 <span class="arithmatex"><span class="MathJax_Preview">|T|</span><script type="math/tex">|T|</script></span> 为末端节点分类的个数，则
+$$
+\min_{\alpha} \sum_{m=1}^{|T|}\sum_{i:x_i\in R_m}(y_i-\hat{y}_{R_m})^2+\alpha|T|
+$$
+可以使用 k-fold cross-validation 的方法确定 <span class="arithmatex"><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span></p>
+<p><img alt="image-20220602120326162" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206021203280.png" /></p>
+<p><strong>分类树</strong></p>
+<p>损失函数：
+$$
+1-\max_k (\hat{p}_{m,k})
+$$
+<span class="arithmatex"><span class="MathJax_Preview">\hat{p}_{m,k}</span><script type="math/tex">\hat{p}_{m,k}</script></span> 代表在第 <span class="arithmatex"><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span> 个区域中，属于第 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 类的个体所占的比例。如果 <span class="arithmatex"><span class="MathJax_Preview">\hat{p}_{m,k}=1</span><script type="math/tex">\hat{p}_{m,k}=1</script></span>，就意味着这一区域中所有的都是 <span class="arithmatex"><span class="MathJax_Preview">k</span><script type="math/tex">k</script></span> 类的。</p>
+<p>Gini index
+$$
+G = \sum_{k=1}^K \hat{p}<em>{m,k}(1-\hat{p}</em>{m,k})
+$$
+如果 <span class="arithmatex"><span class="MathJax_Preview">\hat{p}_{m,k}</span><script type="math/tex">\hat{p}_{m,k}</script></span> 接近 0 或 1，那 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 会很小。所以 <span class="arithmatex"><span class="MathJax_Preview">G</span><script type="math/tex">G</script></span> 越小越好。</p>
+<p>entropy 熵
+$$
+D = -\sum_{k=1}^K\hat{p}<em>{m,k}\log \hat{p}</em>{m,k}
+$$
+如果 <span class="arithmatex"><span class="MathJax_Preview">\hat{p}_{m,k}</span><script type="math/tex">\hat{p}_{m,k}</script></span> 接近 0 或 1，那 <span class="arithmatex"><span class="MathJax_Preview">D</span><script type="math/tex">D</script></span> 会很小。所以 <span class="arithmatex"><span class="MathJax_Preview">D</span><script type="math/tex">D</script></span> 越小越好。</p>
+<p>不过这些目标函数都过于关注纯净性，而不太关注预测的准确度。所以建树的时候还是会使用 Cross Validation Error。</p>
+<p>如果在分类边界非线性的情形下，决策树效果更好；但如果分类的边界是线性的，那线性回归就够。</p>
+<p><img alt="image-20220616101001906" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206161010053.png" /></p>
+<p><strong>Bagging - Bootstrap Aggregation</strong></p>
+<p>朴素的决策树可能有很高的方差。</p>
+<p>要想减少方差，一个朴素的想法就是用不同的数据训练出来好多模型，然后取这些模型得到的结果的平均值，这样就能减少方差。</p>
+<p>对于决策树而言，每棵决策树可以不用剪枝，因为最后的结果会做平均。</p>
+<p><strong>Boosting</strong></p>
+<p><strong>提升方法（Boosting）**是一种可以用来减小监督学习中偏差的机器学习算法。主要也是学习一系列弱分类器，并将其组合为一个强分类器。Boosting中有代表性的是 **AdaBoost（Adaptive boosting）算法</strong>：刚开始训练时对每一个训练例赋相等的权重，然后用该算法对训练集训练t轮，每次训练后，对训练失败的训练例赋以较大的权重，也就是让学习算法在每次学习以后更注意学错的样本，从而得到多个预测函数。</p>
+<p><strong>Bagging与Boosting</strong></p>
+<p>Bagging和Boosting采用的都是**采样-学习-组合**的方式，但在细节上有一些不同，如</p>
+<ul>
+<li>Bagging中每个训练集互不相关，也就是每个基分类器互不相关，而Boosting中训练集要在上一轮的结果上进行调整，也使得其不能并行计算</li>
+<li>Bagging中预测函数是均匀平等的，但在Boosting中预测函数是加权的</li>
+</ul>
+<p>**随机森林**属于 集成学习 中的 Bagging（Bootstrap Aggregation 的简称） 方法</p>
+<ol>
+<li>它可以出来很高维度（特征很多）的数据，并且不用降维，无需做特征选择</li>
+<li>它可以判断特征的重要程度</li>
+<li>可以判断出不同特征之间的相互影响</li>
+<li><strong>不容易过拟合</strong></li>
+<li>训练速度比较快，容易做成并行方法</li>
+<li>实现起来比较简单</li>
+<li>对于不平衡的数据集来说，它可以平衡误差。</li>
+<li>如果有很大一部分的特征遗失，仍可以维持准确度。</li>
+</ol>
+<p>缺陷：</p>
+<ol>
+<li>随机森林已经被证明在某些噪音较大的分类或回归问题上会过拟合。</li>
+<li>对于有不同取值的属性的数据，取值划分较多的属性会对随机森林产生更大的影响，所以随机森林在这种数据上产出的属性权值是不可信的</li>
+</ol>
+<p><img alt="image-20220616095706659" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206160957802.png" /></p>
+<p><strong>Bayesian Additive Regression Trees</strong> BART</p>
+<h2 id="ch-9-svm">Ch 9 SVM<a class="headerlink" href="#ch-9-svm" title="Permanent link">&para;</a></h2>
+<p><strong>最大间隔超平面</strong>：</p>
+<p><img alt="image-20220615224249693" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206152242786.png" /></p>
+<p>如果线性不可分，那 <span class="arithmatex"><span class="MathJax_Preview">M&lt;0</span><script type="math/tex">M<0</script></span>。因为 <span class="arithmatex"><span class="MathJax_Preview">M</span><script type="math/tex">M</script></span> 的含义是支持向量到超平面的距离。</p>
+<p><strong>SVM</strong>：</p>
+<p><img alt="image-20220615224610644" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206152246719.png" /></p>
+<p>边缘的错误一侧和超平面的错误一侧，是不同的：<span class="arithmatex"><span class="MathJax_Preview">\epsilon&lt;0</span><script type="math/tex">\epsilon<0</script></span> 正确分类，<span class="arithmatex"><span class="MathJax_Preview">0&lt;\epsilon&lt;1</span><script type="math/tex">0<\epsilon<1</script></span> 是在边缘的错误一侧，<span class="arithmatex"><span class="MathJax_Preview">\epsilon&gt;1</span><script type="math/tex">\epsilon>1</script></span> 是在超平面的错误一侧</p>
+<p>C 是通过交叉验证确定的超参数</p>
+<p>位于正确分类的点，根本不会影响SVM。所以只有那些在边缘里的，才被叫做支持向量。</p>
+<p><strong>非线性：</strong></p>
+<p>增加特征，加入 <span class="arithmatex"><span class="MathJax_Preview">x_i^2</span><script type="math/tex">x_i^2</script></span> 这样变成 <span class="arithmatex"><span class="MathJax_Preview">2p</span><script type="math/tex">2p</script></span> 个特征。</p>
+<p><strong>核函数</strong></p>
+<p>我们想要扩大特征空间，以适应类之间的非线性边界。</p>
+<p>实际起作用的只有几个支持向量，待估的 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 是和这些支持向量做内积然后求加权和。</p>
+<p>预测函数：
+$$
+f(x) = \beta_0 + \sum_{\text{support vector }v}\alpha_i<x, v>\xlongequal{\triangle} \beta_0 + \sum_{\text{support vector }v}\alpha_iK(x, v)
+$$
+线性 Linear Kernel: 
+$$
+K(x_i, x_j) = \sum_{k=1}^p x_{ik}x_{jk}
+$$
+多项式 Polynomial Kernel: 
+$$
+K(x_i, x_j) = (1 + \sum_{k=1}^p x_{ik}x_{jk})^d
+$$
+径向 Radial Kernel: Radial Basis Function, RBF kernel
+$$
+K(x_i, x_j) = \exp\left(-\gamma \sum_{k=1}^p (x_{ik} - x_{jk})^2\right)
+$$
+欧几里得距离越大，这个径向核函数越小</p>
+<h2 id="ch-10-ann">Ch 10 ANN<a class="headerlink" href="#ch-10-ann" title="Permanent link">&para;</a></h2>
+<p>多层感知机</p>
+<p>实际上就是把一些特征加权求和之后，通过一个激活函数 Threshold Function；然后再到下一层..</p>
+<p>Feed-Forward Network 前馈神经网络：从输入开始，一层一层往后算</p>
+<p>Feedback Network 反馈神经网络：不同循环之间有依赖，可以有更复杂的函数</p>
+<p>训练方法：</p>
+<p>一层：对 Logistic 函数求导；使用Batch梯度下降/在线梯度下降</p>
+<p>反向传播 Back propagation</p>
+<p>学习一个 AND 分类的感知机：</p>
+<p><img alt="image-20220615145151035" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206151451182.png" /></p>
+<p>但是单层感知机没办法处理亦或。</p>
+<p>多层感知机就可以处理亦或了。</p>
+<p><img alt="image-20220615150118482" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206151501586.png" /></p>
+<p><img alt="image-20220616102208557" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206161022694.png" /></p>
+<h2 id="ch-12">Ch 12 无监督学习<a class="headerlink" href="#ch-12" title="Permanent link">&para;</a></h2>
+<p>我们对预测不感兴趣，因为并没有相应的响应变量 Y；我们只是想发现解释变量上有哪些可以分类总结的规律。</p>
+<p>更主观，分析没有简单的目标</p>
+<p>没有普遍接受的机制来执行交叉验证或在独立数据集上验证结果</p>
+<h3 id="pca">PCA<a class="headerlink" href="#pca" title="Permanent link">&para;</a></h3>
+<p>我们把 <span class="arithmatex"><span class="MathJax_Preview">(x_1, \cdots, x_n)</span><script type="math/tex">(x_1, \cdots, x_n)</script></span> 映射到第一主成分向量上 <span class="arithmatex"><span class="MathJax_Preview">(\phi_1, \cdots, \phi_n)</span><script type="math/tex">(\phi_1, \cdots, \phi_n)</script></span>，得到的投影就是第一主成分得分 <span class="arithmatex"><span class="MathJax_Preview">z_{11}, z_{21}, \cdots, z_{n1}</span><script type="math/tex">z_{11}, z_{21}, \cdots, z_{n1}</script></span>。</p>
+<h3 id="_3">聚类<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>特点：小决策产生大后果</p>
+<p>k means 层次聚类</p>
+<p><img alt="image-20220616083318771" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206160833821.png" /></p>
+<p>Hierarchical 聚类 层次聚类：<strong>Agglomerative Clustering</strong> 自底而上，divisive 自顶而下</p>
+<p><strong>Single-linkage</strong>:要比较的距离为元素对之间的最小距离
+<strong>Complete-linkage</strong>:要比较的距离为元素对之间的最大距离
+<strong>Group <u>average</u></strong>：要比较的距离为类之间的平均距离：算A组中的观测值与B组中的观测值之间的所有成对不相似性，并记录这些不相似性的平均值</p>
+<p>Centroid：质心的距离</p>
+<p>Dendrogram：层次聚类的树状图</p>
+<p>k-means：</p>
+<p>优点：
+2，时间复杂度低
+缺点：
+1，需要对均值给出定义,
+2，需要指定要聚类的数目；
+3，一些过大的异常值会带来很大影响；
+4，算法对初始选值敏感；
+5，适合球形聚类</p>
+<p>层次聚类：</p>
+<p>优点：
+1，距离和规则的相似度容易定义，限制少；
+2，不需要预先制定聚类数；
+3，可以发现类的层次关系；
+4，可以聚类成其它形状</p>
+<p>缺点：
+1，计算复杂度太高；
+3，算法很可能聚类成链状</p>
+<h2 id="knn">KNN<a class="headerlink" href="#knn" title="Permanent link">&para;</a></h2>
+<p>KNN算法实现方式
+蛮力实现(brute)：计算预测样本到所有训练集样本的距离，然后选择最小的k个距离即可得到K个最邻近点。缺点在于当特征数比较多、样本数比较多的时候，算法的执行效率比较低；
+KD树(kd_tree)：KD树算法中，首先是对训练数据进行建模，构建KD树，然后再根据建好的模型来获取邻近样本数据。
+除此之外，还有一些从KD_Tree修改后的求解最邻近点的算法，比如:Ball Tree、 BBF Tree、MVP Tree等。
+KD Tree构建
+    KD树采用从m个样本的n维特征中，分别计算n个特征取值的方差，用方差最大的第k维特征nk作为根节点。对于这个特征，升序排列后选择取值的中位数nkv作为样本的划分点，对于小于该值的样本划分到左子树，对于大于等于该值的样本划分到右子树，对左右子树采用同样的方式找方差最大的特征作为根节点，递归即可产生KD树。</p>
+<p>KD Tree查找最近邻
+    当我们生成KD树以后，就可以去预测测试集里面的样本目标点了。对于一个目标点，我们首先在KD树里面找到包含目标点的叶子节点。以目标点为圆心，以目标点到叶子节点样本实例的距离为半径，得到一个超球体，最近邻的点一定在这个超球体内部。然后返回叶子节点的父节点，检查另一个子节点包含的超矩形体是否和超球体相交，如果相交就到这个子节点寻找是否有更加近的近邻,有的话 就更新最近邻。如果不相交那就简单了，我们直接返回父节点的父节点，在另一 个子树继续搜索最近邻。当回溯到根节点时，算法结束，此时保存的最近邻节点 就是最终的最近邻。
+假设样本集为：{(2,3), (5,4), (9,6), (4,7), (8,1), (7,2)}。构建过程如下：</p>
+<p>（1）确定split域，6个数据点在x,y维度上的数据方差分别为39, 28.63。在x轴上方差最大，所以split域值为0（x维的序号为0）</p>
+<p>（2）确定分裂节点，根据x维上的值将数据排序，则6个数据点再排序后位于中间的那个数据点为(7,2)，该结点就是分割超平面就是通过(7,2)并垂直于split=0(x)轴的直线x=7</p>
+<p>（3）左子空间和右子空间，分割超面x=7将整个空间氛围两部分，x&lt;=7的部分为左子空间，包含3个数据点{(2,3), (5,4), (4,7)}；另一部分为右子空间，包含2个数据点{(9,6), (8,1)}。</p>
+<p>（4）分别对左子空间中的数据点和右子空间中的数据点重复上面的步骤构建左子树和右子树直到经过划分的子样本集为空。</p>
+<p><img alt="" src="https://img-blog.csdn.net/20180613230844360?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzE1MTExODYx/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" /></p>
+<p>我们来查找点(2.1,3.1)，在(7,2)点测试到达(5,4)，在(5,4)点测试到达(2,3)，然后search_path中的结点为&lt;(7,2), (5,4), (2,3)&gt;，从search_path中取出(2,3)作为当前最佳结点nearest, dist为0.141；</p>
+<p>然后回溯至(5,4)，以(2.1,3.1)为圆心，以dist=0.141为半径画一个圆，并不和超平面y=4相交，如下图，所以不必跳到结点(5,4)的右子空间去搜索，因为右子空间中不可能有更近样本点了。</p>
+<p><img alt="image" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/202206160928843.png" /></p>
+<p>于是在回溯至(7,2)，同理，以(2.1,3.1)为圆心，以dist=0.141为半径画一个圆并不和超平面x=7相交，所以也不用跳到结点(7,2)的右子空间去搜索。</p>
+<p>至此，search_path为空，结束整个搜索，返回nearest(2,3)作为(2.1,3.1)的最近邻点，最近距离为0.141。</p>
+<p>再举一个稍微复杂的例子，我们来查找点(2,4.5)，在(7,2)处测试到达(5,4)，在(5,4)处测试到达(4,7)，然后search_path中的结点为&lt;(7,2), (5,4), (4,7)&gt;，从search_path中取出(4,7)作为当前最佳结点nearest, dist为3.202；</p>
+<p>然后回溯至(5,4)，以(2,4.5)为圆心，以dist=3.202为半径画一个圆与超平面y=4相交，如下图，所以需要跳到(5,4)的左子空间去搜索。所以要将(2,3)加入到search_path中，现在search_path中的结点为&lt;(7,2), (2, 3)&gt;；另外，(5,4)与(2,4.5)的距离为3.04 &lt; dist = 3.202，所以将(5,4)赋给nearest，并且dist=3.04。</p>
+<p><img alt="" src="http://img1.51cto.com/attachment/201110/13/2531780_1318510004n63e.png" /></p>
+<p>回溯至(2,3)，(2,3)是叶子节点，直接平判断(2,3)是否离(2,4.5)更近，计算得到距离为1.5，所以nearest更新为(2,3)，dist更新为(1.5)</p>
+<p>回溯至(7,2)，同理，以(2,4.5)为圆心，以dist=1.5为半径画一个圆并不和超平面x=7相交, 所以不用跳到结点(7,2)的右子空间去搜索。</p>
+<p>至此，search_path为空，结束整个搜索，返回nearest(2,3)作为(2,4.5)的最近邻点，最近距离为1.5。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  <!-- Giscus -->
+  <h2 id="__comments">评论</h2>
+  <!-- Replace with generated snippet -->
+  <script src="https://giscus.app/client.js"
+        data-repo="OhGaGaGaGa/blog"
+        data-repo-id="R_kgDOGq47UA"
+        data-category="General"
+        data-category-id="DIC_kwDOGq47UM4CAuFr"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+  </script>
+  <!-- Reload on palette change -->
+  <script>
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object")
+      if (palette.color.scheme === "slate") {
+        var giscus = document.querySelector("script[src*=giscus]")
+        giscus.setAttribute("data-theme", "dark") 
+      }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        location.reload()
+      })
+    })
+  </script>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2022 Wang Jingkai
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/ohgagagaga" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.zhihu.com/people/wjk2017" target="_blank" rel="noopener" title="ZhiHu" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M170.54 148.13v217.54l23.43.01 7.71 26.37 42.01-26.37h49.53V148.13H170.54zm97.75 193.93h-27.94l-27.9 17.51-5.08-17.47-11.9-.04V171.75h72.82v170.31zm-118.46-94.39H97.5c1.74-27.1 2.2-51.59 2.2-73.46h51.16s1.97-22.56-8.58-22.31h-88.5c3.49-13.12 7.87-26.66 13.12-40.67 0 0-24.07 0-32.27 21.57-3.39 8.9-13.21 43.14-30.7 78.12 5.89-.64 25.37-1.18 36.84-22.21 2.11-5.89 2.51-6.66 5.14-14.53h28.87c0 10.5-1.2 66.88-1.68 73.44H20.83c-11.74 0-15.56 23.62-15.56 23.62h65.58C66.45 321.1 42.83 363.12 0 396.34c20.49 5.85 40.91-.93 51-9.9 0 0 22.98-20.9 35.59-69.25l53.96 64.94s7.91-26.89-1.24-39.99c-7.58-8.92-28.06-33.06-36.79-41.81L87.9 311.95c4.36-13.98 6.99-27.55 7.87-40.67h61.65s-.09-23.62-7.59-23.62v.01zm412.02-1.6c20.83-25.64 44.98-58.57 44.98-58.57s-18.65-14.8-27.38-4.06c-6 8.15-36.83 48.2-36.83 48.2l19.23 14.43zm-150.09-59.09c-9.01-8.25-25.91 2.13-25.91 2.13s39.52 55.04 41.12 57.45l19.46-13.73s-25.67-37.61-34.66-45.86h-.01zM640 258.35c-19.78 0-130.91.93-131.06.93v-101c4.81 0 12.42-.4 22.85-1.2 40.88-2.41 70.13-4 87.77-4.81 0 0 12.22-27.19-.59-33.44-3.07-1.18-23.17 4.58-23.17 4.58s-165.22 16.49-232.36 18.05c1.6 8.82 7.62 17.08 15.78 19.55 13.31 3.48 22.69 1.7 49.15.89 24.83-1.6 43.68-2.43 56.51-2.43v99.81H351.41s2.82 22.31 25.51 22.85h107.94v70.92c0 13.97-11.19 21.99-24.48 21.12-14.08.11-26.08-1.15-41.69-1.81 1.99 3.97 6.33 14.39 19.31 21.84 9.88 4.81 16.17 6.57 26.02 6.57 29.56 0 45.67-17.28 44.89-45.31v-73.32h122.36c9.68 0 8.7-23.78 8.7-23.78l.03-.01z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["toc.integrate", "navigation.top"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="../../js-setting/extra.js"></script>
+      
+        <script src="../../js-setting/baidu.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>

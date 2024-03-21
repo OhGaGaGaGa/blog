@@ -1,0 +1,1645 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="WJK">
+      
+      
+        <link rel="canonical" href="https://ohgagagaga.github.io/blog/CS231n/">
+      
+      
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.14">
+    
+    
+  <title>WJK's Blog</title>
+  <meta name="google-site-verification" content="pIp9DE0w0TACTUygKSTruXXoy1WCic7gBMHPGeQb27E" />
+
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.10ba22f1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  
+  
+    
+  
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="WJK's Docs - CS231n: Convolutional Neural Networks for Visual Recognition - 2017" />
+  <meta property="og:description" content="None" />
+  <meta property="og:url" content="https://ohgagagaga.github.io/blog/CS231n/" />
+  <meta property="og:image" content="<url>" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="Teal" data-md-color-accent="Teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cs231n-convolutional-neural-networks-for-visual-recognition-2017" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href=".." title="WJK&#39;s Docs" class="md-header__button md-logo" aria-label="WJK's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11.75A1.25 1.25 0 0 0 7.75 13 1.25 1.25 0 0 0 9 14.25 1.25 1.25 0 0 0 10.25 13 1.25 1.25 0 0 0 9 11.75m6 0A1.25 1.25 0 0 0 13.75 13 1.25 1.25 0 0 0 15 14.25 1.25 1.25 0 0 0 16.25 13 1.25 1.25 0 0 0 15 11.75M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 4.12 4.12 0 0 1 0-.86 10.05 10.05 0 0 0 5.26-5.37A9.985 9.985 0 0 0 17.42 10c.76 0 1.51-.09 2.25-.26 1.25 4.26-1.17 8.69-5.41 9.93-.76.22-1.5.33-2.26.33M0 2a2 2 0 0 1 2-2h4v2H2v4H0V2m24 20a2 2 0 0 1-2 2h-4v-2h4v-4h2v4M2 24a2 2 0 0 1-2-2v-4h2v4h4v2H2M22 0a2 2 0 0 1 2 2v4h-2V2h-4V0h4Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            WJK's Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CS231n: Convolutional Neural Networks for Visual Recognition - 2017
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="Teal" data-md-color-accent="Teal"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m3.55 19.09 1.41 1.41 1.8-1.79-1.42-1.42M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6c0-3.32-2.69-6-6-6m8 7h3v-2h-3m-2.76 7.71 1.8 1.79 1.41-1.41-1.79-1.8M20.45 5l-1.41-1.4-1.8 1.79 1.42 1.42M13 1h-2v3h2M6.76 5.39 4.96 3.6 3.55 5l1.79 1.81 1.42-1.42M1 13h3v-2H1m12 9h-2v3h2"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="Blue"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3 3.19.09m3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95 2.06.05m-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--integrated" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="WJK&#39;s Docs" class="md-nav__button md-logo" aria-label="WJK's Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 11.75A1.25 1.25 0 0 0 7.75 13 1.25 1.25 0 0 0 9 14.25 1.25 1.25 0 0 0 10.25 13 1.25 1.25 0 0 0 9 11.75m6 0A1.25 1.25 0 0 0 13.75 13 1.25 1.25 0 0 0 15 14.25 1.25 1.25 0 0 0 16.25 13 1.25 1.25 0 0 0 15 11.75M12 2A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m0 18a8 8 0 0 1-8-8 4.12 4.12 0 0 1 0-.86 10.05 10.05 0 0 0 5.26-5.37A9.985 9.985 0 0 0 17.42 10c.76 0 1.51-.09 2.25-.26 1.25 4.26-1.17 8.69-5.41 9.93-.76.22-1.5.33-2.26.33M0 2a2 2 0 0 1 2-2h4v2H2v4H0V2m24 20a2 2 0 0 1-2 2h-4v-2h4v-4h2v4M2 24a2 2 0 0 1-2-2v-4h2v4h4v2H2M22 0a2 2 0 0 1 2 2v4h-2V2h-4V0h4Z"/></svg>
+
+    </a>
+    WJK's Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introduction
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../MkDocs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Building Blog
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    LeetCode
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            LeetCode
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeetCode/Tips/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeetCode/1-2sum3sum/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 1 & 15
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeetCode/Problem-7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 7
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeetCode/Problem-10/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 10
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeetCode/Problem-11%2616/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 11 & 16
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeetCode/135-greedy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 135
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeetCode/466-string/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 466
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeetCode/1553-Search.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 1553
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../LeetCode/Problem-2013/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Problem 2013
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Bit-DP.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    位运算及状压DP
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tips
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Tips
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tips/Shell/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Shell
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tips/Git/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Git
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Data Structure
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Data Structure
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data%20Structure/Notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Fundamental
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Data%20Structure/ADS%20Notes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Advanced
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    System
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            System
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System/Digital%20Logic/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Digital Logic
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System/Computer%20Organization/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Computer Organization
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../System/Operating System.md" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Operating System
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Statistics
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Statistics
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistics/TSA-Reviewing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Time Series Analysis
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistics/perceptron/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Perceptron
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistics/LSE-MLE/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LSE & MLE
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistics/Quadratic%20Form/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Quadratic Form
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Statistics/Sample%20Variance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Sample Variance
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Deep Learning" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    None
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+  
+                  
+
+
+<h1 id="cs231n-convolutional-neural-networks-for-visual-recognition-2017">CS231n: Convolutional Neural Networks for Visual Recognition - 2017<a class="headerlink" href="#cs231n-convolutional-neural-networks-for-visual-recognition-2017" title="Permanent link">&para;</a></h1>
+<h2 id="1">1 课程介绍<a class="headerlink" href="#1" title="Permanent link">&para;</a></h2>
+<p>Image Classification 图片分类</p>
+<p>Object detection 目标检测, Action classification 动作分类, Image captioning 描述图像</p>
+<p>变化：算力 Computation 带有标签的数据 Data</p>
+<h2 id="2">2 图像分类<a class="headerlink" href="#2" title="Permanent link">&para;</a></h2>
+<h3 id="_1">流程<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h3>
+<p>语义鸿沟 semantic gap: 计算机只能看到 RGB 值，这和人的实际视觉是有差异的</p>
+<p>我们的算法应该对以下条件鲁棒：遮挡/光线/姿态/背景混乱/类内差异/...</p>
+<p><strong>train &amp; predict</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="n">images</span><span class="p">,</span> <span class="n">lables</span><span class="p">):</span>
+    <span class="c1"># Machine learning!</span>
+    <span class="k">return</span> <span class="n">model</span>
+
+<span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">test_images</span><span class="p">):</span>
+    <span class="c1"># Use model to predict labels</span>
+    <span class="k">return</span> <span class="n">test_labels</span>
+</code></pre></div>
+<h3 id="k">最近邻 &amp; K近邻 判别分析<a class="headerlink" href="#k" title="Permanent link">&para;</a></h3>
+<p>Nearest Neighbor &amp; K-<u>N</u>earest <u>N</u>eighbor</p>
+<p>使用 L1 距离：sum of absolute value differences</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="k">class</span> <span class="nc">NearestNeighbor</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">pass</span>
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">Xtr</span> <span class="o">=</span> <span class="n">X</span> <span class="c1"># N * D, each row is an example</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ytr</span> <span class="o">=</span> <span class="n">y</span> <span class="c1"># N * 1</span>
+    <span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">):</span>
+        <span class="n">num_test</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># X: num_test * D</span>
+        <span class="n">Ypred</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_test</span><span class="p">,</span> <span class="n">dtype</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ytr</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="c1"># y: num_test * 1</span>
+
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">xrange</span><span class="p">(</span><span class="n">num_test</span><span class="p">):</span>
+            <span class="n">distances</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">Xtr</span> <span class="o">-</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">min_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">distance</span><span class="p">)</span>
+            <span class="n">Ypred</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ytr</span><span class="p">[</span><span class="n">min_index</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="n">Ypred</span>
+</code></pre></div>
+<p>时间复杂度：train O(1), predict O(n)。</p>
+<p>实际使用时，预测上要花尽可能少的时间，但是对训练的时间反而没有太多要求。</p>
+<p>最近邻的缺陷：干扰点，可能在划分后有太过波动的边界。</p>
+<p>所以引入最近邻，采用多数投票的方式确定分类。</p>
+<p><img alt="image-20220120143612701" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201201436927.png" /></p>
+<p>不用于图像识别：可以构造出完全不同的照片相对于原照片得到的距离是相同的; Curse of dimensionality</p>
+<p>L1 distance (Manhattan distance)：45°倾斜的正方形；受到所选的坐标轴影响，如果旋转坐标轴可能会影响L1距离的值，坐标轴往往有具体的含义
+$$
+d_1(I_1, I_2) = \sum_p{|I<sup>p_1-I</sup>p_2|}
+$$
+L2 distance (Euclidean distance)：圆形；不受坐标轴的选取的影响，当坐标轴没有具体含义时更实用
+$$
+d_2(I_1, I_2) = \sqrt{\sum_p{(I<sup>p_1-I</sup>p_2)^2}}
+$$
+<a href="http://vision.stanford.edu/teaching/cs231n-demos/knn/">http://vision.stanford.edu/teaching/cs231n-demos/knn/</a></p>
+<p><img alt="image-20220120145943128" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201201459410.png" /></p>
+<p>L1 距离是与坐标轴相关的，而 L2 距离和坐标轴不相关。所以如果坐标轴是有一些特殊含义的，比如特征向量之类，那可以用 L1；如果坐标轴是随便找的，那就 L2。</p>
+<p>1-Nearest Neighbor Classifier 无法辨别噪声</p>
+<p>K-Nearest Neighbor Classifier 最近的K个点</p>
+<p>Hyperparameters 超参数：比如刚刚的距离选择、K的选择 choices about the algorithm that <strong>we set rather than learn</strong>. </p>
+<p>会产生维度灾难：维度增加时，要想得到相同的精度，所需要的数据是指数级增长的。</p>
+<h4 id="assignment-knn">Assignment - KNN<a class="headerlink" href="#assignment-knn" title="Permanent link">&para;</a></h4>
+<p>在此记录一些完成作业过程中，在样例中发现的较好用法，以及 <code>numpy</code> 的基本使用。</p>
+<h5 id="numpy">numpy<a class="headerlink" href="#numpy" title="Permanent link">&para;</a></h5>
+<p><strong><code>arr.shape</code></strong>：一个 <code>tuple</code>，返回各个维度的大小。</p>
+<p><strong><code>numpy</code>中<code>np.flatnonzero()</code>的用法</strong></p>
+<p>返回向量化矩阵后，满足括号内条件的元素下标。</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">flatnonzero</span><span class="p">(</span><span class="n">x</span> <span class="o">==</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+</code></pre></div>
+<p><strong><code>numpy</code>中<code>np.random.choice()</code>的用法</strong></p>
+<p>从一维数组（离散总体）中随机抽样：<code>numpy.random.choice(a, size=None, replace=True, p=None)</code>。</p>
+<ul>
+<li><code>a</code>: 抽样总体，可以是一维数组或者是一个数字（表示range）</li>
+<li><code>size</code>: 抽样大小，默认为1。</li>
+<li><code>replace</code>: <code>True</code>表示可以取相同数字，<code>False</code>表示不可以取相同数字</li>
+<li>数组<code>p</code>: 表示取数组<code>a</code>中每个元素的概率，默认为选取每个元素的概率相同。</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="c1"># 从[0, 5)中随机输出一个随机数，相当于np.random.randint(0, 5)</span>
+<span class="mi">3</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">choice</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+</code></pre></div>
+<p><strong><code>numpy</code>中<code>np.reshape()</code>的用法</strong></p>
+<p><code>np.reshape(arr, newshape, order='C')</code>，<code>arr.reshape(newshape, order='C')</code></p>
+<ul>
+<li><code>newshape</code>: <code>int</code>或tuple的整数：如果是整数D，则结果将是该长度的1-D数组；某一形状维度可以是-1，此时从其余维度推断该值。</li>
+<li><code>order</code>: 索引顺序，可选{'C'，'F'，'A'}。使用此索引顺序读取<code>arr</code>的元素，并使用此索引顺序将元素放置到重新形成的数组中。<code>'C'</code>意味着使用顺序读取/写入元素，最后一个轴索引变化最快，回到第一个轴索引变化最慢。<code>'F'</code>意味着使用Fortran样索引顺序读取/写入元素，第一个索引变化最快，最后一个索引变化最慢。</li>
+</ul>
+<p>注意，<code>reshape</code>改变数组时，是引用改变的，改变<code>reshape</code>后的值也会改变原数组的值。</p>
+<div class="highlight"><pre><span></span><code><span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#改变维度为m行、d列 (-1表示列数自动计算，d= a*b /m)</span>
+<span class="n">arr</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span> <span class="c1">#改变维度为d行、m列 (-1表示行数自动计算，d= a*b /m)</span>
+
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">6</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">y</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+<span class="n">File</span> <span class="s2">&quot;&lt;stdin&gt;&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">1</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">ValueError</span><span class="p">:</span> <span class="n">cannot</span> <span class="n">reshape</span> <span class="n">array</span> <span class="n">of</span> <span class="n">size</span> <span class="mi">4</span> <span class="n">into</span> <span class="n">shape</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">6</span><span class="p">]])</span>
+</code></pre></div>
+<p><strong><code>numpy</code>中<code>np.sum()</code>的用法</strong></p>
+<p>注意第二个参数，<code>axis</code>，代表对第几维求和。</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">Y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="o">-</span><span class="mi">27</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">X</span> <span class="o">-</span> <span class="n">Y</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">27</span><span class="p">,</span>   <span class="mi">6</span><span class="p">])</span>
+</code></pre></div>
+<p><strong><code>numpy</code>中<code>np.multiply()</code>的用法</strong></p>
+<p>如果一个矩阵为数，则就是数乘。</p>
+<p>默认：矩阵的 Hadamard 积，对应项相乘。</p>
+<p>矩阵乘法：<code>np.dot()</code>。如果向量和矩阵相乘，会把向量转为矩阵。如果其中一个乘数为数，则视为数乘。</p>
+<p><strong><code>numpy</code>中<code>np.bincount()</code>的用法</strong></p>
+<p>计算一维非负数组中每个元素出现了多少次 <code>bincount(x, weights=None, minlength=0)</code></p>
+<p><code>minlength</code>：输出数组中的最短长度。</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">7</span><span class="p">]))</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6</span><span class="p">])</span> <span class="c1"># weights</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">w</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([</span> <span class="mf">0.3</span><span class="p">,</span>  <span class="mf">0.7</span><span class="p">,</span>  <span class="mf">1.1</span><span class="p">])</span>
+</code></pre></div>
+<p><strong><code>numpy</code> 中的 <code>np.argsort()</code> <code>np.argmax()</code> <code>np.argmin()</code></strong></p>
+<p>排序/取最值后，返回下标数组。</p>
+<h5 id="_2">利用矩阵乘法计算欧式距离<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h5>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+\begin{aligned}
+dist_{i,j} &amp;= \sqrt{\sum_{k = 1}^D(test_{i,k} - train^T_{k.j})^2}\\
+&amp;= \sqrt{\sum_{k = 1}^D test_{i,k}^2 - 2test_{i,k}train^T_{k.j} + {train^T_{k.j}}^2}\\
+\end{aligned}
+</div>
+<script type="math/tex; mode=display">
+\begin{aligned}
+dist_{i,j} &= \sqrt{\sum_{k = 1}^D(test_{i,k} - train^T_{k.j})^2}\\
+&= \sqrt{\sum_{k = 1}^D test_{i,k}^2 - 2test_{i,k}train^T_{k.j} + {train^T_{k.j}}^2}\\
+\end{aligned}
+</script>
+</div>
+<div class="highlight"><pre><span></span><code><span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">X</span><span class="p">),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">),</span> <span class="n">num_train</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">num_test</span><span class="p">,</span> <span class="n">num_train</span><span class="p">)</span>
+<span class="n">dists</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="o">.</span><span class="n">T</span><span class="p">),</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">),</span> <span class="n">num_test</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">num_train</span><span class="p">,</span> <span class="n">num_test</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<span class="n">dists</span> <span class="o">+=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X_train</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+<span class="n">dists</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">dists</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="data">Data<a class="headerlink" href="#data" title="Permanent link">&para;</a></h3>
+<p>Train Data &amp; Test Data: 我们不能选择在 Train Data 或者是 Test Data 中表现最好的超参数，因为这样会让我们的训练具有依赖性。</p>
+<p>Train Data &amp; Valuation Data &amp; Test Data: 在交稿前一周再去接触 Test Data 进行测试。</p>
+<p>我们可以看到 Train Data 中的 Label，但是不能看到 Valuation Data 中的 Label，只是验证它是不是正确的。</p>
+<p>Cross Valuation 交叉验证：小数据集中常用，将 Test Data 分离出来之后，剩下的数据分组，每组轮流当 Valuation Data。</p>
+<p>要尽量使得分组是完全随机的，不要有时间差，也不要有拍摄者/数据来源的偏差。</p>
+<p>Test Data 的目的，是看这个模型在未知数据上的效果如何，所以我们不能把这个未知数据给变成已知，如果这样那 Test Data 就不再是未知的数据，没办法测试这个模型在位置数据上面的效果了。</p>
+<p>假定多个不同的超参数后，通过 Train Data 去训练，然后再去用 Validation Data 验证这些超参数的效果，找到最好的那些超参数。最后这些参数在 Test Data 里的测试效果就是这个超参数以及这个模型对于未知数据的效果。</p>
+<h3 id="linear-classification">Linear Classification 线性分类<a class="headerlink" href="#linear-classification" title="Permanent link">&para;</a></h3>
+<p>在预测时，我们不使用实际的训练数据预测，而是通过一定的算法计算出这些数据所对应的 Weight，再将 Weight 作为参数传递。</p>
+<p>分类器 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 是一个映射：
+$$
+f:x, w\to scores_{G_i}
+$$
+<span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 是要预测的数据，<span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> 是训练出的参数，<span class="arithmatex"><span class="MathJax_Preview">scores_{G_i}</span><script type="math/tex">scores_{G_i}</script></span> 是把 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 分类为 <span class="arithmatex"><span class="MathJax_Preview">G_i</span><script type="math/tex">G_i</script></span> 的得分。若 <span class="arithmatex"><span class="MathJax_Preview">f</span><script type="math/tex">f</script></span> 的形式是线性的，即 <span class="arithmatex"><span class="MathJax_Preview">f(x, w) = wx</span><script type="math/tex">f(x, w) = wx</script></span>，则称之为 线性分类器 Linear Classifier。这时，<span class="arithmatex"><span class="MathJax_Preview">f(x,w)</span><script type="math/tex">f(x,w)</script></span> 是一个 <span class="arithmatex"><span class="MathJax_Preview">GroupCnt\times 1</span><script type="math/tex">GroupCnt\times 1</script></span> 的向量，<span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">n\times 1</span><script type="math/tex">n\times 1</script></span> 向量，而训练出的 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">GroupCnt\times n</span><script type="math/tex">GroupCnt\times n</script></span> 的矩阵。实际应用中，我们把 <span class="arithmatex"><span class="MathJax_Preview">p\times p</span><script type="math/tex">p\times p</script></span> 个像素的图片的 3 个通道拉伸成 <span class="arithmatex"><span class="MathJax_Preview">(p\times p\times3)\times 1</span><script type="math/tex">(p\times p\times3)\times 1</script></span> 的向量作为 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span>。</p>
+<p>如果有一些先验知识，比如已经知道猫的数量远多于狗，那可以在 <span class="arithmatex"><span class="MathJax_Preview">wx</span><script type="math/tex">wx</script></span> 后面加一个 Bias 向量 <span class="arithmatex"><span class="MathJax_Preview">b</span><script type="math/tex">b</script></span>，得到 <span class="arithmatex"><span class="MathJax_Preview">f(x,w) = wx + b</span><script type="math/tex">f(x,w) = wx + b</script></span>，通过这样得到的 <span class="arithmatex"><span class="MathJax_Preview">f(x,w)</span><script type="math/tex">f(x,w)</script></span> 的 score 再去判定分类。</p>
+<p>每一个类别都能对应一幅 image，这个 image 可以用一个行向量来表示；行向量组合起来便成为权值矩阵 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span>。这个权值矩阵的每一行是有意义的，把它使用 RGB 画出之后，是可以对应一副图片的。</p>
+<p>如果把所有的图片都看作是分布在一个高维空间中，那么 Linear Classifier 可以看作是一条线，把某一类的图片与其他种类的图片区分开。</p>
+<p>无法解决的问题：</p>
+<ol>
+<li>奇偶分类是线性分类器以及传统分类器所无法解决掉的，因为必定不可能存在一个线性的结构使得可以把他们分离开。</li>
+<li>无法解决不连续的多模态数据：马可以向左看，也可以向右看；但是并不能有一条线性边界把他们划分成同一类，且不包含其他数据。它会选取所有变体的平均值；使用同一个模板，来识别某件事物的所有种类；某个类别对应的权值矩阵中的那一行所画出的那个 image 可能出现两只头的马。</li>
+</ol>
+<h2 id="3-loss-function-and-optimization">3 Loss Function and Optimization<a class="headerlink" href="#3-loss-function-and-optimization" title="Permanent link">&para;</a></h2>
+<p>How can we tell whether this W is good or bad? 正确分类，且要让正确的分类对应的 Score 尽可能的高。</p>
+<p>We need some way (<strong>Loss Function</strong>) to <u>quantify</u> the badness of any particular W. </p>
+<p>We need to find and come up with an efficient procedure for searching through <u>the space of all possible Ws</u> and actually come up with what is the correct value of <u>W that is the least bad</u>. </p>
+<p>我们有一个 training dataset $ {(x_i, y_i)} <span class="arithmatex"><span class="MathJax_Preview">，</span><script type="math/tex">，</script></span>x_i$ 是图片，<span class="arithmatex"><span class="MathJax_Preview">y_i</span><script type="math/tex">y_i</script></span> 是标签。预测函数 <span class="arithmatex"><span class="MathJax_Preview">f(x_i, {\rm W})</span><script type="math/tex">f(x_i, {\rm W})</script></span> 可以得到图片 <span class="arithmatex"><span class="MathJax_Preview">x_i</span><script type="math/tex">x_i</script></span> 在 <span class="arithmatex"><span class="MathJax_Preview">\rm W</span><script type="math/tex">\rm W</script></span> 下，对10个分类得到的值；损失函数 <span class="arithmatex"><span class="MathJax_Preview">L_i(y^{predict}_i = f(x_i, {\rm W}), y_i)</span><script type="math/tex">L_i(y^{predict}_i = f(x_i, {\rm W}), y_i)</script></span> 得到预测值与实际值相比的评分，总的损失函数 <span class="arithmatex"><span class="MathJax_Preview">L=\frac{1}{N}\sum L_i(f(x_i, {\rm W}), y_i)</span><script type="math/tex">L=\frac{1}{N}\sum L_i(f(x_i, {\rm W}), y_i)</script></span>。这里 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 对应的是样本，不是对样本预测时的各种分类。</p>
+<h3 id="multi-class-svm-loss">Multi-Class SVM Loss<a class="headerlink" href="#multi-class-svm-loss" title="Permanent link">&para;</a></h3>
+<p>多分类支持向量机，是二元支持向量机模型的推广。</p>
+<p>处理多分类问题的多分类 SVM 的损失函数：
+$$
+\begin{align}
+L_i &amp; = \sum_{j\neq y_i}\begin{cases} 
+        0 &amp;, {\rm if} s_{y_i} \ge s_j+1\
+        s_j-s_{y_i}+1 &amp;, {\rm otherwise}\ 
+        \end{cases} \
+&amp; = \sum_{j\neq y_i} \max(0, s_j-s_{y_i}+1) \
+\end{align}
+$$</p>
+<p>But what this is saying is that the loss <span class="arithmatex"><span class="MathJax_Preview">L_i</span><script type="math/tex">L_i</script></span> for any individual example, the way we'll compute it is we're going to perform a sum over all of the categories <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> except for the true category <span class="arithmatex"><span class="MathJax_Preview">y_i</span><script type="math/tex">y_i</script></span>. So, we're going to sum over all the incorrect categories, and the we're going to compare the score of the correct category, and the score of the incorrect category. And now if the score for the correct category is greater than the score of the incorrect category , greater than the incorrect score by some safety margin, that we set to 1, if that is the case that means that <strong>the score of true category is much larger than any of the false categories</strong>, <strong>then the loss is zero</strong>. And we'll sum this up over all of the incorrect categories for our images, and this will give us our final loss for this one example in the data set. And again, we'll take the average of this loss over the whole training data set. </p>
+<p>如果分类到 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 的分数比分类到 <span class="arithmatex"><span class="MathJax_Preview">y_i</span><script type="math/tex">y_i</script></span> 的分数高的太多，或者说分类到 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 的分数和分类到 <span class="arithmatex"><span class="MathJax_Preview">y_i</span><script type="math/tex">y_i</script></span> 的分数是很接近的（在阈值内），那我们都认为这是存在 Loss 的。当对正确分类<span class="arithmatex"><span class="MathJax_Preview">y_i</span><script type="math/tex">y_i</script></span>的预测分数明显高于其他分类，那我们才会满意。</p>
+<p><span class="arithmatex"><span class="MathJax_Preview">y_i</span><script type="math/tex">y_i</script></span> 表示第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 条图片数据对应的 Class，表示应该分到第 <span class="arithmatex"><span class="MathJax_Preview">y_i</span><script type="math/tex">y_i</script></span> 类。通过比较 Score 得到的 Score 最高的分类是 <span class="arithmatex"><span class="MathJax_Preview">\hat{y_i}</span><script type="math/tex">\hat{y_i}</script></span>，表示对 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 分类的预测。</p>
+<p>这是一个**合页损失函数**/铰链损失函数（Hinge Loss Function）</p>
+<p>如果用x轴表示对这个样本计算出来的分数，用y轴表示这个分数所代表的损失。那这个函数时单调线性下降的，但当y值下降到0时，便不再下降；且x再增加，y也恒为0。</p>
+<p>这里的阈值可以任意选择，因为参数矩阵 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> 是训练出来的，我们可以通过一定的 Scale 来使得训练出相同效果的模型。</p>
+<p>第一次迭代时，我们一般会取 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> 的初值为一些绝对值较小的随机数，这样得到的 Score 一开始都很小，且类似均匀分布。如果一共有 <span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span> 张图片，那么得到的结果应该是 <span class="arithmatex"><span class="MathJax_Preview">\Delta\times (C-1)</span><script type="math/tex">\Delta\times (C-1)</script></span>（在上面的案例中 <span class="arithmatex"><span class="MathJax_Preview">\Delta = 1</span><script type="math/tex">\Delta = 1</script></span> ），因为 <span class="arithmatex"><span class="MathJax_Preview">s_i</span><script type="math/tex">s_i</script></span> 应该都非常接近，所以 <span class="arithmatex"><span class="MathJax_Preview">s_j-s_{y_i}\approx 0</span><script type="math/tex">s_j-s_{y_i}\approx 0</script></span>。如果第一次迭代时的结果不对，那很可能是代码错了。</p>
+<p>我们使<span class="arithmatex"><span class="MathJax_Preview">j\neq y_i</span><script type="math/tex">j\neq y_i</script></span>的原因是为了避免给<span class="arithmatex"><span class="MathJax_Preview">L_i</span><script type="math/tex">L_i</script></span>加上一个多余的<span class="arithmatex"><span class="MathJax_Preview">\Delta</span><script type="math/tex">\Delta</script></span>。如果加了，会造成当<span class="arithmatex"><span class="MathJax_Preview">\Delta</span><script type="math/tex">\Delta</script></span>取不同的值的时候，得到的结果不一样，且不为0，我们想让他是0。</p>
+<p>我们并不在意<span class="arithmatex"><span class="MathJax_Preview">L_i</span><script type="math/tex">L_i</script></span>的具体值，我们只在意它是不是0。所以我们可以取平均值，或者是乘上一个什么系数。</p>
+<p>选择平方的损失函数，即 <span class="arithmatex"><span class="MathJax_Preview">\max(0, (s_j-s_{y_i}+1)^2)</span><script type="math/tex">\max(0, (s_j-s_{y_i}+1)^2)</script></span>，可能更关注减少单个分类的损失，因为如果某个损失特别大那就会导致 Loss Function 这个整体特别大；而选择线性的损失函数，可能更关注减小整体的损失。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">L_i_vectorized</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">W</span><span class="p">):</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="n">margins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">scores</span> <span class="o">-</span> <span class="n">scores</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">margins</span><span class="p">[</span><span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">loss_i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">margins</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">loss_i</span>
+</code></pre></div>
+<h4 id="assignment-svm">Assignment - SVM<a class="headerlink" href="#assignment-svm" title="Permanent link">&para;</a></h4>
+<h5 id="numpy_1">numpy<a class="headerlink" href="#numpy_1" title="Permanent link">&para;</a></h5>
+<p><strong><code>numpy</code>中的数组拼接</strong></p>
+<p><code>np.stack</code> 第一个参数为 tuple，第二个参数为 int，表示都去掉一个中括号后对 tuple 内的多个元素进行依次拼接，拼接之后再打一个中括号。</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+<span class="o">...</span>              <span class="p">[</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="p">]],</span>
+<span class="o">...</span>             <span class="p">[[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">],</span>
+<span class="o">...</span>              <span class="p">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">]]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+<span class="o">...</span>              <span class="p">[</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="p">]],</span>
+<span class="o">...</span>             <span class="p">[[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">],</span>
+<span class="o">...</span>              <span class="p">[</span><span class="mi">15</span><span class="p">,</span><span class="mi">16</span><span class="p">]]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[[[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
+         <span class="p">[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]],</span>
+        <span class="p">[[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]]],</span>
+       <span class="p">[[[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">]],</span>
+        <span class="p">[[</span> <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]]]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[[[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
+         <span class="p">[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]],</span>
+        <span class="p">[[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">]]],</span>
+       <span class="p">[[[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">]],</span>
+        <span class="p">[[</span> <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]]]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">),</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">array</span><span class="p">([[[[</span> <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">],</span>
+         <span class="p">[</span> <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">]],</span>
+        <span class="p">[[</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">]]],</span>
+       <span class="p">[[[</span> <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">],</span>
+         <span class="p">[</span> <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">]],</span>
+        <span class="p">[[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">],</span>
+         <span class="p">[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">]]]])</span>
+</code></pre></div>
+<p><code>np.hstack</code> <code>np.vstack</code> 水平/垂直连接</p>
+<div class="highlight"><pre><span></span><code><span class="o">&gt;&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
+                  <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span> <span class="c1">#垂直堆叠</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">))</span><span class="c1">#垂直堆叠</span>
+<span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">],</span>
+       <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">]])</span>
+</code></pre></div>
+<h5 id="_3">梯度求解与向量优化<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h5>
+<div class="arithmatex">
+<div class="MathJax_Preview">
+Loss = \frac{1}{\text{num\_train}}\sum_{i=1}^\text{num\_train}\sum_{j\neq y_i} \max(0, s_{i,j} - s_{i, y_i} + 1) + \lambda \sum_i\sum_j W_{i,j}^2
+</div>
+<script type="math/tex; mode=display">
+Loss = \frac{1}{\text{num\_train}}\sum_{i=1}^\text{num\_train}\sum_{j\neq y_i} \max(0, s_{i,j} - s_{i, y_i} + 1) + \lambda \sum_i\sum_j W_{i,j}^2
+</script>
+</div>
+<p>而 <code>dW</code>，即 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\partial Loss}{\partial W} = (\dfrac{\partial Loss}{\partial W_{ij}})_{\text{dim}\times \text{num\_classes}}</span><script type="math/tex">\dfrac{\partial Loss}{\partial W} = (\dfrac{\partial Loss}{\partial W_{ij}})_{\text{dim}\times \text{num\_classes}}</script></span>。</p>
+<p>把损失函数看作两项，第二项求导即为 <span class="arithmatex"><span class="MathJax_Preview">2\lambda W_{i,j}</span><script type="math/tex">2\lambda W_{i,j}</script></span>，而对于第一项，我们可以先对 score 求导再乘 score 对 <span class="arithmatex"><span class="MathJax_Preview">W_{i,j}</span><script type="math/tex">W_{i,j}</script></span> 的导数。而 <span class="arithmatex"><span class="MathJax_Preview">s_{i,j}</span><script type="math/tex">s_{i,j}</script></span> 实际为 <code>X[i, :].dot(W[:, j])</code>，所以我们实际计算时不妨直接计算 Loss 对 <code>W[:, j]</code> 的导数，而不分别计算 Loss 对 <code>W[i, j]</code> 的导数。</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">svm_loss_naive</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">reg</span><span class="p">):</span>
+    <span class="n">dW</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># initialize the gradient as zero</span>
+
+    <span class="c1"># compute the loss and the gradient</span>
+    <span class="n">num_classes</span> <span class="o">=</span> <span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">num_train</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_train</span><span class="p">):</span>
+        <span class="n">scores</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+        <span class="n">correct_class_score</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">num_classes</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">j</span> <span class="o">==</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                <span class="k">continue</span>
+            <span class="n">margin</span> <span class="o">=</span> <span class="n">scores</span><span class="p">[</span><span class="n">j</span><span class="p">]</span> <span class="o">-</span> <span class="n">correct_class_score</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># note delta = 1</span>
+            <span class="k">if</span> <span class="n">margin</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">loss</span> <span class="o">+=</span> <span class="n">margin</span>
+                <span class="n">dW</span><span class="p">[:,</span> <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="o">+=</span> <span class="o">-</span><span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+                <span class="n">dW</span><span class="p">[:,</span> <span class="n">j</span><span class="p">]</span> <span class="o">+=</span> <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+
+    <span class="n">loss</span> <span class="o">/=</span> <span class="n">num_train</span>
+    <span class="n">dW</span> <span class="o">/=</span> <span class="n">num_train</span>
+
+    <span class="n">loss</span> <span class="o">+=</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">W</span> <span class="o">*</span> <span class="n">W</span><span class="p">)</span>
+    <span class="n">dW</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">W</span>
+</code></pre></div>
+<p>对于 <code>loss</code> 的向量优化，使用 <code>np.maximum</code> 函数即可解决。而对于 <code>dW</code> 表达式中第一部分的向量优化，需要借助矩阵乘法。构造 <code>tmp</code>，其中的第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 行第 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 列表示要在 <code>dW</code> 的第 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 列中添加多少倍的 <code>X[i].T</code>。于是有
+$$
+\text{dW}[:, j] = \sum_{i = 0}^{\text{num_train}} \text{tmp}[i, j] * (\text{X}[i])^T\
+\text{dW}[k, j] = \sum_{i = 0}^{\text{num_train}} \text{tmp}[i, j] * (\text{X}[i, k])^T = \sum_{i = 0}^{\text{num_train}} \text{tmp}[i, j] * \text{X}^T[k, i] = \text{X}^T[k, :]\cdot \text{tmp}[:, j]\
+\text{dW} = X^T\cdot \text{tmp}
+$$</p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span> <span class="nf">svm_loss_vectorized</span><span class="p">(</span><span class="n">W</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">reg</span><span class="p">):</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">dW</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">W</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># initialize the gradient as zero</span>
+
+    <span class="n">num_train</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">W</span><span class="p">)</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">scores</span> <span class="o">-</span> <span class="n">scores</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">num_train</span><span class="p">),</span> <span class="n">y</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="n">scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">scores</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">scores</span><span class="p">)</span> <span class="o">-</span> <span class="n">num_train</span>
+    <span class="n">loss</span> <span class="o">/=</span> <span class="n">num_train</span>
+    <span class="n">loss</span> <span class="o">+=</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">W</span> <span class="o">*</span> <span class="n">W</span><span class="p">)</span>
+
+    <span class="n">scores</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">num_train</span><span class="p">),</span> <span class="n">y</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">tmp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">scores</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="n">scores</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">row_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">tmp</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">tmp</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">num_train</span><span class="p">),</span> <span class="n">y</span><span class="p">]</span> <span class="o">-=</span> <span class="n">row_sum</span>
+    <span class="n">dW</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+    <span class="n">dW</span> <span class="o">/=</span> <span class="n">num_train</span>    
+    <span class="n">dW</span> <span class="o">+=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">reg</span> <span class="o">*</span> <span class="n">W</span>
+</code></pre></div>
+<h3 id="regularization">正则化 Regularization<a class="headerlink" href="#regularization" title="Permanent link">&para;</a></h3>
+<p>解决**过拟合**的问题
+$$
+L(W) = \frac{1}{N}\sum_{i=1}^NL_i(f(x_i, W), y_i) + \lambda R(W)
+$$</p>
+<p>鼓励模型选择更简单的 W，所以增加一项惩罚项，<span class="arithmatex"><span class="MathJax_Preview">\lambda</span><script type="math/tex">\lambda</script></span> 是超参数 hyper-parameter。</p>
+<p>常用的正则化：</p>
+<p>L2 正则化：计算权值矩阵的欧式范数，会均衡各个权值系数，不会有过大的出现，可以利用每个 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的信息，更为整体化： <span class="arithmatex"><span class="MathJax_Preview">R(W) = \sum_k \sum_l W_{k,l}^2</span><script type="math/tex">R(W) = \sum_k \sum_l W_{k,l}^2</script></span></p>
+<p>L1 正则化：鼓励稀疏矩阵，<span class="arithmatex"><span class="MathJax_Preview">R(W) = \sum_k \sum_l |W_{k,l}|</span><script type="math/tex">R(W) = \sum_k \sum_l |W_{k,l}|</script></span></p>
+<h3 id="multi-class-logistic-regression-softmax-loss">Multi-Class Logistic Regression - Softmax Loss<a class="headerlink" href="#multi-class-logistic-regression-softmax-loss" title="Permanent link">&para;</a></h3>
+<p>如果使用 Softmax Loss，我们可以给线性分类器预测出的 Score 一个特殊的含义。联想 Logistic 回归中的参数的概率含义，这里也有类似的意义。</p>
+<p>我们给 Score 一个含义，使其代表未标准化的选择这一类的对数概率 Unnormalized log probabilities：
+$$
+P(Y = k|X = x_i) = \dfrac{\exp(s_k)}{\sum_j \exp(s_j)}
+$$
+所以我们可以得到使用 Logistic 回归时，这件图片选择 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 类的 Loss Function <span class="arithmatex"><span class="MathJax_Preview">L_i</span><script type="math/tex">L_i</script></span>（这是一个交叉熵损失函数）：
+$$
+\begin{aligned}
+L_i &amp;= -\ln P(Y = y_i|X = x_i)\
+&amp;= -\ln(\dfrac{\exp(s_k)}{\sum_j \exp(s_j)})\
+\end{aligned}
+$$
+具体过程：对使用线性分类器预测得到的 Scores 求指数，得到 exp(Scores)，再标准化，再取负对数。</p>
+<p>如果只有正确的分类的 exp(Score) 是非零的，其他的分类的 exp(Score) 都是 0 ，那么得到的 <span class="arithmatex"><span class="MathJax_Preview">L_i = 0</span><script type="math/tex">L_i = 0</script></span>。</p>
+<p>第一次迭代时的检验：我们一般会取 <span class="arithmatex"><span class="MathJax_Preview">w</span><script type="math/tex">w</script></span> 的初值为一些绝对值较小的随机数，这样得到的 Score 一开始都很小，且类似均匀分布。如果一共有<span class="arithmatex"><span class="MathJax_Preview">C</span><script type="math/tex">C</script></span>张图片，那么得到的 <span class="arithmatex"><span class="MathJax_Preview">L_i</span><script type="math/tex">L_i</script></span> 结果应该是 <span class="arithmatex"><span class="MathJax_Preview">-\ln(1/C) = \ln C</span><script type="math/tex">-\ln(1/C) = \ln C</script></span>，因为 <span class="arithmatex"><span class="MathJax_Preview">s_i\approx 0</span><script type="math/tex">s_i\approx 0</script></span> 。如果第一次迭代时的结果不对，那很可能是代码错了。</p>
+<p>这里的 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 只取正确的 Class 对应的 Score 计算出的 <span class="arithmatex"><span class="MathJax_Preview">L_i</span><script type="math/tex">L_i</script></span>，而 SVM 中使用的是所有其他的 <span class="arithmatex"><span class="MathJax_Preview">j\neq i</span><script type="math/tex">j\neq i</script></span> 的合页损失之和。最终的损失函数是 <span class="arithmatex"><span class="MathJax_Preview">\sum_i L_i / n</span><script type="math/tex">\sum_i L_i / n</script></span>。</p>
+<h3 id="loss-function">两种 Loss Function 对比<a class="headerlink" href="#loss-function" title="Permanent link">&para;</a></h3>
+<p>SVM Loss 会在将正确分类和其他分类拉开差距（超过阈值）后，就不再管它了，因为再怎么调整都不会对 <span class="arithmatex"><span class="MathJax_Preview">L_i</span><script type="math/tex">L_i</script></span> 产生影响了。</p>
+<p>Softmax Loss 则会不断拉开正确分类的 Score 和不正确分类的 Score 之间的距离，这样才能使得概率尽可能趋近于 1，即 <span class="arithmatex"><span class="MathJax_Preview">L_i</span><script type="math/tex">L_i</script></span> 尽可能趋近于 0。</p>
+<p><img alt="image-20220124115259549" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201241153281.png" /></p>
+<h3 id="optimization">Optimization<a class="headerlink" href="#optimization" title="Permanent link">&para;</a></h3>
+<p>怎样去在已有的 <span class="arithmatex"><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span> 的基础上，寻找它的邻域，这样就可以找到新的 <span class="arithmatex"><span class="MathJax_Preview">W'</span><script type="math/tex">W'</script></span> 并计算 Loss Function 决定是否更新。</p>
+<p>沿梯度方向可以使得找到上升最快的路，沿梯度方向的负方向可以找到下降最快的路。</p>
+<p>计算梯度时，对每一维都计算近似偏导数：使用定义
+$$
+\dfrac{\partial{L}}{\partial W_{ij}} = \lim_{h\to 0} \dfrac{L(W_{(ij)}+h)-L(W_{ij})}{h}
+$$
+<span class="arithmatex"><span class="MathJax_Preview">L(W_{(ij)}+h)</span><script type="math/tex">L(W_{(ij)}+h)</script></span> 表示在 <span class="arithmatex"><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span> 矩阵的第 <span class="arithmatex"><span class="MathJax_Preview">i</span><script type="math/tex">i</script></span> 行第 <span class="arithmatex"><span class="MathJax_Preview">j</span><script type="math/tex">j</script></span> 列加上 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span>，之后再计算 Loss Function。实际应用时，不会使用求极限，而是直接给 <span class="arithmatex"><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span> 赋一个很小的值，如 0.0001。则梯度即可以用 <span class="arithmatex"><span class="MathJax_Preview">\Delta L / h</span><script type="math/tex">\Delta L / h</script></span> 来估计。这样有一个很大的缺陷是，时间复杂度太高。</p>
+<p>另一种解析的思路是，首先计算出 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{grad}W</span><script type="math/tex">\mathrm{grad}W</script></span> 的表达式，然后直接代入不同的 <span class="arithmatex"><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span> 值。</p>
+<p>通常使用解析法，但是会使用数值法来进行 Debug。</p>
+<p><strong>朴素的梯度下降</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">weights_grad</span> <span class="o">=</span> <span class="n">evaluate_gradient</span><span class="p">(</span><span class="n">loss_fun</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+    <span class="n">weights</span> <span class="o">+=</span> <span class="o">-</span> <span class="n">step_size</span> <span class="o">*</span> <span class="n">weight_grad</span>
+</code></pre></div>
+<p>每一步的步长 <code>step_size</code>：学习率 - <strong>Learning Rate</strong></p>
+<p><strong>随机梯度下降</strong></p>
+<p>引入 <code>batch_size</code>。</p>
+<p>每次从样本中抽取 <code>batch_size</code> 件样本，只用这一小部分样本去作为 Loss Function 中的样本并由这个小样本 Loss Function 计算出 <span class="arithmatex"><span class="MathJax_Preview">W</span><script type="math/tex">W</script></span> 的梯度，然后再梯度下降。</p>
+<div class="highlight"><pre><span></span><code><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="n">data_batch</span> <span class="o">=</span> <span class="n">sample_training_data</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>
+    <span class="n">weights_grad</span> <span class="o">=</span> <span class="n">evaluate_gradient</span><span class="p">(</span><span class="n">loss_fun</span><span class="p">,</span> <span class="n">data_batch</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>
+    <span class="n">weights</span> <span class="o">+=</span> <span class="o">-</span> <span class="n">step_size</span> <span class="o">*</span> <span class="n">weights_grad</span>
+</code></pre></div>
+<p>可以视作是一种蒙特卡洛估计。</p>
+<p><a href="http://vision.stanford.edu/teaching/cs231n-demos/linear-classify/">http://vision.stanford.edu/teaching/cs231n-demos/linear-classify/</a></p>
+<h3 id="feature-transform">特征转换 Feature Transform<a class="headerlink" href="#feature-transform" title="Permanent link">&para;</a></h3>
+<p>沿着特征向量方向投影，或者是进行一些非线性的映射，类似较为广义的 Fisher 判别</p>
+<p>这样能把一些线性分不开的东西，变成线性可分的，并尽可能拉大他们之间的距离。</p>
+<p>一些简单的针对图像的特征：</p>
+<ul>
+<li>光谱直方图，把光谱分割成一个个小区间，统计图片中的像素分布于哪些小区间，然后把这个计数和作为特征。</li>
+<li>有向梯度直方图：把图片中每 8*8 个像素作为一组，记录每组中的形状边缘的方向</li>
+</ul>
+<h2 id="4-backprop">4 反向传播 Backprop<a class="headerlink" href="#4-backprop" title="Permanent link">&para;</a></h2>
+<p>计算图 Computational Graphs</p>
+<p>使用链式法则进行递归运算，实现反向传播，最终计算出 <span class="arithmatex"><span class="MathJax_Preview">\mathrm{grad} W</span><script type="math/tex">\mathrm{grad} W</script></span>。</p>
+<p>对于每一个计算图中的中间节点，都有几个输出(local output)和几个输入(local input)，输出可以对输入求偏导(local gradient)。把图中一条线上的所有节点的偏导乘起来，就使用链式法则得到了最终结果。</p>
+<p>在计算图中，首先通过初始变量的值算出一个个中间节点的值，我们可以把这些中间节点的输出视为中间变量。而由于 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\mathrm{d}f}{\mathrm{d}x} = \dfrac{\mathrm{d}f}{\mathrm{d}q} \dfrac{\mathrm{d}q}{\mathrm{d}x}</span><script type="math/tex">\dfrac{\mathrm{d}f}{\mathrm{d}x} = \dfrac{\mathrm{d}f}{\mathrm{d}q} \dfrac{\mathrm{d}q}{\mathrm{d}x}</script></span>，要想把这个梯度反向传播回去，即已有了 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\mathrm{d}f}{\mathrm{d}q}</span><script type="math/tex">\dfrac{\mathrm{d}f}{\mathrm{d}q}</script></span>，再乘上 Local Gradient 即可。实际应用中，我们总是想要数值解，所以我们需要正向传播去算出 <span class="arithmatex"><span class="MathJax_Preview">x</span><script type="math/tex">x</script></span> 的值和 <span class="arithmatex"><span class="MathJax_Preview">q</span><script type="math/tex">q</script></span> 的值，然后 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\mathrm{d}f}{\mathrm{d}q}</span><script type="math/tex">\dfrac{\mathrm{d}f}{\mathrm{d}q}</script></span> 和 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\mathrm{d}q}{\mathrm{d}x}</span><script type="math/tex">\dfrac{\mathrm{d}q}{\mathrm{d}x}</script></span> 就变成两个数，可以直接进行乘积。</p>
+<h3 id="example">Example<a class="headerlink" href="#example" title="Permanent link">&para;</a></h3>
+<p><img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201241537788.png" alt="image-20220124153702552" style="zoom:80%;" /></p>
+<p>要注意，最后面的 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\mathrm{d}f}{\mathrm{d}f} = 1</span><script type="math/tex">\dfrac{\mathrm{d}f}{\mathrm{d}f} = 1</script></span>，这可以作为反向传播的初值。</p>
+<p><strong>加法: Gradient Distributer</strong></p>
+<p><img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201241545691.png" alt="image-20220124154530852" style="zoom:80%;" /></p>
+<p><strong>乘法: Gradient Switcher</strong></p>
+<p><img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201241547623.png" alt="image-20220124154712902" style="zoom:80%;" /></p>
+<p><strong>中间节点合并 - Sigmoid Function</strong>
+$$
+\sigma(x) = \frac{1}{1 + e^{-x}}
+$$
+可以直接求导，然后把几个中间节点合在一起。
+$$
+\frac{\mathrm{d}\sigma(x)}{\mathrm{d}x} = \frac{e^{-x}}{(1 + e<sup>{-x})</sup>2} = (\frac{1 + e^{-x} - 1}{1 + e^{-x}})(\frac{1}{1 + e^{-x}}) = (1 - \sigma(x))\sigma(x)
+$$
+因为可以求出它的 Local Gradient，所以可以稍微整合一下。</p>
+<p><strong>最值: Gradient Router</strong></p>
+<p><img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/01/202201241609658.png" alt="image-20220124160938591" style="zoom:33%;" /></p>
+<p><strong>多个输出</strong></p>
+<p>使用链式法则，将两个输出传过来的梯度相加。
+$$
+\frac{\mathrm{d}f}{\mathrm{d}x} = \sum_i \frac{\mathrm{d}f}{\mathrm{d}q_i}\frac{\mathrm{d}q_i}{\mathrm{d}x}
+$$</p>
+<h3 id="_4">向量情形<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>使用 Jacobi 矩阵和矩阵微商替代刚刚的一维导数。</p>
+<p><strong>矩阵微商定义</strong>：设 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">m\times n</span><script type="math/tex">m\times n</script></span> 矩阵，<span class="arithmatex"><span class="MathJax_Preview">y = f(X)\in \mathbb{R}</span><script type="math/tex">y = f(X)\in \mathbb{R}</script></span> 是 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 的一个实值函数，则实数 <span class="arithmatex"><span class="MathJax_Preview">y</span><script type="math/tex">y</script></span> 对 <span class="arithmatex"><span class="MathJax_Preview">X</span><script type="math/tex">X</script></span> 的微商定义为
+$$
+\frac{\partial y}{\partial X} \xlongequal{\triangle} \begin{bmatrix}
+\frac{\partial y}{\partial x_{11}} &amp; \frac{\partial y}{\partial x_{12}} &amp; \cdots &amp; \frac{\partial y}{\partial x_{1n}}\
+\frac{\partial y}{\partial x_{21}} &amp; \frac{\partial y}{\partial x_{22}} &amp; \cdots &amp; \frac{\partial y}{\partial x_{2n}}\
+\cdots &amp; \cdots &amp; \cdots &amp; \cdots \
+\frac{\partial y}{\partial x_{n1}} &amp; \frac{\partial y}{\partial x_{n2}} &amp; \cdots &amp; \frac{\partial y}{\partial x_{nn}}\
+\end{bmatrix}
+$$
+所以这实际上只是一种记号，对矩阵/向量求导实际上就是对其中的每个元素求导，再按照原有的顺序摆好。</p>
+<p>由此举例：<span class="arithmatex"><span class="MathJax_Preview">f(\boldsymbol{x},W) = ||W\boldsymbol{x}||^2 = \boldsymbol{x}'W'W\boldsymbol{x} = \sum_{i=1}^n (W\boldsymbol{x})_i^2\xlongequal{\triangle}\sum_{k=1}^n q_k^2 = \boldsymbol{q}'\boldsymbol{q}</span><script type="math/tex">f(\boldsymbol{x},W) = ||W\boldsymbol{x}||^2 = \boldsymbol{x}'W'W\boldsymbol{x} = \sum_{i=1}^n (W\boldsymbol{x})_i^2\xlongequal{\triangle}\sum_{k=1}^n q_k^2 = \boldsymbol{q}'\boldsymbol{q}</script></span>。求 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\partial f}{\partial W}</span><script type="math/tex">\dfrac{\partial f}{\partial W}</script></span>，<span class="arithmatex"><span class="MathJax_Preview">\dfrac{\partial f}{\partial \boldsymbol{x}}</span><script type="math/tex">\dfrac{\partial f}{\partial \boldsymbol{x}}</script></span>。
+$$
+\boldsymbol{q} = W\boldsymbol{x} = \begin{bmatrix}
+W_{11}x_1 + \cdots + W_{1n} x_n\
+W_{21}x_1 + \cdots + W_{2n} x_n\
+\cdots\
+W_{n1}x_1 + \cdots + W_{nn} x_n\
+\end{bmatrix}
+$$
+由矩阵微商，<span class="arithmatex"><span class="MathJax_Preview">\dfrac{\mathrm{d}f}{\mathrm{d}\boldsymbol{q}} = I_n\boldsymbol{q} + I_n'\boldsymbol{q} = 2\boldsymbol{q}</span><script type="math/tex">\dfrac{\mathrm{d}f}{\mathrm{d}\boldsymbol{q}} = I_n\boldsymbol{q} + I_n'\boldsymbol{q} = 2\boldsymbol{q}</script></span>，是个向量。</p>
+<p>而要想求 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\partial f}{\partial W}</span><script type="math/tex">\dfrac{\partial f}{\partial W}</script></span>，即求 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\partial f}{\partial W_{ij}}</span><script type="math/tex">\dfrac{\partial f}{\partial W_{ij}}</script></span>
+$$
+\dfrac{\partial f}{\partial W_{ij}} = \sum_{k=1}^n\dfrac{\partial f}{\partial q_{k}}\dfrac{\partial q_k}{\partial W_{ij}} = \sum_{k=1}^n 2q_k x_j\delta_{k-i} = 2q_ix_j
+$$
+得到
+$$
+\dfrac{\partial f}{\partial W} = \begin{bmatrix}
+2q_1x_1 &amp; 2q_1x_2 &amp; \cdots &amp; 2q_1x_n\
+2q_2x_1 &amp; 2q_2x_2 &amp; \cdots &amp; 2q_2x_n\
+\cdots &amp; \cdots &amp; \cdots &amp; \cdots \
+2q_nx_1 &amp; 2q_nx_2 &amp; \cdots &amp; 2q_nx_n\
+\end{bmatrix}
+$$
+同理，要想求 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\partial f}{\partial \boldsymbol{x}}</span><script type="math/tex">\dfrac{\partial f}{\partial \boldsymbol{x}}</script></span>，即求 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\partial f}{\partial x_i}</span><script type="math/tex">\dfrac{\partial f}{\partial x_i}</script></span>
+$$
+\dfrac{\partial f}{\partial x_i} = \sum_{k=1}^n\dfrac{\partial f}{\partial q_{k}}\dfrac{\partial q_k}{\partial x_{i}} = \sum_{k=1}^n 2q_k W_{ki}
+$$
+得到 <span class="arithmatex"><span class="MathJax_Preview">\dfrac{\partial f}{\partial \boldsymbol{x}} = 2W'\boldsymbol{q}</span><script type="math/tex">\dfrac{\partial f}{\partial \boldsymbol{x}} = 2W'\boldsymbol{q}</script></span>。</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">ComputationalGraph</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">gate</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes_topologically_sorded</span><span class="p">():</span>
+            <span class="n">gate</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">loss</span> <span class="c1"># The final gate in the graph outputs the loss</span>
+    <span class="k">def</span> <span class="nf">backward</span><span class="p">():</span>
+        <span class="k">for</span> <span class="n">gate</span> <span class="ow">in</span> <span class="nb">reversed</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">graph</span><span class="o">.</span><span class="n">nodes_topologically_sorded</span><span class="p">()):</span>
+            <span class="n">gate</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">inputs_gradients</span>
+<span class="k">class</span> <span class="nc">MultiplyGate</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forawrd</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">y</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span>
+        <span class="k">return</span> <span class="n">z</span>
+    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">dz</span><span class="p">):</span>
+        <span class="n">dx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">*</span> <span class="n">dz</span>
+        <span class="n">dy</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">*</span> <span class="n">dz</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">dx</span><span class="p">,</span> <span class="n">dy</span><span class="p">]</span>
+</code></pre></div>
+<h2 id="5-convolutional-neural-network">5 Convolutional Neural Network<a class="headerlink" href="#5-convolutional-neural-network" title="Permanent link">&para;</a></h2>
+<h3 id="neural-network">Neural Network<a class="headerlink" href="#neural-network" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy.random</span> <span class="kn">import</span> <span class="n">randn</span>
+
+<span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">D_out</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span>
+<span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_in</span><span class="p">),</span> <span class="n">randn</span><span class="p">(</span><span class="n">N</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span>
+<span class="n">w1</span><span class="p">,</span> <span class="n">w2</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="n">D_in</span><span class="p">,</span> <span class="n">H</span><span class="p">),</span> <span class="n">randn</span><span class="p">(</span><span class="n">H</span><span class="p">,</span> <span class="n">D_out</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2000</span><span class="p">):</span>
+    <span class="n">h</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w1</span><span class="p">)))</span>
+    <span class="n">y_pred</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w2</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">loss</span><span class="p">)</span>
+
+    <span class="n">grad_y_pred</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">*</span> <span class="p">(</span><span class="n">y_pred</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span>
+    <span class="n">grad_w2</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">grad_y_pred</span><span class="p">)</span>
+    <span class="n">grad_h</span> <span class="o">=</span> <span class="n">grad_y_pred</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">w2</span><span class="o">.</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">grad_w1</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">grad_h</span> <span class="o">*</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">h</span><span class="p">))</span>
+
+    <span class="n">w1</span> <span class="o">-=</span> <span class="mf">1e-4</span> <span class="o">*</span> <span class="n">grad_w1</span>
+    <span class="n">w2</span> <span class="o">-=</span> <span class="mf">1e-4</span> <span class="o">*</span> <span class="n">grad_w2</span>
+</code></pre></div>
+<p>多种激活函数 Activation Functions：Sigmoid, tanh, ReLU, Leaky ReLU, Maxout, ELU, ...</p>
+<p><img alt="image-20220213160745613" src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202131607999.png" /></p>
+<p>两层神经网络</p>
+<p><img src="https://ohg-typora-image.oss-cn-hangzhou.aliyuncs.com/imgs/imgs/2022/02/202202131605634.png" alt="image-20220213160505379" style="zoom:50%;" /></p>
+<p>如果再加一个隐藏层，称为三层神经网络。</p>
+<div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">Neuron</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">neuron_tick</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="n">cell_body_sum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">inputs</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>
+        <span class="n">firing_rate</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">+</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">ceil_body_sum</span><span class="p">))</span>
+        <span class="c1"># 经过激活函数后的值</span>
+        <span class="k">return</span> <span class="n">firing_rate</span>
+</code></pre></div>
+<p>全连接层：</p>
+<p>每一个样本计算出一个 value，把这些 value 写在一起共同组成一个向量称为“全连接”。</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+
+  <!-- Giscus -->
+  <h2 id="__comments">评论</h2>
+  <!-- Replace with generated snippet -->
+  <script src="https://giscus.app/client.js"
+        data-repo="OhGaGaGaGa/blog"
+        data-repo-id="R_kgDOGq47UA"
+        data-category="General"
+        data-category-id="DIC_kwDOGq47UM4CAuFr"
+        data-mapping="pathname"
+        data-reactions-enabled="1"
+        data-emit-metadata="0"
+        data-theme="light"
+        data-lang="zh-CN"
+        crossorigin="anonymous"
+        async>
+  </script>
+  <!-- Reload on palette change -->
+  <script>
+    var palette = __md_get("__palette")
+    if (palette && typeof palette.color === "object")
+      if (palette.color.scheme === "slate") {
+        var giscus = document.querySelector("script[src*=giscus]")
+        giscus.setAttribute("data-theme", "dark") 
+      }
+
+    /* Register event handlers after documented loaded */
+    document.addEventListener("DOMContentLoaded", function() {
+      var ref = document.querySelector("[data-md-component=palette]")
+      ref.addEventListener("change", function() {
+        location.reload()
+      })
+    })
+  </script>
+
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2022 - 2022 Wang Jingkai
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/ohgagagaga" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.zhihu.com/people/wjk2017" target="_blank" rel="noopener" title="ZhiHu" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M170.54 148.13v217.54l23.43.01 7.71 26.37 42.01-26.37h49.53V148.13H170.54zm97.75 193.93h-27.94l-27.9 17.51-5.08-17.47-11.9-.04V171.75h72.82v170.31zm-118.46-94.39H97.5c1.74-27.1 2.2-51.59 2.2-73.46h51.16s1.97-22.56-8.58-22.31h-88.5c3.49-13.12 7.87-26.66 13.12-40.67 0 0-24.07 0-32.27 21.57-3.39 8.9-13.21 43.14-30.7 78.12 5.89-.64 25.37-1.18 36.84-22.21 2.11-5.89 2.51-6.66 5.14-14.53h28.87c0 10.5-1.2 66.88-1.68 73.44H20.83c-11.74 0-15.56 23.62-15.56 23.62h65.58C66.45 321.1 42.83 363.12 0 396.34c20.49 5.85 40.91-.93 51-9.9 0 0 22.98-20.9 35.59-69.25l53.96 64.94s7.91-26.89-1.24-39.99c-7.58-8.92-28.06-33.06-36.79-41.81L87.9 311.95c4.36-13.98 6.99-27.55 7.87-40.67h61.65s-.09-23.62-7.59-23.62v.01zm412.02-1.6c20.83-25.64 44.98-58.57 44.98-58.57s-18.65-14.8-27.38-4.06c-6 8.15-36.83 48.2-36.83 48.2l19.23 14.43zm-150.09-59.09c-9.01-8.25-25.91 2.13-25.91 2.13s39.52 55.04 41.12 57.45l19.46-13.73s-25.67-37.61-34.66-45.86h-.01zM640 258.35c-19.78 0-130.91.93-131.06.93v-101c4.81 0 12.42-.4 22.85-1.2 40.88-2.41 70.13-4 87.77-4.81 0 0 12.22-27.19-.59-33.44-3.07-1.18-23.17 4.58-23.17 4.58s-165.22 16.49-232.36 18.05c1.6 8.82 7.62 17.08 15.78 19.55 13.31 3.48 22.69 1.7 49.15.89 24.83-1.6 43.68-2.43 56.51-2.43v99.81H351.41s2.82 22.31 25.51 22.85h107.94v70.92c0 13.97-11.19 21.99-24.48 21.12-14.08.11-26.08-1.15-41.69-1.81 1.99 3.97 6.33 14.39 19.31 21.84 9.88 4.81 16.17 6.57 26.02 6.57 29.56 0 45.67-17.28 44.89-45.31v-73.32h122.36c9.68 0 8.7-23.78 8.7-23.78l.03-.01z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "..", "features": ["toc.integrate", "navigation.top"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.bd41221c.min.js"></script>
+      
+        <script src="../js-setting/extra.js"></script>
+      
+        <script src="../js-setting/baidu.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+      
+    
+  </body>
+</html>
